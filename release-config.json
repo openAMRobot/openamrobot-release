@@ -15,7 +15,7 @@
     },
     {
       "id": "software",
-      "archive": "openamr-platform-sw-main(2).zip",
+      "archive": "openamr-platform-sw-main.zip",
       "expected_root": "openamr-platform-sw-main",
       "destination": "03_Software",
       "repository": "https://github.com/openAMRobot/openamr-platform-sw"

@@ -1,50 +1,160 @@
-# OpenAMRobot Release Builder
+# OpenAMRobot v0.0.1
 
-This repository builds a single, frozen, self-contained product package from the distributed OpenAMRobot repositories.
+The first public release of the OpenAMRobot platform.
 
-The generated source archive contains the actual files from every component repository—not Git submodule pointers—and remains usable if the live repositories change later.
+This release is a frozen snapshot of the OpenAMRobot ecosystem, containing all repositories required to study, build, modify, reproduce, and extend the platform.
 
-## Output
+---
 
-```text
-OpenAMRobot-v0.0.1-source.zip
-OpenAMRobot-v0.0.1-source.zip.sha256
-OpenAMRobot-v0.0.1-inventory.csv
+# Included Repositories
+
+- `openamr-platform-hw` — Hardware
+- `openamr-platform-sw` — Software
+- `openamr-platform-fw` — Firmware
+- `openamrobot-ui` — User Interface
+- `openamrobot-interfaces` — Shared Interfaces
+- `openamrobot-comm` — Communication
+- `openamrobot-docs` — Documentation
+- `.github` — Governance & Community
+
+---
+
+# Start Here
+
+## 1. Read the Release Documentation
+
+Before using the platform, read:
+
+- `RELEASE_NOTES.md`
+- `KNOWN_LIMITATIONS.md`
+
+These documents describe the scope of this release, supported functionality, known issues, and current limitations.
+
+---
+
+## 2. Hardware
+
+Open:
+
+```
+openamr-platform-hw/README.md
 ```
 
-## Use in GitHub Codespaces
+This repository contains:
 
-1. Create a new repository, for example `openamrobot-release`.
-2. Copy this release-builder repository into it and open it in Codespaces.
-3. Upload the component ZIP archives into `input/`.
-4. Run:
+- Bill of Materials (BOM)
+- CAD models
+- Manufacturing documentation
+- Electrical documentation
+- Wiring diagrams
+- Assembly instructions
+- Safety documentation
 
-```bash
-python3 scripts/build_release.py \
-  --config release-config.json \
-  --input-dir input \
-  --output-dir dist
+---
+
+## 3. Firmware
+
+Open:
+
+```
+openamr-platform-fw/README.md
 ```
 
-5. Validate the generated package:
+This repository explains:
 
-```bash
-python3 scripts/validate_release.py dist/OpenAMRobot-v0.0.1-source.zip
+- Firmware architecture
+- Flashing procedure
+- micro-ROS integration
+- Motor control
+- Calibration
+- Diagnostics
+
+---
+
+## 4. Software
+
+Open:
+
+```
+openamr-platform-sw/README.md
 ```
 
-6. Inspect `dist/build-report.md`. Do not publish until all required checks pass.
+Follow the software documentation to:
 
-## Important scope statement
+- Install ROS 2 Jazzy
+- Build the workspace
+- Launch Gazebo simulation
+- Bring up the physical robot
+- Configure Navigation
+- Configure SLAM
+- Test Auto Docking
 
-This builder creates a complete **OpenAMRobot project-source package** containing hardware, software, firmware, UI, interfaces, communication, documentation, and governance files.
+---
 
-It does **not yet create a fully offline operating-system dependency bundle**. ROS, Ubuntu, Docker base images, Python packages, Node packages, and toolchains may still require internet access unless separately cached and added. Do not describe v0.0.1 as “fully offline installable” until it has passed a clean-machine, network-disconnected validation.
+## 5. User Interface
 
-## Release workflow
+Open:
 
-- Freeze and tag each component repository.
-- Download each tagged repository archive.
-- Update `release-config.json` with the correct archive names and source revisions.
-- Build and validate the package.
-- Test assembly, flashing, simulation, navigation, docking, and UI using only the package.
-- Upload the generated ZIP and checksum to one product-level GitHub Release.
+```
+openamrobot-ui/README.md
+```
+
+This repository contains:
+
+- Installation instructions
+- UI architecture
+- Blockly programming
+- Navigation interface
+- Diagnostics
+- Camera streaming
+- Voice / LLM interface
+
+---
+
+## 6. Documentation
+
+Additional documentation is available in:
+
+```
+openamrobot-docs/
+```
+
+---
+
+## 7. Verify the Release
+
+Before using the release, verify:
+
+- `VERSION`
+- `MANIFEST.json`
+- `checksums.sha256`
+
+---
+
+# Live Repositories
+
+- Hardware: https://github.com/openAMRobot/openamr-platform-hw
+- Software: https://github.com/openAMRobot/openamr-platform-sw
+- Firmware: https://github.com/openAMRobot/openamr-platform-fw
+- UI: https://github.com/openAMRobot/openamrobot-ui
+- Interfaces: https://github.com/openAMRobot/openamrobot-interfaces
+- Communication: https://github.com/openAMRobot/openamrobot-comm
+- Documentation: https://github.com/openAMRobot/openamrobot-docs
+
+---
+
+# Demo Videos
+
+- Mobile Robot Demo: https://youtu.be/i6PCJFTgUF8
+- Release v0.0.1 Overview: https://www.youtube.com/shorts/LCLWUHWGkIY
+- Wheel Assembly: https://youtu.be/FlsYwoiEAsk
+
+---
+
+# Support OpenAMRobot
+
+If you find this project useful, please consider supporting its development.
+
+- GitHub Sponsors: https://github.com/sponsors/openAMRobot
+
+Your support helps us improve the hardware, firmware, software, documentation, educational materials, and future releases.
