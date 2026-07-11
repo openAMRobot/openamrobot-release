@@ -1,0 +1,84 @@
+{
+  "product": {
+    "name": "OpenAMRobot",
+    "version": "0.0.1",
+    "release_name": "First Public Platform Release",
+    "license": "MIT"
+  },
+  "components": [
+    {
+      "id": "hardware",
+      "archive": "openamr-platform-hw-main.zip",
+      "expected_root": "openamr-platform-hw-main",
+      "destination": "02_Hardware",
+      "repository": "https://github.com/openAMRobot/openamr-platform-hw"
+    },
+    {
+      "id": "software",
+      "archive": "openamr-platform-sw-main(2).zip",
+      "expected_root": "openamr-platform-sw-main",
+      "destination": "03_Software",
+      "repository": "https://github.com/openAMRobot/openamr-platform-sw"
+    },
+    {
+      "id": "firmware",
+      "archive": "openamr-platform-fw-main.zip",
+      "expected_root": "openamr-platform-fw-main",
+      "destination": "04_Firmware",
+      "repository": "https://github.com/openAMRobot/openamr-platform-fw"
+    },
+    {
+      "id": "ui",
+      "archive": "openamrobot-ui-main.zip",
+      "expected_root": "openamrobot-ui-main",
+      "destination": "05_User_Interface",
+      "repository": "https://github.com/openAMRobot/openamrobot-ui"
+    },
+    {
+      "id": "interfaces",
+      "archive": "openamrobot-interfaces-main.zip",
+      "expected_root": "openamrobot-interfaces-main",
+      "destination": "06_Interfaces",
+      "repository": "https://github.com/openAMRobot/openamrobot-interfaces"
+    },
+    {
+      "id": "communication",
+      "archive": "openamrobot-comm-main.zip",
+      "expected_root": "openamrobot-comm-main",
+      "destination": "07_Communication",
+      "repository": "https://github.com/openAMRobot/openamrobot-comm"
+    },
+    {
+      "id": "documentation",
+      "archive": "openamrobot-docs-main.zip",
+      "expected_root": "openamrobot-docs-main",
+      "destination": "08_Documentation",
+      "repository": "https://github.com/openAMRobot/openamrobot-docs"
+    },
+    {
+      "id": "governance",
+      "archive": "github-main.zip",
+      "expected_root": ".github-main",
+      "destination": "09_Governance",
+      "repository": "https://github.com/openAMRobot/.github"
+    }
+  ],
+  "exclude_names": [
+    ".git",
+    "__pycache__",
+    ".pytest_cache",
+    "node_modules",
+    "build",
+    "install",
+    "log"
+  ],
+  "required_paths": [
+    "02_Hardware/README.md",
+    "03_Software/README.md",
+    "04_Firmware/README.md",
+    "05_User_Interface/README.md",
+    "README.md",
+    "RELEASE_NOTES.md",
+    "MANIFEST.json"
+  ]
+}
