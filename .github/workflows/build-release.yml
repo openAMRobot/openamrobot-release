@@ -1,0 +1,18 @@
+name: Build product release
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        run: python3 scripts/build_release.py --config release-config.json --input-dir input --output-dir dist
+      - name: Validate
+        run: python3 scripts/validate_release.py dist/OpenAMRobot-v0.0.1-source.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: OpenAMRobot-v0.0.1
+          path: dist/
