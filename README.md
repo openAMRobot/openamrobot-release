@@ -18,6 +18,19 @@ This release is a frozen snapshot of the OpenAMRobot ecosystem, containing all r
 - `.github` — Governance & Community
 
 ---
+## Why a Custom Release Archive?
+
+OpenAMRobot is developed across multiple repositories covering hardware, software, firmware, the user interface, shared interfaces, communication, and documentation.
+
+GitHub's automatically generated source archives contain only this release-builder repository. They do not contain the complete OpenAMRobot platform.
+
+The official product-level release is therefore:
+
+`OpenAMRobot-v0.0.1-source.zip`
+
+This archive combines the participating repositories into one frozen, versioned package for offline preservation, development, manufacturing, research, and education.
+
+---
 
 # Start Here
 
