@@ -26,7 +26,7 @@ GitHub's automatically generated source archives contain only this release-build
 
 The official product-level release is therefore:
 
-`OpenAMRobot-v0.0.1-source.zip`
+`OpenAMRobot-v0.0.1-source.zip` https://github.com/openAMRobot/openamrobot-release/releases/tag/v0.0.1
 
 This archive combines the participating repositories into one frozen, versioned package for offline preservation, development, manufacturing, research, and education.
 
