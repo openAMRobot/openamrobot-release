@@ -1,17 +1,39 @@
-# Release Licensing Policy
+# OpenAMRobot licensing standard
 
-This repository aggregates versioned OpenAMRobot components. It does not apply one blanket licence to the complete release.
+OpenAMRobot uses asset-appropriate permissive licences for original material owned by or validly assigned to **OpenAMRobot (Botshare LTD)**.
 
-Every release must identify, for each included component:
+| Material | Licence |
+|---|---|
+| Software, firmware, scripts, configuration, APIs, tests, and code examples | [MIT](https://spdx.org/licenses/MIT.html) |
+| Documentation, diagrams, tutorials, original images, and other authored content | [Creative Commons Attribution 4.0 International](https://spdx.org/licenses/CC-BY-4.0.html) |
+| CAD, PCB and schematic source, mechanical/electrical design files, manufacturing source, and CAD-derived robot geometry | [CERN Open Hardware Licence Version 2 — Permissive](https://spdx.org/licenses/CERN-OHL-P-2.0.html) |
 
-- source repository and immutable commit or tag;
-- asset type and authoritative path;
-- copyright owner;
-- applicable outbound licence;
-- third-party dependencies and notices;
-- modifications and build provenance;
-- checksum or digest.
+Copyright (c) 2021–2026 OpenAMRobot (Botshare LTD).
 
-Typical licences include MIT for original software, Apache-2.0 for identified upstream derivatives, an expressly selected hardware licence for hardware design source, and an expressly stated documentation licence. Logos and official branding are not licensed by component software/hardware licences.
+The root `LICENSE` identifies the predominant licence for this repository. Where a repository contains several asset types, the table above and any more specific file, directory, SPDX, package, or notice declaration determine the applicable licence.
 
-OpenAMRobot is operated by **Botshare LTD**. Botshare LTD owns original or validly assigned OpenAMRobot rights; third-party rights remain unaffected. See https://github.com/openAMRobot/.github/blob/main/IP_POLICY.md.
+## Release-package requirements
+
+Every published OpenAMRobot release archive must contain:
+
+- this licence map and the complete applicable licence texts;
+- the source repository, release tag or immutable commit for every included component;
+- third-party notices, attributions, licence texts, and source-availability information required by upstream terms;
+- checksums or another integrity record for distributed artifacts; and
+- a statement identifying any excluded proprietary, confidential, trademark, credential, or security-sensitive material.
+
+Release automation must fail rather than publish when required licence evidence or third-party notices are missing. A release manifest records provenance; it does not itself change any component's licence.
+
+## Third-party material
+
+No OpenAMRobot licence relicenses third-party material. Third-party material remains governed by its original ownership, licence, patent, attribution, modification, and source-availability terms. Specific third-party terms control over this general policy and are recorded in source headers, dependency manifests, `NOTICE.md`, `THIRD_PARTY_NOTICES.md`, accompanying licence files, or the material itself.
+
+## Ownership and branding
+
+Public licensing grants the permissions in the applicable licence; it does not transfer ownership of the underlying intellectual property. OpenAMRobot, OpenAMR, associated logos, visual identity, and claims of official affiliation or certification are not licensed under MIT, CC BY 4.0, or CERN-OHL-P-2.0. See the organization [Trademark Policy](https://github.com/openAMRobot/.github/blob/main/TRADEMARK_POLICY.md).
+
+## Earlier distributions
+
+Licences validly granted for earlier copies remain effective for those copies. The current default branch states the policy for current and future distributions, subject to third-party rights and mandatory law.
+
+Licensing and provenance questions: **info@botshare.ai**.
