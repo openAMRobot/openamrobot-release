@@ -12,6 +12,18 @@ Copyright (c) 2021–2026 OpenAMRobot (Botshare LTD).
 
 The root `LICENSE` identifies the predominant licence for this repository. Where a repository contains several asset types, the table above and any more specific file, directory, SPDX, package, or notice declaration determine the applicable licence.
 
+## Release-package requirements
+
+Every published OpenAMRobot release archive must contain:
+
+- this licence map and the complete applicable licence texts;
+- the source repository, release tag or immutable commit for every included component;
+- third-party notices, attributions, licence texts, and source-availability information required by upstream terms;
+- checksums or another integrity record for distributed artifacts; and
+- a statement identifying any excluded proprietary, confidential, trademark, credential, or security-sensitive material.
+
+Release automation must fail rather than publish when required licence evidence or third-party notices are missing. A release manifest records provenance; it does not itself change any component's licence.
+
 ## Third-party material
 
 No OpenAMRobot licence relicenses third-party material. Third-party material remains governed by its original ownership, licence, patent, attribution, modification, and source-availability terms. Specific third-party terms control over this general policy and are recorded in source headers, dependency manifests, `NOTICE.md`, `THIRD_PARTY_NOTICES.md`, accompanying licence files, or the material itself.
