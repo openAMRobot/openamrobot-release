@@ -1,3 +1,27 @@
+OpenAMRobot Release Archive
+Copyright (c) 2021-2026 OpenAMRobot (Botshare LTD)
+
+This repository assembles release archives from multiple OpenAMRobot
+repositories. It does not relicense them. Each component retains the licence,
+copyright notices, attribution, and third-party terms of its source repository.
+
+Current component licence map:
+
+  openamr-platform-sw       MIT
+  openamr-platform-fw       MIT
+  openamr-platform-hw       CERN-OHL-P-2.0
+  openamrobot-ui            MIT
+  openamrobot-interfaces    MIT
+  openamrobot-comm          MIT
+  openamrobot-docs          CC-BY-4.0
+  .github                   CC-BY-4.0
+
+The release-builder scripts and original packaging files in this repository
+are licensed under the MIT License, reproduced below. LICENSING.md and any
+component-specific or third-party notice control where more specific.
+
+---
+
 MIT License
 
 Copyright (c) 2021-2026 OpenAMRobot (Botshare LTD)
