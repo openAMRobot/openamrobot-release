@@ -6,6 +6,26 @@ This release is a frozen snapshot of the OpenAMRobot ecosystem, containing all r
 
 ---
 
+# How releases work
+
+This repository is the ground truth for OpenAMRobot releases. Each release is a GitHub release here with an immutable source archive of every component repository, a `MANIFEST.json` that records the exact commit and archive checksum of each component, and `checksums.sha256` for every file. A published release is never edited; a correction is a new release.
+
+Component repositories carry a tag with the same version (for example `v0.0.1`) on the commit that `MANIFEST.json` records. These tags are for navigation only: they let you open a component at its release state directly. If a component tag and this repository's archive ever disagree, the archive is authoritative.
+
+Development continues on `main` in every component repository. `main` is never a release.
+
+## Versions
+
+| Version | Date | Content |
+|---|---|---|
+| v0.0.1 | 11 July 2026 | First public platform release: the existing robot (Raspberry Pi 5, Teensy 4.0 with the linorobot2 overlay, RPLIDAR A1). |
+| v2.0.0-rc.1 | 20 November 2026 (planned) | OpenAMRobot 2.0 pre-release: full readiness, frozen platform baseline. Published as a GitHub pre-release. |
+| v2.0.0 | 18 December 2026 (planned) | OpenAMRobot 2.0 final release, after physical integration, testing and acceptance. |
+
+Note on v0.0.1 component tags: the `v0.0.1` tags in the component repositories were added on 6 October 2026, after the release. Each points to the commit recorded in the v0.0.1 `MANIFEST.json`, and the tagged content was verified byte-identical to the archive. In `openamr-platform-fw` the released commit is `2be927c`; its firmware is an overlay on `linorobot2_hardware` (branch `jazzy`, base `aaf9d59`, confirmation tracked in [openamr-platform-fw #13](https://github.com/openAMRobot/openamr-platform-fw/issues/13)).
+
+---
+
 # Included Repositories
 
 - `openamr-platform-hw` — Hardware

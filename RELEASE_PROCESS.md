@@ -97,6 +97,12 @@ Upload the generated files from `dist/` as custom release assets.
 
 GitHub's automatic `Source code` archives contain only this builder repository and are not the complete OpenAMRobot product release.
 
+Release candidates use the suffix `-rc.N` (for example `v2.0.0-rc.1`) and are published as GitHub pre-releases.
+
+## 8. Tag Component Repositories
+
+Tag each component repository with the same version on the commit recorded in `MANIFEST.json` (annotated tag; GitHub release in the component repository pointing back to this release). Component tags are navigation aids; the archive here stays authoritative.
+
 ## Important
 
 The `input/` and `dist/` directories are intentionally excluded from Git. Component archives are temporary build inputs, while generated packages belong in GitHub Release assets.
