@@ -1,0 +1,123 @@
+Get:1 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+Get:2 http://archive.ubuntu.com/ubuntu noble InRelease [256 kB]
+Get:3 http://packages.ros.org/ros2/ubuntu noble InRelease [4679 B]
+Get:4 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+Get:5 http://archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+Get:6 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Packages [50.0 kB]
+Get:7 http://packages.ros.org/ros2/ubuntu noble/main Sources [2238 kB]
+Get:8 http://archive.ubuntu.com/ubuntu noble/universe amd64 Packages [19.3 MB]
+Get:9 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1943 kB]
+Get:10 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1542 kB]
+Get:11 http://packages.ros.org/ros2/ubuntu noble/main amd64 Packages [2112 kB]
+Get:12 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [1322 kB]
+Get:13 http://archive.ubuntu.com/ubuntu noble/multiverse amd64 Packages [331 kB]
+Get:14 http://archive.ubuntu.com/ubuntu noble/restricted amd64 Packages [117 kB]
+Get:15 http://archive.ubuntu.com/ubuntu noble/main amd64 Packages [1808 kB]
+Get:16 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1700 kB]
+Get:17 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [2164 kB]
+Get:18 http://archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [56.2 kB]
+Get:19 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [2138 kB]
+Get:20 http://archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Packages [671 B]
+Get:21 http://archive.ubuntu.com/ubuntu noble-backports/universe amd64 Packages [36.0 kB]
+Get:22 http://archive.ubuntu.com/ubuntu noble-backports/main amd64 Packages [49.0 kB]
+Fetched 37.6 MB in 8s (4742 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+build-essential is already the newest version (12.10ubuntu1).
+python3-colcon-common-extensions is already the newest version (0.3.0-100).
+The following packages will be upgraded:
+  ros-jazzy-rclcpp ros-jazzy-rclpy ros-jazzy-rosidl-default-runtime
+  ros-jazzy-std-msgs
+4 upgraded, 0 newly installed, 0 to remove and 152 not upgraded.
+Need to get 1547 kB of archives.
+After this operation, 0 B of additional disk space will be used.
+Get:1 http://packages.ros.org/ros2/ubuntu noble/main amd64 ros-jazzy-rclcpp amd64 28.1.22-1noble.20260911.105434 [836 kB]
+Get:2 http://packages.ros.org/ros2/ubuntu noble/main amd64 ros-jazzy-rclpy amd64 7.1.12-1noble.20260912.162354 [468 kB]
+Get:3 http://packages.ros.org/ros2/ubuntu noble/main amd64 ros-jazzy-rosidl-default-runtime amd64 1.6.1-1noble.20260911.052508 [7150 B]
+Get:4 http://packages.ros.org/ros2/ubuntu noble/main amd64 ros-jazzy-std-msgs amd64 5.3.8-1noble.20260911.094424 [236 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 1547 kB in 3s (520 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 40134 files and directories currently installed.)
+Preparing to unpack .../ros-jazzy-rclcpp_28.1.22-1noble.20260911.105434_amd64.deb ...
+Unpacking ros-jazzy-rclcpp (28.1.22-1noble.20260911.105434) over (28.1.22-1noble.20260902.055335) ...
+Preparing to unpack .../ros-jazzy-rclpy_7.1.12-1noble.20260912.162354_amd64.deb ...
+Unpacking ros-jazzy-rclpy (7.1.12-1noble.20260912.162354) over (7.1.12-1noble.20260902.053513) ...
+Preparing to unpack .../ros-jazzy-rosidl-default-runtime_1.6.1-1noble.20260911.052508_amd64.deb ...
+Unpacking ros-jazzy-rosidl-default-runtime (1.6.1-1noble.20260911.052508) over (1.6.1-1noble.20260902.015921) ...
+Preparing to unpack .../ros-jazzy-std-msgs_5.3.8-1noble.20260911.094424_amd64.deb ...
+Unpacking ros-jazzy-std-msgs (5.3.8-1noble.20260911.094424) over (5.3.8-1noble.20260902.022418) ...
+Setting up ros-jazzy-rclpy (7.1.12-1noble.20260912.162354) ...
+Setting up ros-jazzy-rclcpp (28.1.22-1noble.20260911.105434) ...
+Setting up ros-jazzy-rosidl-default-runtime (1.6.1-1noble.20260911.052508) ...
+Setting up ros-jazzy-std-msgs (5.3.8-1noble.20260911.094424) ...
+PASS: absent-install negative control
+AMENT_PREFIX_PATH=/opt/nav-install/openamr_nav_msgs:/opt/ros/jazzy
+CMAKE_PREFIX_PATH=/opt/nav-install/openamr_nav_msgs
+PYTHONPATH=/opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages
+PASS: openamr_nav_msgs/msg/ActiveConstraint native serialization round trip
+PASS: openamr_nav_msgs/msg/DockingStatus native serialization round trip
+PASS: openamr_nav_msgs/msg/LocalizationStatus native serialization round trip
+PASS: openamr_nav_msgs/msg/MotionSourceCoverage native serialization round trip
+PASS: openamr_nav_msgs/msg/NavigationStatus native serialization round trip
+PASS: openamr_nav_msgs/msg/NavStackStatus native serialization round trip
+PASS: openamr_nav_msgs/msg/NavTaskStatus native serialization round trip
+PASS: openamr_nav_msgs/msg/ParkingStatus native serialization round trip
+PASS: openamr_nav_msgs/msg/ProtectionStatus native serialization round trip
+PASS: openamr_nav_msgs/msg/RecoveryStatus native serialization round trip
+PASS: openamr_nav_msgs/msg/SensorStatus native serialization round trip
+Starting >>> nav_install_consumer
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Found rclcpp: 28.1.22 (/opt/ros/jazzy/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+-- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 8.4.4 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found openamr_nav_msgs: 0.0.0 (/opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/cmake)
+-- Configuring done (1.8s)
+-- Generating done (0.0s)
+-- Build files have been written to: /consumer/build/nav_install_consumer
+[ 50%] Building CXX object CMakeFiles/smoke.dir/smoke.cpp.o
+[100%] Linking CXX executable smoke
+[100%] Built target smoke
+-- Install configuration: ""
+-- Installing: /consumer/install/nav_install_consumer/lib/nav_install_consumer/smoke
+-- Set non-toolchain portion of runtime path of "/consumer/install/nav_install_consumer/lib/nav_install_consumer/smoke" to ""
+-- Installing: /consumer/install/nav_install_consumer/share/ament_index/resource_index/package_run_dependencies/nav_install_consumer
+-- Installing: /consumer/install/nav_install_consumer/share/ament_index/resource_index/parent_prefix_path/nav_install_consumer
+-- Installing: /consumer/install/nav_install_consumer/share/nav_install_consumer/environment/ament_prefix_path.sh
+-- Installing: /consumer/install/nav_install_consumer/share/nav_install_consumer/environment/ament_prefix_path.dsv
+-- Installing: /consumer/install/nav_install_consumer/share/nav_install_consumer/environment/path.sh
+-- Installing: /consumer/install/nav_install_consumer/share/nav_install_consumer/environment/path.dsv
+-- Installing: /consumer/install/nav_install_consumer/share/nav_install_consumer/local_setup.bash
+-- Installing: /consumer/install/nav_install_consumer/share/nav_install_consumer/local_setup.sh
+-- Installing: /consumer/install/nav_install_consumer/share/nav_install_consumer/local_setup.zsh
+-- Installing: /consumer/install/nav_install_consumer/share/nav_install_consumer/local_setup.dsv
+-- Installing: /consumer/install/nav_install_consumer/share/nav_install_consumer/package.dsv
+-- Installing: /consumer/install/nav_install_consumer/share/ament_index/resource_index/packages/nav_install_consumer
+-- Installing: /consumer/install/nav_install_consumer/share/nav_install_consumer/cmake/nav_install_consumerConfig.cmake
+-- Installing: /consumer/install/nav_install_consumer/share/nav_install_consumer/cmake/nav_install_consumerConfig-version.cmake
+-- Installing: /consumer/install/nav_install_consumer/share/nav_install_consumer/package.xml
+Finished <<< nav_install_consumer [3.86s]
+
+Summary: 1 package finished [4.10s]
+PASS: installed generated messages and downstream consumer in a source-free container

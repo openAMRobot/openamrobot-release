@@ -6,3 +6,11 @@ dist/
 input/
 dist/
 release-test/
+
+# Keep compact install evidence in Git; full artifacts remain local/Actions outputs.
+evidence/**/*.tar.gz
+evidence/**/*.zip
+evidence/**/producer-log/
+evidence/**/consumer-log/
+__pycache__/
+evidence/navigation-install-20261006/

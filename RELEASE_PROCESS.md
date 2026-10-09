@@ -1,5 +1,10 @@
 # OpenAMRobot Release Process
 
+For navigation package pinning, clean install evidence, and candidate manifest
+validation, follow [the navigation install gate](docs/navigation-install.md).
+Use `release-config.nav-install.json` only for a newly reviewed candidate;
+retain historical release manifests and evidence unchanged.
+
 This repository builds a product-level OpenAMRobot release from the project's distributed repositories.
 
 ## Directory Structure

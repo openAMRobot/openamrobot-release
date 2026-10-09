@@ -1,0 +1,36 @@
+name: Navigation pinned install
+on:
+  pull_request:
+    paths:
+      - navigation-install-manifest.json
+      - release-config.nav-install.json
+      - scripts/**
+      - tests/**
+      - .github/workflows/navigation-install.yml
+  push:
+    branches: [main]
+    paths:
+      - navigation-install-manifest.json
+      - release-config.nav-install.json
+      - scripts/**
+      - tests/**
+      - .github/workflows/navigation-install.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  install:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check release manifest integration
+        run: python3 -m unittest discover -s tests -v
+      - name: Verify pinned install and consumers
+        run: python3 scripts/validate_navigation_install.py --evidence evidence/navigation-install
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: navigation-pinned-install-evidence
+          path: evidence/navigation-install/
+          if-no-files-found: error

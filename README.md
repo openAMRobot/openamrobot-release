@@ -1,5 +1,9 @@
 # OpenAMRobot v0.0.1
 
+For the pending navigation release-install gate, see
+[pinned installation and troubleshooting](docs/navigation-install.md).
+This candidate validation does not change the historical v0.0.1 release.
+
 The first public release of the OpenAMRobot platform.
 
 This release is a frozen snapshot of the OpenAMRobot ecosystem, containing all repositories required to study, build, modify, reproduce, and extend the platform.
