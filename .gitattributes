@@ -1,3 +1,6 @@
 *.sh text eol=lf
+*.repos text eol=lf
+*.json text eol=lf
 *.py text eol=lf
+*.yml text eol=lf
 /evidence/** -text

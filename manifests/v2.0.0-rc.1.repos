@@ -1,0 +1,58 @@
+# Candidate snapshot: 2026-10-19. Not release acceptance.
+repositories:
+  src/openamrobot-interfaces:
+    type: git
+    url: https://github.com/openAMRobot/openamrobot-interfaces.git
+    version: 87ab8a936c97ab55ee74b8988ca3d7659160ea6a
+  src/openamrobot-comm:
+    type: git
+    url: https://github.com/openAMRobot/openamrobot-comm.git
+    version: 1c552921cf05001ee8f43e899aa2f92882766f07
+  src/openamrobot-manipulation:
+    type: git
+    url: https://github.com/openAMRobot/openamrobot-manipulation.git
+    version: 095e6c7bbd270db6d21de9664a654bb37919a2eb
+  src/openamr-platform-sw:
+    type: git
+    url: https://github.com/openAMRobot/openamr-platform-sw.git
+    version: 8a7a5b136bfb3f144b57991455b378f6b3f4113c
+  src/openamr-upperbody-sw:
+    type: git
+    url: https://github.com/openAMRobot/openamr-upperbody-sw.git
+    version: f57e54cfc9e7f9536e94c52749502cc983fb908e
+  firmware/openamr-platform-fw:
+    type: git
+    url: https://github.com/openAMRobot/openamr-platform-fw.git
+    version: f96014daae614da4e1bf0c00376f1d9e5d41ae02
+  firmware/openamr-upperbody-fw:
+    type: git
+    url: https://github.com/openAMRobot/openamr-upperbody-fw.git
+    version: ba1a53f2a031cdbfbe4fa0f5f4d32ed7cdf4dbbb
+  hardware/openamr-platform-hw:
+    type: git
+    url: https://github.com/openAMRobot/openamr-platform-hw.git
+    version: 6c32fbabfd08491e74a9a2f601f1e14d07d44938
+  hardware/openamr-upperbody-hw:
+    type: git
+    url: https://github.com/openAMRobot/openamr-upperbody-hw.git
+    version: 6349ff2672c9e812655d3ae1d04c67130fb3cac7
+  ui/openamrobot-ui:
+    type: git
+    url: https://github.com/openAMRobot/openamrobot-ui.git
+    version: c5558ad5babdab30702c307a08fc94a6408c798c
+  docs/openamrobot-docs:
+    type: git
+    url: https://github.com/openAMRobot/openamrobot-docs.git
+    version: 95c6140e16866964a7d6fddd37e06cd382b7afae
+  src/sllidar_ros2:
+    type: git
+    url: https://github.com/Slamtec/sllidar_ros2.git
+    version: 34300099fadfc772965962dec837bf436706188f
+  src/micro_ros_agent:
+    type: git
+    url: https://github.com/micro-ROS/micro-ROS-Agent.git
+    version: 7c932329ad5591ef23942ef1962534258c16b000
+  governance/.github:
+    type: git
+    url: https://github.com/openAMRobot/.github.git
+    version: 9109d3e1a8fc07151e500e83b32b7ce6ccab6af6
