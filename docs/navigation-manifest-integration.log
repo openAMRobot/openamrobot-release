@@ -1,0 +1,5 @@
+Integration fixture only; no product release built.
+Command argv: ["C:\\Python314\\python.exe", "scripts/build_release.py", "--config", "release-test\\navigation-manifest\\config.json", "--input-dir", "release-test\\navigation-manifest\\input", "--output-dir", "release-test\\navigation-manifest\\out", "--metadata-dir", "release-test\\navigation-manifest\\metadata"]
+release-test\navigation-manifest\out\NavigationInstallIntegrationFixture-v0.0.0-source.zip
+SHA256: 96337ace3c377967f70ae66d70ecea4a2b2acc2a782f427c199c680bace5632f
+PASS: actual validated archive produces the pinned manifest component.

@@ -1,0 +1,92 @@
+[
+  {
+    "argv": [
+      "docker",
+      "pull",
+      "--platform",
+      "linux/amd64",
+      "ros@sha256:c3706ef0a0aa45413c07803cf433602f543b22e45b4855f6fca955c2d8ecc4e8"
+    ],
+    "log": "image-pull.log"
+  },
+  {
+    "argv": [
+      "docker",
+      "run",
+      "--rm",
+      "--platform",
+      "linux/amd64",
+      "--mount",
+      "type=bind,source=C:\\Users\\KARTHI~1\\AppData\\Local\\Temp\\openamrobot-nav-checks-u5vutxhb\\checks,target=/checks,readonly",
+      "--mount",
+      "type=bind,source=F:\\New folder\\openamrobot-release\\evidence\\navigation-install-20261006-final\\first\\producer,target=/evidence",
+      "ros@sha256:c3706ef0a0aa45413c07803cf433602f543b22e45b4855f6fca955c2d8ecc4e8",
+      "bash",
+      "/checks/producer.sh",
+      "https://github.com/openAMRobot/openamrobot-interfaces.git",
+      "fa7c438e33bd807c174fa0747119d7d627faa3bf",
+      "0.0.0"
+    ],
+    "log": "first/producer/validation.log"
+  },
+  {
+    "argv": [
+      "docker",
+      "run",
+      "--rm",
+      "--platform",
+      "linux/amd64",
+      "--mount",
+      "type=bind,source=C:\\Users\\KARTHI~1\\AppData\\Local\\Temp\\openamrobot-nav-checks-u5vutxhb\\checks,target=/checks,readonly",
+      "--mount",
+      "type=bind,source=F:\\New folder\\openamrobot-release\\evidence\\navigation-install-20261006-final\\first\\producer\\navigation-install.tar.gz,target=/artifact/navigation-install.tar.gz,readonly",
+      "--mount",
+      "type=bind,source=F:\\New folder\\openamrobot-release\\evidence\\navigation-install-20261006-final\\first\\consumer,target=/evidence",
+      "ros@sha256:c3706ef0a0aa45413c07803cf433602f543b22e45b4855f6fca955c2d8ecc4e8",
+      "bash",
+      "/checks/consumer.sh",
+      "1"
+    ],
+    "log": "first/consumer/validation.log"
+  },
+  {
+    "argv": [
+      "docker",
+      "run",
+      "--rm",
+      "--platform",
+      "linux/amd64",
+      "--mount",
+      "type=bind,source=C:\\Users\\KARTHI~1\\AppData\\Local\\Temp\\openamrobot-nav-checks-u5vutxhb\\checks,target=/checks,readonly",
+      "--mount",
+      "type=bind,source=F:\\New folder\\openamrobot-release\\evidence\\navigation-install-20261006-final\\second\\producer,target=/evidence",
+      "ros@sha256:c3706ef0a0aa45413c07803cf433602f543b22e45b4855f6fca955c2d8ecc4e8",
+      "bash",
+      "/checks/producer.sh",
+      "https://github.com/openAMRobot/openamrobot-interfaces.git",
+      "fa7c438e33bd807c174fa0747119d7d627faa3bf",
+      "0.0.0"
+    ],
+    "log": "second/producer/validation.log"
+  },
+  {
+    "argv": [
+      "docker",
+      "run",
+      "--rm",
+      "--platform",
+      "linux/amd64",
+      "--mount",
+      "type=bind,source=C:\\Users\\KARTHI~1\\AppData\\Local\\Temp\\openamrobot-nav-checks-u5vutxhb\\checks,target=/checks,readonly",
+      "--mount",
+      "type=bind,source=F:\\New folder\\openamrobot-release\\evidence\\navigation-install-20261006-final\\second\\producer\\navigation-install.tar.gz,target=/artifact/navigation-install.tar.gz,readonly",
+      "--mount",
+      "type=bind,source=F:\\New folder\\openamrobot-release\\evidence\\navigation-install-20261006-final\\second\\consumer,target=/evidence",
+      "ros@sha256:c3706ef0a0aa45413c07803cf433602f543b22e45b4855f6fca955c2d8ecc4e8",
+      "bash",
+      "/checks/consumer.sh",
+      "1"
+    ],
+    "log": "second/consumer/validation.log"
+  }
+]

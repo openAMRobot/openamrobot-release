@@ -1,0 +1,649 @@
+Get:1 http://archive.ubuntu.com/ubuntu noble InRelease [256 kB]
+Get:2 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+Get:3 http://packages.ros.org/ros2/ubuntu noble InRelease [4679 B]
+Get:4 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+Get:5 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1542 kB]
+Get:6 http://archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+Get:7 http://packages.ros.org/ros2/ubuntu noble/main Sources [2238 kB]
+Get:8 http://archive.ubuntu.com/ubuntu noble/restricted amd64 Packages [117 kB]
+Get:9 http://archive.ubuntu.com/ubuntu noble/multiverse amd64 Packages [331 kB]
+Get:10 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [1322 kB]
+Get:11 http://archive.ubuntu.com/ubuntu noble/universe amd64 Packages [19.3 MB]
+Get:12 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Packages [50.0 kB]
+Get:13 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1943 kB]
+Get:14 http://packages.ros.org/ros2/ubuntu noble/main amd64 Packages [2112 kB]
+Get:15 http://archive.ubuntu.com/ubuntu noble/main amd64 Packages [1808 kB]
+Get:16 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [2138 kB]
+Get:17 http://archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [56.2 kB]
+Get:18 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1700 kB]
+Get:19 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [2164 kB]
+Get:20 http://archive.ubuntu.com/ubuntu noble-backports/main amd64 Packages [49.0 kB]
+Get:21 http://archive.ubuntu.com/ubuntu noble-backports/universe amd64 Packages [36.0 kB]
+Get:22 http://archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Packages [671 B]
+Fetched 37.6 MB in 9s (4195 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.43.0-1ubuntu7.3).
+build-essential is already the newest version (12.10ubuntu1).
+python3-colcon-common-extensions is already the newest version (0.3.0-100).
+python3-rosdep is already the newest version (0.27.0-1).
+0 upgraded, 0 newly installed, 0 to remove and 156 not upgraded.
+Warning: running 'rosdep update' as root is not recommended.
+  You should run 'sudo rosdep fix-permissions' and invoke 'rosdep update' again without sudo.
+reading in sources list data from /etc/ros/rosdep/sources.list.d
+Hit https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/osx-homebrew.yaml
+Hit https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/base.yaml
+Hit https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/python.yaml
+Hit https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/ruby.yaml
+Hit https://raw.githubusercontent.com/ros/rosdistro/master/releases/fuerte.yaml
+Query rosdistro index https://raw.githubusercontent.com/ros/rosdistro/master/index-v4.yaml
+Skip distro "ardent" different from requested "jazzy"
+Skip distro "bouncy" different from requested "jazzy"
+Skip distro "crystal" different from requested "jazzy"
+Skip distro "dashing" different from requested "jazzy"
+Skip distro "eloquent" different from requested "jazzy"
+Skip distro "foxy" different from requested "jazzy"
+Skip distro "galactic" different from requested "jazzy"
+Skip distro "groovy" different from requested "jazzy"
+Skip distro "humble" different from requested "jazzy"
+Skip distro "hydro" different from requested "jazzy"
+Skip distro "indigo" different from requested "jazzy"
+Skip distro "iron" different from requested "jazzy"
+Skip distro "jade" different from requested "jazzy"
+Add distro "jazzy"
+Skip distro "kilted" different from requested "jazzy"
+Skip distro "kinetic" different from requested "jazzy"
+Skip distro "lunar" different from requested "jazzy"
+Skip distro "lyrical" different from requested "jazzy"
+Skip distro "melodic" different from requested "jazzy"
+Skip distro "noetic" different from requested "jazzy"
+Skip distro "rolling" different from requested "jazzy"
+updated cache in /root/.ros/rosdep/sources.cache
+Cloning into '/producer/src/interfaces'...
+HEAD is now at fa7c438 [C9] Add LeRobotDataset whole-body capture contract (#16)
+PIN VERIFIED: openamr_nav_msgs 0.0.0
+#All required rosdeps installed successfully
+Starting >>> openamr_nav_msgs
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Found rosidl_default_generators: 1.6.1 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rosidl_adapter: 4.6.9 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+-- Found builtin_interfaces: 2.0.4 (/opt/ros/jazzy/share/builtin_interfaces/cmake)
+-- Found std_msgs: 5.3.8 (/opt/ros/jazzy/share/std_msgs/cmake)
+-- Found ament_cmake_ros: 0.12.1 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+-- Found PythonExtra: /usr/bin/python3  
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed 
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Configuring done (4.6s)
+-- Generating done (0.2s)
+-- Build files have been written to: /producer/build/openamr_nav_msgs
+[  1%] Generating type hashes for ROS interfaces
+[  2%] Generating Rust code for ROS interfaces
+[  2%] Built target ament_cmake_python_copy_openamr_nav_msgs
+running egg_info
+creating openamr_nav_msgs.egg-info
+writing openamr_nav_msgs.egg-info/PKG-INFO
+writing dependency_links to openamr_nav_msgs.egg-info/dependency_links.txt
+writing top-level names to openamr_nav_msgs.egg-info/top_level.txt
+writing manifest file 'openamr_nav_msgs.egg-info/SOURCES.txt'
+reading manifest file 'openamr_nav_msgs.egg-info/SOURCES.txt'
+writing manifest file 'openamr_nav_msgs.egg-info/SOURCES.txt'
+[  2%] Built target ament_cmake_python_build_openamr_nav_msgs_egg
+[  2%] Built target openamr_nav_msgs__rosidl_generator_type_description
+[  3%] Generating C code for ROS interfaces
+[  3%] Generating C++ code for ROS interfaces
+[  3%] Built target openamr_nav_msgs__rs
+[  3%] Built target openamr_nav_msgs__cpp
+[  5%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/navigation_status__type_support.c.o
+[  5%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/navigation_status__functions.c.o
+[  6%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/navigation_status__description.c.o
+[  6%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/nav_stack_status__description.c.o
+[  7%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/nav_stack_status__type_support.c.o
+[  7%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/nav_stack_status__functions.c.o
+[  8%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/localization_status__description.c.o
+[  9%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/localization_status__functions.c.o
+[  9%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/localization_status__type_support.c.o
+[ 10%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/sensor_status__description.c.o
+[ 11%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/sensor_status__functions.c.o
+[ 12%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/sensor_status__type_support.c.o
+[ 12%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/nav_task_status__description.c.o
+[ 13%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/nav_task_status__functions.c.o
+[ 14%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/nav_task_status__type_support.c.o
+[ 15%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/recovery_status__description.c.o
+[ 15%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/recovery_status__functions.c.o
+[ 16%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/recovery_status__type_support.c.o
+[ 17%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/protection_status__description.c.o
+[ 18%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/protection_status__functions.c.o
+[ 18%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/protection_status__type_support.c.o
+[ 19%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/motion_source_coverage__description.c.o
+[ 20%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/motion_source_coverage__functions.c.o
+[ 21%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/motion_source_coverage__type_support.c.o
+[ 21%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/active_constraint__description.c.o
+[ 22%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/active_constraint__functions.c.o
+[ 23%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/active_constraint__type_support.c.o
+[ 23%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/docking_status__description.c.o
+[ 24%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/docking_status__functions.c.o
+[ 25%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/docking_status__type_support.c.o
+[ 26%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/parking_status__description.c.o
+[ 26%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/parking_status__functions.c.o
+[ 27%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_c.dir/rosidl_generator_c/openamr_nav_msgs/msg/detail/parking_status__type_support.c.o
+[ 28%] Linking C shared library libopenamr_nav_msgs__rosidl_generator_c.so
+[ 28%] Built target openamr_nav_msgs__rosidl_generator_c
+[ 29%] Generating C introspection for ROS interfaces
+[ 29%] Generating C type support dispatch for ROS interfaces
+[ 30%] Generating C++ type support dispatch for ROS interfaces
+[ 30%] Generating C++ introspection for ROS interfaces
+[ 31%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/openamr_nav_msgs/msg/navigation_status__type_support.cpp.o
+[ 32%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/openamr_nav_msgs/msg/navigation_status__type_support.cpp.o
+[ 33%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/openamr_nav_msgs/msg/nav_stack_status__type_support.cpp.o
+[ 34%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/openamr_nav_msgs/msg/localization_status__type_support.cpp.o
+[ 35%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/openamr_nav_msgs/msg/detail/navigation_status__type_support.c.o
+[ 35%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/openamr_nav_msgs/msg/sensor_status__type_support.cpp.o
+[ 36%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/openamr_nav_msgs/msg/detail/navigation_status__type_support.cpp.o
+[ 37%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/openamr_nav_msgs/msg/nav_task_status__type_support.cpp.o
+[ 37%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/openamr_nav_msgs/msg/detail/nav_stack_status__type_support.c.o
+[ 38%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/openamr_nav_msgs/msg/recovery_status__type_support.cpp.o
+[ 39%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/openamr_nav_msgs/msg/detail/localization_status__type_support.c.o
+[ 39%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/openamr_nav_msgs/msg/protection_status__type_support.cpp.o
+[ 40%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/openamr_nav_msgs/msg/detail/sensor_status__type_support.c.o
+[ 41%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/openamr_nav_msgs/msg/motion_source_coverage__type_support.cpp.o
+[ 42%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/openamr_nav_msgs/msg/detail/nav_task_status__type_support.c.o
+[ 43%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/openamr_nav_msgs/msg/active_constraint__type_support.cpp.o
+[ 43%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/openamr_nav_msgs/msg/detail/recovery_status__type_support.c.o
+[ 43%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/openamr_nav_msgs/msg/nav_stack_status__type_support.cpp.o
+[ 44%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/openamr_nav_msgs/msg/docking_status__type_support.cpp.o
+[ 45%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/openamr_nav_msgs/msg/detail/protection_status__type_support.c.o
+[ 46%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/openamr_nav_msgs/msg/detail/motion_source_coverage__type_support.c.o
+[ 46%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/openamr_nav_msgs/msg/parking_status__type_support.cpp.o
+[ 46%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/openamr_nav_msgs/msg/detail/active_constraint__type_support.c.o
+[ 47%] Linking CXX shared library libopenamr_nav_msgs__rosidl_typesupport_c.so
+[ 48%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/openamr_nav_msgs/msg/detail/docking_status__type_support.c.o
+[ 48%] Built target openamr_nav_msgs__rosidl_typesupport_c
+[ 49%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/openamr_nav_msgs/msg/detail/parking_status__type_support.c.o
+[ 50%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/openamr_nav_msgs/msg/detail/nav_stack_status__type_support.cpp.o
+[ 51%] Linking C shared library libopenamr_nav_msgs__rosidl_typesupport_introspection_c.so
+[ 51%] Built target openamr_nav_msgs__rosidl_typesupport_introspection_c
+[ 52%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/openamr_nav_msgs/msg/localization_status__type_support.cpp.o
+[ 53%] Generating C type support for eProsima Fast-RTPS
+[ 54%] Generating C++ type support for eProsima Fast-RTPS
+[ 55%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/openamr_nav_msgs/msg/detail/localization_status__type_support.cpp.o
+[ 56%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/openamr_nav_msgs/msg/sensor_status__type_support.cpp.o
+[ 57%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/openamr_nav_msgs/msg/nav_task_status__type_support.cpp.o
+[ 57%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/openamr_nav_msgs/msg/detail/sensor_status__type_support.cpp.o
+[ 57%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/openamr_nav_msgs/msg/recovery_status__type_support.cpp.o
+[ 58%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/openamr_nav_msgs/msg/detail/nav_task_status__type_support.cpp.o
+[ 59%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/openamr_nav_msgs/msg/protection_status__type_support.cpp.o
+[ 60%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/openamr_nav_msgs/msg/detail/recovery_status__type_support.cpp.o
+[ 61%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/openamr_nav_msgs/msg/motion_source_coverage__type_support.cpp.o
+[ 62%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/openamr_nav_msgs/msg/detail/protection_status__type_support.cpp.o
+[ 63%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/openamr_nav_msgs/msg/active_constraint__type_support.cpp.o
+[ 63%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/openamr_nav_msgs/msg/detail/motion_source_coverage__type_support.cpp.o
+[ 63%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/openamr_nav_msgs/msg/detail/navigation_status__type_support_c.cpp.o
+[ 64%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/openamr_nav_msgs/msg/detail/dds_fastrtps/navigation_status__type_support.cpp.o
+[ 64%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/openamr_nav_msgs/msg/docking_status__type_support.cpp.o
+[ 65%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/openamr_nav_msgs/msg/detail/active_constraint__type_support.cpp.o
+[ 66%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/openamr_nav_msgs/msg/detail/nav_stack_status__type_support_c.cpp.o
+[ 67%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/openamr_nav_msgs/msg/parking_status__type_support.cpp.o
+[ 68%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/openamr_nav_msgs/msg/detail/docking_status__type_support.cpp.o
+[ 69%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/openamr_nav_msgs/msg/detail/dds_fastrtps/nav_stack_status__type_support.cpp.o
+[ 70%] Linking CXX shared library libopenamr_nav_msgs__rosidl_typesupport_cpp.so
+[ 71%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/openamr_nav_msgs/msg/detail/parking_status__type_support.cpp.o
+[ 71%] Built target openamr_nav_msgs__rosidl_typesupport_cpp
+[ 72%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/openamr_nav_msgs/msg/detail/localization_status__type_support_c.cpp.o
+[ 72%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/openamr_nav_msgs/msg/detail/dds_fastrtps/localization_status__type_support.cpp.o
+[ 72%] Linking CXX shared library libopenamr_nav_msgs__rosidl_typesupport_introspection_cpp.so
+[ 72%] Built target openamr_nav_msgs__rosidl_typesupport_introspection_cpp
+[ 73%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/openamr_nav_msgs/msg/detail/dds_fastrtps/sensor_status__type_support.cpp.o
+[ 74%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/openamr_nav_msgs/msg/detail/sensor_status__type_support_c.cpp.o
+[ 75%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/openamr_nav_msgs/msg/detail/dds_fastrtps/nav_task_status__type_support.cpp.o
+[ 75%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/openamr_nav_msgs/msg/detail/nav_task_status__type_support_c.cpp.o
+[ 76%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/openamr_nav_msgs/msg/detail/dds_fastrtps/recovery_status__type_support.cpp.o
+[ 77%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/openamr_nav_msgs/msg/detail/recovery_status__type_support_c.cpp.o
+[ 78%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/openamr_nav_msgs/msg/detail/protection_status__type_support_c.cpp.o
+[ 78%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/openamr_nav_msgs/msg/detail/dds_fastrtps/protection_status__type_support.cpp.o
+[ 79%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/openamr_nav_msgs/msg/detail/dds_fastrtps/motion_source_coverage__type_support.cpp.o
+[ 79%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/openamr_nav_msgs/msg/detail/motion_source_coverage__type_support_c.cpp.o
+[ 80%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/openamr_nav_msgs/msg/detail/dds_fastrtps/active_constraint__type_support.cpp.o
+[ 81%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/openamr_nav_msgs/msg/detail/active_constraint__type_support_c.cpp.o
+[ 82%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/openamr_nav_msgs/msg/detail/docking_status__type_support_c.cpp.o
+[ 83%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/openamr_nav_msgs/msg/detail/dds_fastrtps/docking_status__type_support.cpp.o
+[ 84%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/openamr_nav_msgs/msg/detail/parking_status__type_support_c.cpp.o
+[ 84%] Building CXX object CMakeFiles/openamr_nav_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/openamr_nav_msgs/msg/detail/dds_fastrtps/parking_status__type_support.cpp.o
+[ 84%] Linking CXX shared library libopenamr_nav_msgs__rosidl_typesupport_fastrtps_c.so
+[ 84%] Built target openamr_nav_msgs__rosidl_typesupport_fastrtps_c
+[Processing: openamr_nav_msgs]
+[ 85%] Linking CXX shared library libopenamr_nav_msgs__rosidl_typesupport_fastrtps_cpp.so
+[ 85%] Built target openamr_nav_msgs__rosidl_typesupport_fastrtps_cpp
+[ 85%] Built target openamr_nav_msgs
+[ 86%] Generating Python code for ROS interfaces
+[ 86%] Built target openamr_nav_msgs__py
+[ 86%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_py.dir/rosidl_generator_py/openamr_nav_msgs/msg/_nav_stack_status_s.c.o
+[ 87%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_py.dir/rosidl_generator_py/openamr_nav_msgs/msg/_localization_status_s.c.o
+[ 88%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_py.dir/rosidl_generator_py/openamr_nav_msgs/msg/_navigation_status_s.c.o
+[ 89%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_py.dir/rosidl_generator_py/openamr_nav_msgs/msg/_sensor_status_s.c.o
+[ 89%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_py.dir/rosidl_generator_py/openamr_nav_msgs/msg/_recovery_status_s.c.o
+[ 90%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_py.dir/rosidl_generator_py/openamr_nav_msgs/msg/_nav_task_status_s.c.o
+[ 91%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_py.dir/rosidl_generator_py/openamr_nav_msgs/msg/_protection_status_s.c.o
+[ 92%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_py.dir/rosidl_generator_py/openamr_nav_msgs/msg/_motion_source_coverage_s.c.o
+[ 93%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_py.dir/rosidl_generator_py/openamr_nav_msgs/msg/_active_constraint_s.c.o
+[ 93%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_py.dir/rosidl_generator_py/openamr_nav_msgs/msg/_docking_status_s.c.o
+[ 94%] Building C object CMakeFiles/openamr_nav_msgs__rosidl_generator_py.dir/rosidl_generator_py/openamr_nav_msgs/msg/_parking_status_s.c.o
+[ 95%] Linking C shared library libopenamr_nav_msgs__rosidl_generator_py.so
+[ 95%] Built target openamr_nav_msgs__rosidl_generator_py
+[ 96%] Building C object CMakeFiles/openamr_nav_msgs_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/openamr_nav_msgs/_openamr_nav_msgs_s.ep.rosidl_typesupport_introspection_c.c.o
+[ 96%] Building C object CMakeFiles/openamr_nav_msgs_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/openamr_nav_msgs/_openamr_nav_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o
+[ 97%] Building C object CMakeFiles/openamr_nav_msgs_s__rosidl_typesupport_c.dir/rosidl_generator_py/openamr_nav_msgs/_openamr_nav_msgs_s.ep.rosidl_typesupport_c.c.o
+[ 98%] Linking C shared module rosidl_generator_py/openamr_nav_msgs/openamr_nav_msgs_s__rosidl_typesupport_c.so
+[ 99%] Linking C shared module rosidl_generator_py/openamr_nav_msgs/openamr_nav_msgs_s__rosidl_typesupport_fastrtps_c.so
+[100%] Linking C shared module rosidl_generator_py/openamr_nav_msgs/openamr_nav_msgs_s__rosidl_typesupport_introspection_c.so
+[100%] Built target openamr_nav_msgs_s__rosidl_typesupport_c
+[100%] Built target openamr_nav_msgs_s__rosidl_typesupport_fastrtps_c
+[100%] Built target openamr_nav_msgs_s__rosidl_typesupport_introspection_c
+-- Install configuration: ""
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/ament_index/resource_index/rosidl_interfaces/openamr_nav_msgs
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/NavigationStatus.json
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/NavStackStatus.json
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/LocalizationStatus.json
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/SensorStatus.json
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/NavTaskStatus.json
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/RecoveryStatus.json
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/ProtectionStatus.json
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/MotionSourceCoverage.json
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/ActiveConstraint.json
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/DockingStatus.json
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/ParkingStatus.json
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/rosidl_generator_c__visibility_control.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/nav_stack_status.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/localization_status.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/motion_source_coverage.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/docking_status.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/active_constraint.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/parking_status.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/sensor_status.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/nav_task_status.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/docking_status__functions.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/protection_status__functions.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_task_status__type_support.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/parking_status__functions.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/navigation_status__description.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/sensor_status__type_support.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/protection_status__functions.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/docking_status__description.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/sensor_status__functions.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/active_constraint__functions.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/localization_status__struct.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/motion_source_coverage__type_support.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/localization_status__functions.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/localization_status__functions.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/active_constraint__type_support.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/motion_source_coverage__description.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/motion_source_coverage__functions.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_task_status__type_support.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/active_constraint__description.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/docking_status__type_support.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/motion_source_coverage__struct.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_stack_status__type_support.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/sensor_status__description.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/parking_status__type_support.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/active_constraint__functions.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/navigation_status__type_support.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/docking_status__functions.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_task_status__description.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/localization_status__type_support.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/recovery_status__struct.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_stack_status__functions.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_stack_status__type_support.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/active_constraint__struct.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/recovery_status__type_support.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/parking_status__description.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/protection_status__type_support.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/navigation_status__functions.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/navigation_status__type_support.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/protection_status__struct.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/recovery_status__functions.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/sensor_status__functions.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_stack_status__description.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_stack_status__struct.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/recovery_status__functions.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/protection_status__type_support.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/motion_source_coverage__type_support.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/sensor_status__type_support.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/parking_status__type_support.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/sensor_status__struct.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/docking_status__type_support.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/docking_status__struct.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/recovery_status__description.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/parking_status__functions.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_task_status__functions.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/protection_status__description.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/localization_status__type_support.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_stack_status__functions.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_task_status__functions.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/motion_source_coverage__functions.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/navigation_status__functions.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/localization_status__description.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/recovery_status__type_support.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/active_constraint__type_support.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/navigation_status__struct.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_task_status__struct.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/parking_status__struct.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/recovery_status.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/protection_status.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/navigation_status.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/environment/library_path.sh
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/environment/library_path.dsv
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/libopenamr_nav_msgs__rosidl_generator_c.so
+-- Set non-toolchain portion of runtime path of "/opt/nav-install/openamr_nav_msgs/lib/libopenamr_nav_msgs__rosidl_generator_c.so" to ""
+-- Up-to-date: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs
+-- Up-to-date: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg
+-- Up-to-date: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/recovery_status__rosidl_typesupport_fastrtps_c.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/active_constraint__rosidl_typesupport_fastrtps_c.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/parking_status__rosidl_typesupport_fastrtps_c.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_stack_status__rosidl_typesupport_fastrtps_c.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/sensor_status__rosidl_typesupport_fastrtps_c.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/protection_status__rosidl_typesupport_fastrtps_c.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_task_status__rosidl_typesupport_fastrtps_c.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/docking_status__rosidl_typesupport_fastrtps_c.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/navigation_status__rosidl_typesupport_fastrtps_c.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/motion_source_coverage__rosidl_typesupport_fastrtps_c.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/localization_status__rosidl_typesupport_fastrtps_c.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/libopenamr_nav_msgs__rosidl_typesupport_fastrtps_c.so
+-- Set non-toolchain portion of runtime path of "/opt/nav-install/openamr_nav_msgs/lib/libopenamr_nav_msgs__rosidl_typesupport_fastrtps_c.so" to ""
+-- Up-to-date: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs
+-- Up-to-date: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg
+-- Up-to-date: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/active_constraint__rosidl_typesupport_introspection_c.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/motion_source_coverage__type_support.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/active_constraint__type_support.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_task_status__type_support.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/docking_status__type_support.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_task_status__rosidl_typesupport_introspection_c.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/navigation_status__type_support.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/localization_status__type_support.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/docking_status__rosidl_typesupport_introspection_c.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_stack_status__type_support.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/localization_status__rosidl_typesupport_introspection_c.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/protection_status__type_support.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/protection_status__rosidl_typesupport_introspection_c.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/parking_status__rosidl_typesupport_introspection_c.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/recovery_status__rosidl_typesupport_introspection_c.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/sensor_status__type_support.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/parking_status__type_support.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_stack_status__rosidl_typesupport_introspection_c.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/navigation_status__rosidl_typesupport_introspection_c.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/recovery_status__type_support.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/sensor_status__rosidl_typesupport_introspection_c.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/motion_source_coverage__rosidl_typesupport_introspection_c.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/libopenamr_nav_msgs__rosidl_typesupport_introspection_c.so
+-- Set non-toolchain portion of runtime path of "/opt/nav-install/openamr_nav_msgs/lib/libopenamr_nav_msgs__rosidl_typesupport_introspection_c.so" to ""
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/libopenamr_nav_msgs__rosidl_typesupport_c.so
+-- Set non-toolchain portion of runtime path of "/opt/nav-install/openamr_nav_msgs/lib/libopenamr_nav_msgs__rosidl_typesupport_c.so" to ""
+-- Up-to-date: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs
+-- Up-to-date: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/motion_source_coverage.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/navigation_status.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/recovery_status.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/active_constraint.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/sensor_status.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/docking_status.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/nav_task_status.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/parking_status.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/nav_stack_status.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/protection_status.hpp
+-- Up-to-date: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/navigation_status__traits.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_stack_status__traits.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/localization_status__struct.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/sensor_status__traits.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/parking_status__type_support.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/active_constraint__builder.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/parking_status__struct.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/motion_source_coverage__builder.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/recovery_status__struct.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/docking_status__struct.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/docking_status__builder.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/protection_status__builder.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_task_status__struct.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/protection_status__traits.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_task_status__builder.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/parking_status__traits.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/recovery_status__builder.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_stack_status__builder.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/active_constraint__struct.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/motion_source_coverage__type_support.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/protection_status__struct.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_stack_status__struct.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/sensor_status__type_support.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/protection_status__type_support.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/active_constraint__traits.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_task_status__traits.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/localization_status__builder.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_stack_status__type_support.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/navigation_status__type_support.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/sensor_status__builder.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/navigation_status__struct.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/recovery_status__type_support.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/docking_status__traits.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/navigation_status__builder.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/parking_status__builder.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/motion_source_coverage__traits.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/localization_status__traits.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/localization_status__type_support.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/recovery_status__traits.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_task_status__type_support.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/docking_status__type_support.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/active_constraint__type_support.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/sensor_status__struct.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/motion_source_coverage__struct.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/localization_status.hpp
+-- Up-to-date: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs
+-- Up-to-date: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+-- Up-to-date: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/active_constraint__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/recovery_status__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/localization_status__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_stack_status__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/sensor_status__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/motion_source_coverage__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/parking_status__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/dds_fastrtps
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_task_status__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/protection_status__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/docking_status__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/navigation_status__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/libopenamr_nav_msgs__rosidl_typesupport_fastrtps_cpp.so
+-- Set non-toolchain portion of runtime path of "/opt/nav-install/openamr_nav_msgs/lib/libopenamr_nav_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""
+-- Up-to-date: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs
+-- Up-to-date: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg
+-- Up-to-date: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/protection_status__type_support.cpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_stack_status__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/motion_source_coverage__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/active_constraint__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/recovery_status__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/navigation_status__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/motion_source_coverage__type_support.cpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/sensor_status__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/localization_status__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/recovery_status__type_support.cpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_stack_status__type_support.cpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_task_status__type_support.cpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/nav_task_status__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/localization_status__type_support.cpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/parking_status__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/active_constraint__type_support.cpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/navigation_status__type_support.cpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/sensor_status__type_support.cpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/protection_status__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/parking_status__type_support.cpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/docking_status__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/include/openamr_nav_msgs/openamr_nav_msgs/msg/detail/docking_status__type_support.cpp
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/libopenamr_nav_msgs__rosidl_typesupport_introspection_cpp.so
+-- Set non-toolchain portion of runtime path of "/opt/nav-install/openamr_nav_msgs/lib/libopenamr_nav_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/libopenamr_nav_msgs__rosidl_typesupport_cpp.so
+-- Set non-toolchain portion of runtime path of "/opt/nav-install/openamr_nav_msgs/lib/libopenamr_nav_msgs__rosidl_typesupport_cpp.so" to ""
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/environment/pythonpath.sh
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/environment/pythonpath.dsv
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs-0.0.0-py3.12.egg-info
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs-0.0.0-py3.12.egg-info/dependency_links.txt
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs-0.0.0-py3.12.egg-info/PKG-INFO
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs-0.0.0-py3.12.egg-info/SOURCES.txt
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs-0.0.0-py3.12.egg-info/top_level.txt
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/_openamr_nav_msgs_s.ep.rosidl_typesupport_introspection_c.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/_openamr_nav_msgs_s.ep.rosidl_typesupport_c.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/__init__.py
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/openamr_nav_msgs_s__rosidl_typesupport_fastrtps_c.so
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/openamr_nav_msgs_s__rosidl_typesupport_introspection_c.so
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/_openamr_nav_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_docking_status.py
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_nav_stack_status.py
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/__init__.py
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_parking_status.py
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_nav_task_status.py
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_nav_stack_status_s.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_navigation_status.py
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_motion_source_coverage.py
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_nav_task_status_s.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_localization_status.py
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_recovery_status_s.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_navigation_status_s.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_sensor_status_s.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_active_constraint.py
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_localization_status_s.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_sensor_status.py
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_parking_status_s.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_recovery_status.py
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_docking_status_s.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_protection_status_s.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_protection_status.py
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_motion_source_coverage_s.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_active_constraint_s.c
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/openamr_nav_msgs_s__rosidl_typesupport_c.so
+Listing '/opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs'...
+Compiling '/opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/__init__.py'...
+Listing '/opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg'...
+Compiling '/opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/__init__.py'...
+Compiling '/opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_active_constraint.py'...
+Compiling '/opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_docking_status.py'...
+Compiling '/opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_localization_status.py'...
+Compiling '/opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_motion_source_coverage.py'...
+Compiling '/opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_nav_stack_status.py'...
+Compiling '/opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_nav_task_status.py'...
+Compiling '/opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_navigation_status.py'...
+Compiling '/opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_parking_status.py'...
+Compiling '/opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_protection_status.py'...
+Compiling '/opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_recovery_status.py'...
+Compiling '/opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/msg/_sensor_status.py'...
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/openamr_nav_msgs_s__rosidl_typesupport_fastrtps_c.so
+-- Set non-toolchain portion of runtime path of "/opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/openamr_nav_msgs_s__rosidl_typesupport_fastrtps_c.so" to ""
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/openamr_nav_msgs_s__rosidl_typesupport_introspection_c.so
+-- Set non-toolchain portion of runtime path of "/opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/openamr_nav_msgs_s__rosidl_typesupport_introspection_c.so" to ""
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/openamr_nav_msgs_s__rosidl_typesupport_c.so
+-- Set non-toolchain portion of runtime path of "/opt/nav-install/openamr_nav_msgs/lib/python3.12/site-packages/openamr_nav_msgs/openamr_nav_msgs_s__rosidl_typesupport_c.so" to ""
+-- Installing: /opt/nav-install/openamr_nav_msgs/lib/libopenamr_nav_msgs__rosidl_generator_py.so
+-- Set non-toolchain portion of runtime path of "/opt/nav-install/openamr_nav_msgs/lib/libopenamr_nav_msgs__rosidl_generator_py.so" to ""
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/rust
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/rust/build.rs
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/rust/src
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/rust/src/msg.rs
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/rust/src/msg
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/rust/src/msg/rmw.rs
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/rust/src/lib.rs
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/rust/Cargo.toml
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/NavigationStatus.idl
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/NavStackStatus.idl
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/LocalizationStatus.idl
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/SensorStatus.idl
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/NavTaskStatus.idl
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/RecoveryStatus.idl
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/ProtectionStatus.idl
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/MotionSourceCoverage.idl
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/ActiveConstraint.idl
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/DockingStatus.idl
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/ParkingStatus.idl
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/NavigationStatus.msg
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/NavStackStatus.msg
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/LocalizationStatus.msg
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/SensorStatus.msg
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/NavTaskStatus.msg
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/RecoveryStatus.msg
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/ProtectionStatus.msg
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/MotionSourceCoverage.msg
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/ActiveConstraint.msg
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/DockingStatus.msg
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/msg/ParkingStatus.msg
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/ament_index/resource_index/package_run_dependencies/openamr_nav_msgs
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/ament_index/resource_index/parent_prefix_path/openamr_nav_msgs
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/environment/ament_prefix_path.sh
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/environment/ament_prefix_path.dsv
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/environment/path.sh
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/environment/path.dsv
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/local_setup.bash
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/local_setup.sh
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/local_setup.zsh
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/local_setup.dsv
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/package.dsv
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/ament_index/resource_index/packages/openamr_nav_msgs
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/cmake/export_openamr_nav_msgs__rosidl_generator_cExport.cmake
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/cmake/export_openamr_nav_msgs__rosidl_generator_cExport-noconfig.cmake
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/cmake/export_openamr_nav_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/cmake/export_openamr_nav_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/cmake/openamr_nav_msgs__rosidl_typesupport_introspection_cExport.cmake
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/cmake/openamr_nav_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/cmake/openamr_nav_msgs__rosidl_typesupport_cExport.cmake
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/cmake/openamr_nav_msgs__rosidl_typesupport_cExport-noconfig.cmake
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/cmake/export_openamr_nav_msgs__rosidl_generator_cppExport.cmake
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/cmake/export_openamr_nav_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/cmake/export_openamr_nav_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/cmake/openamr_nav_msgs__rosidl_typesupport_introspection_cppExport.cmake
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/cmake/openamr_nav_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/cmake/openamr_nav_msgs__rosidl_typesupport_cppExport.cmake
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/cmake/openamr_nav_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/cmake/export_openamr_nav_msgs__rosidl_generator_pyExport.cmake
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/cmake/export_openamr_nav_msgs__rosidl_generator_pyExport-noconfig.cmake
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/cmake/rosidl_cmake-extras.cmake
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/cmake/ament_cmake_export_targets-extras.cmake
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/cmake/rosidl_cmake_aggregate_target-extras.cmake
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/cmake/openamr_nav_msgsConfig.cmake
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/cmake/openamr_nav_msgsConfig-version.cmake
+-- Installing: /opt/nav-install/openamr_nav_msgs/share/openamr_nav_msgs/package.xml
+Finished <<< openamr_nav_msgs [36.9s]
+
+Summary: 1 package finished [37.1s]
+8b7e82b2bc6b2705c72cdf17002e4feaf5077e62bd7ca1f044df3a59e000f60b  /evidence/navigation-install.tar.gz
+692f105fd5415ea2203e95ab31f954412a0ba1451249e31136b94d7c3f22bb73  /evidence/interfaces-source.zip
+PASS: pinned producer install packaged

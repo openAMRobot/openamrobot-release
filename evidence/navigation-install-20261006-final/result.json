@@ -1,0 +1,45 @@
+{
+  "status": "passed",
+  "started_at_utc": "2026-10-06T15:27:20.461351+00:00",
+  "source_commit": "fa7c438e33bd807c174fa0747119d7d627faa3bf",
+  "packages": {
+    "openamr_nav_msgs": "0.0.0"
+  },
+  "contract_version": 1,
+  "validation_image": "ros@sha256:c3706ef0a0aa45413c07803cf433602f543b22e45b4855f6fca955c2d8ecc4e8",
+  "platform": "linux/amd64",
+  "workflow_run_url": null,
+  "runs": [
+    {
+      "name": "first",
+      "status": "passed",
+      "install_artifact": "first/producer/navigation-install.tar.gz",
+      "install_artifact_sha256": "8b7e82b2bc6b2705c72cdf17002e4feaf5077e62bd7ca1f044df3a59e000f60b",
+      "source_archive": "first/producer/interfaces-source.zip",
+      "source_archive_sha256": "692f105fd5415ea2203e95ab31f954412a0ba1451249e31136b94d7c3f22bb73",
+      "generated_messages_verified": 11,
+      "consumer_build_and_run": "passed",
+      "absent_install_negative_control": "passed",
+      "producer_source_available_to_consumer": false
+    },
+    {
+      "name": "second",
+      "status": "passed",
+      "install_artifact": "second/producer/navigation-install.tar.gz",
+      "install_artifact_sha256": "9488552f48777d936b0fac050b65667d3b3fb8d537ed33f02d5127e782004ffd",
+      "source_archive": "second/producer/interfaces-source.zip",
+      "source_archive_sha256": "692f105fd5415ea2203e95ab31f954412a0ba1451249e31136b94d7c3f22bb73",
+      "generated_messages_verified": 11,
+      "consumer_build_and_run": "passed",
+      "absent_install_negative_control": "passed",
+      "producer_source_available_to_consumer": false
+    }
+  ],
+  "comparison": {
+    "consumer/generated.sha256": "50fd53369eb6679ad36934283ac2410f3f52629a5b70560175ab2577ae8e81a0",
+    "consumer/interfaces.txt": "e243c941c6e0fc8cea6988bcfaa1d6fbe580887d25d324883f1431c79c7009aa",
+    "consumer/dependencies.txt": "5f04f44226dfcb55f9c1a76e864389e2ef89733589571561ca4e2aaa0d377cc0",
+    "producer/dependencies.txt": "14b3ad4f0976e5ff2041f026c30d5553564ac65bed05a717a8893e48341369d3"
+  },
+  "finished_at_utc": "2026-10-06T15:30:49.442574+00:00"
+}

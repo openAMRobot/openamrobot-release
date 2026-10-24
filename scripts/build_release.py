@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import argparse, csv, hashlib, json, os, shutil, sys, tempfile, zipfile
+import argparse, csv, hashlib, json, os, re, shutil, sys, tempfile, zipfile
+import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -67,6 +68,26 @@ def main() -> int:
         if not archive.is_file():
             raise SystemExit(f"Missing component archive: {archive}")
         archive_hash = sha256(archive)
+        install_metadata = None
+        if component.get('install_manifest'):
+            install_path = args.config.parent / component['install_manifest']
+            install = json.loads(install_path.read_text())
+            evidence_path = install_path.parent / install['evidence_path']
+            evidence = json.loads(evidence_path.read_text())
+            if evidence.get('status') != 'passed':
+                raise SystemExit('Navigation installation evidence is not passing')
+            for field in ('source_commit', 'packages', 'contract_version', 'validation_image', 'platform'):
+                if evidence.get(field) != install.get(field):
+                    raise SystemExit(f'Navigation evidence mismatch: {field}')
+            if not any(run.get('source_archive_sha256') == archive_hash for run in evidence.get('runs', [])):
+                raise SystemExit('Interfaces source archive is not the archive validated by the install run')
+            install_metadata = {
+                'source_commit': install['source_commit'],
+                'packages': install['packages'], 'contract_version': install['contract_version'],
+                'installation_status': install['status'],
+                'installation_evidence': evidence,
+                'installation_evidence_sha256': sha256(evidence_path),
+            }
         with tempfile.TemporaryDirectory() as td:
             td_path = Path(td)
             with zipfile.ZipFile(archive) as zf:
@@ -76,16 +97,28 @@ def main() -> int:
             if not root.is_dir():
                 roots = [x.name for x in td_path.iterdir()]
                 raise SystemExit(f"Expected root {component['expected_root']} not found in {archive.name}; found {roots}")
+            if install_metadata:
+                if comment != install_metadata['source_commit']:
+                    raise SystemExit('Interfaces archive commit does not match the installation manifest')
+                nav = root / 'ros2/openamr_nav_msgs'
+                if ET.parse(nav / 'package.xml').findtext('version') != install_metadata['packages']['openamr_nav_msgs']:
+                    raise SystemExit('Navigation package version does not match the installation manifest')
+                match = re.search(r'^uint16 CONTRACT_VERSION=(\d+)\b', (nav / 'msg/NavigationStatus.msg').read_text(), re.MULTILINE)
+                if not match or int(match.group(1)) != install_metadata['contract_version']:
+                    raise SystemExit('Navigation contract version does not match the installation manifest')
             destination = package_dir / component['destination']
             copy_tree(root, destination, excluded)
-        manifest['components'].append({
+        component_record = {
             'id': component['id'],
             'repository': component['repository'],
             'archive': archive.name,
             'archive_sha256': archive_hash,
             'source_archive_comment_or_commit': comment or None,
             'destination': component['destination']
-        })
+        }
+        if install_metadata:
+            component_record.update(install_metadata)
+        manifest['components'].append(component_record)
 
     (package_dir/'VERSION').write_text(version+'\n')
     (package_dir/'MANIFEST.json').write_text(json.dumps(manifest, indent=2)+'\n')

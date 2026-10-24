@@ -1,0 +1,405 @@
+openamr_nav_msgs/msg/ActiveConstraint
+uint8 TYPE_UNKNOWN=0
+uint8 TYPE_SPEED_LIMIT=1
+uint8 TYPE_REVERSE_LIMIT=2
+uint8 TYPE_COLLISION_APPROACH=3
+uint8 type
+
+float32 value                     # m/s for SPEED_LIMIT/REVERSE_LIMIT, s for COLLISION_APPROACH
+uint16 reason                     # see NavigationStatus.msg
+openamr_nav_msgs/msg/DockingStatus
+std_msgs/Header header
+	builtin_interfaces/Time stamp
+		int32 sec
+		uint32 nanosec
+	string frame_id
+
+uint8 ACTIVITY_UNKNOWN=0
+uint8 ACTIVITY_NONE=1
+uint8 ACTIVITY_DOCKING=2
+uint8 ACTIVITY_UNDOCKING=3
+uint8 ACTIVITY_FAILED=4
+uint8 activity                    # latched until next command
+
+uint8 ENGAGEMENT_UNKNOWN=0
+uint8 ENGAGEMENT_DOCKED=1
+uint8 ENGAGEMENT_NOT_DOCKED=2
+uint8 engagement                  # kept separate from activity on purpose
+
+uint8 PHASE_UNKNOWN=0
+uint8 PHASE_NONE=1
+uint8 PHASE_STAGING=2
+uint8 PHASE_SCAN=3
+uint8 PHASE_NORMAL_ESTIMATE=4
+uint8 PHASE_APPROACH=5
+uint8 PHASE_FINAL=6
+uint8 phase
+
+uint16 failure_reason              # see NavigationStatus.msg, latched with ACTIVITY_FAILED
+float32 lateral_error_m
+float32 yaw_error_rad
+uint8 visible_tag_count            # 0-3
+builtin_interfaces/Duration elapsed
+	int32 sec
+	uint32 nanosec
+openamr_nav_msgs/msg/LocalizationStatus
+uint8 STATE_UNKNOWN=0
+uint8 STATE_LOST=1
+uint8 STATE_DEGRADED=2
+uint8 STATE_OK=3
+uint8 state
+
+uint8 HEALTH_UNKNOWN=0
+uint8 HEALTH_OK=1
+uint8 HEALTH_DEGRADED=2
+uint8 HEALTH_FAULT=3
+uint8 health
+
+uint16 reason                     # see NavigationStatus.msg
+builtin_interfaces/Duration pose_age
+	int32 sec
+	uint32 nanosec
+float32 covariance_xy             # worse of AMCL's x/y variance, m^2
+float32 covariance_yaw            # rad^2
+bool tf_available
+bool correction_paused
+openamr_nav_msgs/msg/MotionSourceCoverage
+uint8 SOURCE_UNKNOWN=0
+uint8 SOURCE_NAV_CONTROLLER=1
+uint8 SOURCE_RECOVERY=2
+uint8 SOURCE_DOCKING=3
+uint8 SOURCE_UNDOCK_REVERSE=4
+uint8 SOURCE_TELEOP=5
+uint8 SOURCE_PARKING=6
+uint8 source
+
+uint8 COVERAGE_UNKNOWN=0
+uint8 COVERAGE_UNPROTECTED=1
+uint8 COVERAGE_PARTIAL=2
+uint8 COVERAGE_PROTECTED=3
+uint8 coverage                    # collision-monitor coverage only, not overall protection
+
+uint16 reason                     # see NavigationStatus.msg
+openamr_nav_msgs/msg/NavigationStatus
+# Aggregated navigation health/readiness. Functional status only, not a safety
+# function, and scoped to the navigation subsystem — not whole-robot readiness.
+# Arm/base authority and E-stop logic live in I1/I8, not here.
+
+std_msgs/Header header
+	builtin_interfaces/Time stamp
+		int32 sec
+		uint32 nanosec
+	string frame_id
+
+uint16 CONTRACT_VERSION=1         # current version of this interface
+uint16 contract_version           # producer sets this to CONTRACT_VERSION
+
+string profile_id
+string thresholds_id              # "UNSET" if no threshold profile applied
+
+uint8 HEALTH_UNKNOWN=0            # unset field should never read as healthy
+uint8 HEALTH_OK=1
+uint8 HEALTH_DEGRADED=2
+uint8 HEALTH_FAULT=3
+uint8 health
+
+uint8 NAVIGATION_READINESS_NOT_READY=0   # conservative default
+uint8 NAVIGATION_READINESS_READY=1
+uint8 navigation_readiness         # navigation only — not a whole-robot signal
+
+uint16[] not_ready_reasons
+uint16[] active_reasons
+uint8 sensor_gaps
+
+NavStackStatus stack
+	uint8 STATE_UNKNOWN=0
+	uint8 STATE_NOT_STARTED=1
+	uint8 STATE_STARTING=2
+	uint8 STATE_ACTIVE=3
+	uint8 STATE_RESETTING=4
+	uint8 STATE_FAILED=5
+	uint8 state
+	uint16 reason                     #
+	string[] inactive_nodes           #
+LocalizationStatus localization
+	uint8 STATE_UNKNOWN=0
+	uint8 STATE_LOST=1
+	uint8 STATE_DEGRADED=2
+	uint8 STATE_OK=3
+	uint8 state
+	uint8 HEALTH_UNKNOWN=0
+	uint8 HEALTH_OK=1
+	uint8 HEALTH_DEGRADED=2
+	uint8 HEALTH_FAULT=3
+	uint8 health
+	uint16 reason                     #
+	builtin_interfaces/Duration pose_age
+		int32 sec
+		uint32 nanosec
+	float32 covariance_xy             #
+	float32 covariance_yaw            #
+	bool tf_available
+	bool correction_paused
+SensorStatus[] sensors
+	string id
+	uint8 KIND_UNKNOWN=0
+	uint8 KIND_LIDAR=1
+	uint8 KIND_DEPTH_CAMERA=2
+	uint8 KIND_TOF=3
+	uint8 KIND_ULTRASONIC=4
+	uint8 KIND_IMU=5
+	uint8 KIND_ODOMETRY=6
+	uint8 kind
+	string frame_id
+	uint8 STATE_UNKNOWN=0
+	uint8 STATE_ABSENT=1
+	uint8 STATE_STALE=2
+	uint8 STATE_DEGRADED=3
+	uint8 STATE_OK=4
+	uint8 state
+	uint16 reason                     #
+	builtin_interfaces/Duration data_age
+		int32 sec
+		uint32 nanosec
+	float32 rate_hz                   #
+	bool required
+NavTaskStatus task
+	uint8 STATE_UNKNOWN=0
+	uint8 STATE_IDLE=1
+	uint8 STATE_ACTIVE=2
+	uint8 STATE_RECOVERING=3
+	uint8 STATE_SUCCEEDED=4
+	uint8 STATE_ABORTED=5
+	uint8 STATE_CANCELED=6
+	uint8 state
+	uint16 reason                     #
+	uint16 native_error_code          #
+	builtin_interfaces/Time goal_stamp
+		int32 sec
+		uint32 nanosec
+	float32 distance_remaining
+RecoveryStatus recovery
+	uint8 ACTION_NONE=0
+	uint8 ACTION_CLEAR_COSTMAP=1
+	uint8 ACTION_SPIN=2
+	uint8 ACTION_WAIT=3
+	uint8 ACTION_BACKUP=4
+	uint8 action
+	uint8 attempt                     #
+	uint8 attempt_limit
+	uint16 reason                     #
+ProtectionStatus protection
+	uint8 COLLISION_MONITOR_UNKNOWN=0
+	uint8 COLLISION_MONITOR_INACTIVE=1
+	uint8 COLLISION_MONITOR_ACTIVE=2
+	uint8 collision_monitor
+	uint16 collision_monitor_reason
+	MotionSourceCoverage[] motion_sources
+		uint8 SOURCE_UNKNOWN=0
+		uint8 SOURCE_NAV_CONTROLLER=1
+		uint8 SOURCE_RECOVERY=2
+		uint8 SOURCE_DOCKING=3
+		uint8 SOURCE_UNDOCK_REVERSE=4
+		uint8 SOURCE_TELEOP=5
+		uint8 SOURCE_PARKING=6
+		uint8 source
+		uint8 COVERAGE_UNKNOWN=0
+		uint8 COVERAGE_UNPROTECTED=1
+		uint8 COVERAGE_PARTIAL=2
+		uint8 COVERAGE_PROTECTED=3
+		uint8 coverage                    #
+		uint16 reason                     #
+	uint8 REAR_COVERAGE_UNKNOWN=0
+	uint8 REAR_COVERAGE_UNAVAILABLE=1
+	uint8 REAR_COVERAGE_AVAILABLE=2
+	uint8 rear_coverage
+	uint16 rear_coverage_reason
+ActiveConstraint[] constraints
+	uint8 TYPE_UNKNOWN=0
+	uint8 TYPE_SPEED_LIMIT=1
+	uint8 TYPE_REVERSE_LIMIT=2
+	uint8 TYPE_COLLISION_APPROACH=3
+	uint8 type
+	float32 value                     #
+	uint16 reason                     #
+# base/I8 controller has no dedicated status yet - see reason codes below
+
+# reason codes: 0=NONE everywhere, groups start at x001, append-only
+uint16 NONE=0
+
+# stack
+uint16 NAV_STACK_NOT_STARTED=1001
+uint16 NAV_STACK_STARTING=1002
+uint16 NAV_STACK_RESETTING=1003
+uint16 NAV_NODE_INACTIVE=1004
+uint16 NAV_CONFIG_FAULT=1005
+
+# sensors
+uint16 SENSOR_DATA_STALE=2001
+uint16 SENSOR_NOT_CONFIGURED=2002
+uint16 SENSOR_NO_DATA_YET=2003
+uint16 SENSOR_DATA_INVALID=2004
+uint16 SENSOR_RATE_LOW=2005
+
+# localization
+uint16 LOCALIZATION_NOT_INITIALIZED=3001
+uint16 LOCALIZATION_UNCERTAIN=3002
+uint16 LOCALIZATION_STALE_WHILE_MOVING=3003
+uint16 LOCALIZATION_PAUSED_FOR_DOCKING=3004
+uint16 TF_UNAVAILABLE=3005
+
+# nav task
+uint16 GOAL_OUTSIDE_MAP=4001
+uint16 GOAL_BLOCKED=4002
+uint16 START_BLOCKED=4003
+uint16 NO_VALID_PATH=4004
+uint16 PLANNER_TIMEOUT=4005
+uint16 CONTROLLER_TIMEOUT=4006
+uint16 STUCK=4007
+uint16 LOCAL_BLOCKED=4008
+uint16 NAV_UNKNOWN_FAULT=4009
+
+# recovery
+uint16 RECOVERY_IN_PROGRESS=5001
+uint16 RECOVERY_LIMIT_REACHED=5002
+
+# protection
+uint16 COLLISION_LAYER_INACTIVE=6001
+uint16 MOTION_SOURCE_UNPROTECTED=6002
+uint16 REAR_COVERAGE_UNAVAILABLE=6003
+uint16 PROTECTION_STATE_UNKNOWN=6004
+uint16 SPEED_LIMIT_ACTIVE=6005
+uint16 REVERSE_SPEED_LIMITED=6006
+
+# docking
+uint16 DOCK_ENGAGEMENT_UNKNOWN=7001
+uint16 DOCK_TAGS_NOT_VISIBLE=7002
+uint16 DOCK_ALIGNMENT_FAILED=7003
+uint16 DOCK_TIMEOUT=7004
+uint16 DOCK_STAGING_FAILED=7005
+uint16 UNDOCK_FAILED=7006
+uint16 UNDOCKING_BEFORE_GOAL=7007
+uint16 DOCK_REASON_UNSPECIFIED=7008
+
+# parking
+uint16 PARK_TARGET_UNREACHABLE=8001
+uint16 PARK_POSE_MISSED=8002
+uint16 PARKING_NOT_IMPLEMENTED=8003
+
+# base / I8
+uint16 BASE_LINK_LOST=9001
+uint16 BASE_NOT_READY=9002
+uint16 ESTOP_ACTIVE=9003          # only on fresh I8 telemetry reporting E-stop
+                                   # active; stale/missing telemetry is
+                                   # BASE_LINK_LOST/BASE_NOT_READY, not this
+uint16 BATTERY_LOW=9004
+openamr_nav_msgs/msg/NavStackStatus
+uint8 STATE_UNKNOWN=0
+uint8 STATE_NOT_STARTED=1
+uint8 STATE_STARTING=2
+uint8 STATE_ACTIVE=3
+uint8 STATE_RESETTING=4
+uint8 STATE_FAILED=5
+uint8 state
+
+uint16 reason                     # see NavigationStatus.msg
+string[] inactive_nodes           # debug info, not normative
+openamr_nav_msgs/msg/NavTaskStatus
+uint8 STATE_UNKNOWN=0
+uint8 STATE_IDLE=1
+uint8 STATE_ACTIVE=2
+uint8 STATE_RECOVERING=3
+uint8 STATE_SUCCEEDED=4
+uint8 STATE_ABORTED=5
+uint8 STATE_CANCELED=6
+uint8 state
+
+uint16 reason                     # see NavigationStatus.msg
+uint16 native_error_code          # raw Nav2 result code, 0 if none
+builtin_interfaces/Time goal_stamp
+	int32 sec
+	uint32 nanosec
+float32 distance_remaining
+openamr_nav_msgs/msg/ParkingStatus
+std_msgs/Header header
+	builtin_interfaces/Time stamp
+		int32 sec
+		uint32 nanosec
+	string frame_id
+
+uint8 STATE_UNKNOWN=0
+uint8 STATE_NOT_PARKED=1
+uint8 STATE_PARKING=2
+uint8 STATE_PARKED=3
+uint8 STATE_LEAVING=4
+uint8 STATE_PARK_FAILED=5
+uint8 state
+
+string target_id
+uint16 reason                     # see NavigationStatus.msg
+openamr_nav_msgs/msg/ProtectionStatus
+uint8 COLLISION_MONITOR_UNKNOWN=0
+uint8 COLLISION_MONITOR_INACTIVE=1
+uint8 COLLISION_MONITOR_ACTIVE=2
+uint8 collision_monitor
+uint16 collision_monitor_reason
+
+MotionSourceCoverage[] motion_sources
+	uint8 SOURCE_UNKNOWN=0
+	uint8 SOURCE_NAV_CONTROLLER=1
+	uint8 SOURCE_RECOVERY=2
+	uint8 SOURCE_DOCKING=3
+	uint8 SOURCE_UNDOCK_REVERSE=4
+	uint8 SOURCE_TELEOP=5
+	uint8 SOURCE_PARKING=6
+	uint8 source
+	uint8 COVERAGE_UNKNOWN=0
+	uint8 COVERAGE_UNPROTECTED=1
+	uint8 COVERAGE_PARTIAL=2
+	uint8 COVERAGE_PROTECTED=3
+	uint8 coverage                    #
+	uint16 reason                     #
+
+uint8 REAR_COVERAGE_UNKNOWN=0
+uint8 REAR_COVERAGE_UNAVAILABLE=1
+uint8 REAR_COVERAGE_AVAILABLE=2
+uint8 rear_coverage
+uint16 rear_coverage_reason
+openamr_nav_msgs/msg/RecoveryStatus
+uint8 ACTION_NONE=0
+uint8 ACTION_CLEAR_COSTMAP=1
+uint8 ACTION_SPIN=2
+uint8 ACTION_WAIT=3
+uint8 ACTION_BACKUP=4
+uint8 action
+
+uint8 attempt                     # own counter, not Nav2's number_of_recoveries
+uint8 attempt_limit
+uint16 reason                     # see NavigationStatus.msg
+openamr_nav_msgs/msg/SensorStatus
+string id
+
+uint8 KIND_UNKNOWN=0
+uint8 KIND_LIDAR=1
+uint8 KIND_DEPTH_CAMERA=2
+uint8 KIND_TOF=3
+uint8 KIND_ULTRASONIC=4
+uint8 KIND_IMU=5
+uint8 KIND_ODOMETRY=6
+uint8 kind
+
+string frame_id
+
+uint8 STATE_UNKNOWN=0
+uint8 STATE_ABSENT=1
+uint8 STATE_STALE=2
+uint8 STATE_DEGRADED=3
+uint8 STATE_OK=4
+uint8 state
+
+uint16 reason                     # see NavigationStatus.msg
+builtin_interfaces/Duration data_age
+	int32 sec
+	uint32 nanosec
+float32 rate_hz                   # rolling average over the last ~1s; 0 if ABSENT
+bool required

@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use OpenAMRobot in your work, please cite it as below."
+title: "OpenAMRobot: open-source dual-arm mobile manipulator for embodied AI"
+type: software
+authors:
+  - name: "Botshare Ltd"
+  - family-names: "Reznichenko"
+    given-names: "Alex"
+repository-code: "https://github.com/openAMRobot/openamrobot-release"
+url: "https://docs.openamrobot.ai"
+abstract: >-
+  OpenAMRobot is a general-purpose open-source mobile manipulation
+  platform for embodied AI: a differential-drive mobile base, a lift
+  and two arms, ROS 2 software, firmware, CAD and documentation.
+  Domain experts teach it tasks by demonstration.
+keywords:
+  - robotics
+  - ros2
+  - embodied-ai
+  - mobile-manipulation
+  - open-hardware
+license:
+  - MIT
+  - CC-BY-4.0
+  - CERN-OHL-P-2.0
+version: "0.0.1"
+date-released: "2026-07-11"

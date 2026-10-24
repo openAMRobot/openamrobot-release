@@ -1,19 +1,24 @@
 # OpenAMRobot Release Process
 
+For navigation package pinning, clean install evidence, and candidate manifest
+validation, follow [the navigation install gate](docs/navigation-install.md).
+`navigation-install-test-config.json` is a navigation-only test fixture,
+not a product release configuration. PR #12 owns rc.1 source selection.
+
 This repository builds a product-level OpenAMRobot release from the project's distributed repositories.
 
 ## Directory Structure
 
 ```text
 openamrobot-release/
-├── input/                 # Component ZIP archives; ignored by Git
-├── dist/                  # Generated release assets; ignored by Git
-├── release-metadata/      # Product-level README and release documents
-├── scripts/
-│   ├── build_release.py
-│   └── validate_release.py
-├── release-config.json
-└── RELEASE_PROCESS.md
+â”œâ”€â”€ input/                 # Component ZIP archives; ignored by Git
+â”œâ”€â”€ dist/                  # Generated release assets; ignored by Git
+â”œâ”€â”€ release-metadata/      # Product-level README and release documents
+â”œâ”€â”€ scripts/
+â”‚   â”œâ”€â”€ build_release.py
+â”‚   â””â”€â”€ validate_release.py
+â”œâ”€â”€ release-config.json
+â””â”€â”€ RELEASE_PROCESS.md
 ```
 
 ## 1. Prepare Component Archives

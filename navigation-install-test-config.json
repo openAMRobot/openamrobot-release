@@ -1,0 +1,31 @@
+{
+  "product": {
+    "name": "NavigationInstallTest",
+    "version": "0.0.0-test",
+    "release_name": "Navigation installation gate fixture; not a product release",
+    "license": "MIT"
+  },
+  "components": [
+    {
+      "id": "interfaces",
+      "archive": "openamrobot-interfaces-fa7c438e33bd807c174fa0747119d7d627faa3bf.zip",
+      "expected_root": "openamrobot-interfaces-fa7c438e33bd807c174fa0747119d7d627faa3bf",
+      "destination": "06_Interfaces",
+      "repository": "https://github.com/openAMRobot/openamrobot-interfaces",
+      "install_manifest": "navigation-install-manifest.json"
+    }
+  ],
+  "exclude_names": [
+    ".git",
+    "__pycache__",
+    ".pytest_cache",
+    "node_modules",
+    "build",
+    "install",
+    "log"
+  ],
+  "required_paths": [
+    "MANIFEST.json",
+    "06_Interfaces/ros2/openamr_nav_msgs/package.xml"
+  ]
+}

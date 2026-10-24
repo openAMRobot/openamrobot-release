@@ -1,0 +1,14 @@
+Command argv: ["C:\\Python314\\python.exe", "-m", "unittest", "discover", "-s", "tests", "-v"]
+test_different_archive_bytes_are_rejected (test_navigation_release.NavigationManifestTests.test_different_archive_bytes_are_rejected) ... ok
+test_different_evidence_pin_is_rejected (test_navigation_release.NavigationManifestTests.test_different_evidence_pin_is_rejected) ... ok
+test_failed_install_is_rejected (test_navigation_release.NavigationManifestTests.test_failed_install_is_rejected) ... ok
+test_legacy_configuration_still_builds_without_install_evidence (test_navigation_release.NavigationManifestTests.test_legacy_configuration_still_builds_without_install_evidence) ... ok
+test_validated_pin_and_contract_reach_product_manifest (test_navigation_release.NavigationManifestTests.test_validated_pin_and_contract_reach_product_manifest) ... ok
+test_wrong_archive_commit_is_rejected (test_navigation_release.NavigationManifestTests.test_wrong_archive_commit_is_rejected) ... ok
+test_wrong_contract_version_is_rejected (test_navigation_release.NavigationManifestTests.test_wrong_contract_version_is_rejected) ... ok
+test_wrong_package_version_is_rejected (test_navigation_release.NavigationManifestTests.test_wrong_package_version_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 3.209s
+
+OK

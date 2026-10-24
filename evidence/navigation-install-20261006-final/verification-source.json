@@ -1,0 +1,14 @@
+{
+  "repository": "https://github.com/openAMRobot/openamrobot-release",
+  "commit": "f44f69e1b580a2ee3db4709082e69be62261feca",
+  "note": "Historical verifier source; full evidence is retained in Actions artifacts.",
+  "files": {
+    "scripts/nav-install/consumer.sh": "66170f45f78cab0a14e85d97a6c6b6b58f9098daefd53b10ecd5f48753c39837",
+    "scripts/nav-install/nav_consumer/CMakeLists.txt": "341b2932478cf475a71e5b5db572f83e7dc6e52b52f11c5bb5e6345ab9824b4a",
+    "scripts/nav-install/nav_consumer/package.xml": "3364db186e674f656f0cd05f0f29735e52ecc48d5ed71b3e0e1de4c0270db7d8",
+    "scripts/nav-install/nav_consumer/smoke.cpp": "0412abe27984d90676c59864831f2961b32961169717c0f8474df6d3476a698d",
+    "scripts/nav-install/producer.sh": "b015ff6f70d1839507bb4898841b1dc9caeac5c361221df3d02483dcaa0cd280",
+    "scripts/nav-install/verify-nav-generated.py": "de2f1e1a356a707300d305b4f5110c432ca36f1c8f17f80b9a183f2afc4732f0",
+    "scripts/validate_navigation_install.py": "cf29d8cb1b5d629552c18c4a14ece4685af81dba4108bde52064a549c9ce5235"
+  }
+}
