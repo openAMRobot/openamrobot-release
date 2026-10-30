@@ -14,6 +14,11 @@ p=argparse.ArgumentParser()
 p.add_argument('archive', type=Path)
 a=p.parse_args()
 if not a.archive.is_file(): raise SystemExit('Archive not found')
+with zipfile.ZipFile(a.archive) as archive:
+    if 'release.repos' in archive.namelist():
+        from build_pinned_release import validate
+        validate(a.archive)
+        raise SystemExit(0)
 with tempfile.TemporaryDirectory() as td:
     td=Path(td)
     with zipfile.ZipFile(a.archive) as z:
