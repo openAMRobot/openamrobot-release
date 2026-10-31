@@ -40,3 +40,9 @@ The historical #17-only snapshot correctly failed for both missing drivers.
 On 2026-10-30 the old workflow rerun required unavailable repository admin
 rights. This state update triggers fresh PR checks with the source pins,
 source checksums and builder code unchanged; hosted results remain pending.
+
+CI hardening follow-up (2026-10-31): remaining third-party action tags in
+the candidate and legacy build workflows are replaced by verified commit
+SHAs. Build/test command output is retained by an always-run diagnostics
+upload. Bash pipefail preserves command failures through tee. Successful
+candidate artifacts remain success-only. No source pins or checksums change.
