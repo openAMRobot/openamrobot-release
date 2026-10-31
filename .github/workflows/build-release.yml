@@ -6,13 +6,32 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - name: Build
-        run: python3 scripts/build_release.py --config release-config.json --input-dir input --output-dir dist
+        run: |
+          mkdir -p diagnostics
+          python3 scripts/build_release.py --config release-config.json --input-dir input --output-dir dist 2>&1 | tee diagnostics/step-14.log
       - name: Validate
-        run: python3 scripts/validate_release.py dist/OpenAMRobot-v0.0.1-source.zip
-      - uses: actions/upload-artifact@v4
+        run: |
+          mkdir -p diagnostics
+          python3 scripts/validate_release.py dist/OpenAMRobot-v0.0.1-source.zip 2>&1 | tee diagnostics/step-18.log
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: OpenAMRobot-v0.0.1
           path: dist/
+      - name: Retain diagnostic evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: legacy-build-diagnostics
+          path: |
+            diagnostics/
+            release-config*.json
+            manifests/*.repos
+            manifest-reference/releases/v2.0.0-rc.1.repos
+            dist/**/*.sha256
+          if-no-files-found: warn
