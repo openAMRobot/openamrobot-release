@@ -40,3 +40,12 @@ The historical #17-only snapshot correctly failed for both missing drivers.
 On 2026-10-30 the old workflow rerun required unavailable repository admin
 rights. This state update triggers fresh PR checks with the source pins,
 source checksums and builder code unchanged; hosted results remain pending.
+
+Separate interfaces-repin preparation (2026-11-01): the source-free navigation
+consumer now takes an explicit package version and contract from its manifest.
+A test-only fixture checks interfaces PR #28 head 7bfd42e with contract 2 and
+its existing 0.0.0 package version; it is not an approved release selection.
+Contract-1 regression validation remains active. Release pins/checksums stay
+unchanged. Repinning waits for author DCO correction, approved package versions,
+consumer acceptance and an accepted source commit. Platform-sw #73 still has
+requested changes. Local Docker is unavailable; hosted checks supply builds.

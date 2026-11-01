@@ -5,6 +5,7 @@ from datetime import datetime, timezone
 import hashlib
 import json
 import os
+import re
 from pathlib import Path
 import shutil
 import subprocess
@@ -44,6 +45,10 @@ def main():
         parser.error('source_commit must be a full lowercase commit SHA')
     if '@sha256:' not in manifest['validation_image']:
         parser.error('validation_image must be digest-pinned')
+    if manifest['contract_version'] not in (1, 2):
+        parser.error('unsupported contract_version; expected 1 or 2')
+    if not re.fullmatch(r'[0-9]+\.[0-9]+\.[0-9]+', manifest['packages']['openamr_nav_msgs']):
+        parser.error('expected an explicit numeric package version')
     evidence = args.evidence.resolve()
     evidence.mkdir(parents=True, exist_ok=False)
     result = {
@@ -91,7 +96,8 @@ def main():
                 print(f'{attempt}: check installed artifact in a separate source-free consumer container', flush=True)
                 run(common + ['--mount', f'type=bind,source={producer / "navigation-install.tar.gz"},target=/artifact/navigation-install.tar.gz,readonly',
                               '--mount', f'type=bind,source={consumer},target=/evidence',
-                              manifest['validation_image'], 'bash', '/checks/consumer.sh', str(manifest['contract_version'])],
+                              manifest['validation_image'], 'bash', '/checks/consumer.sh', str(manifest['contract_version']),
+                              manifest['packages']['openamr_nav_msgs']],
                     consumer / 'validation.log')
                 result['runs'].append({
                     'name': attempt, 'status': 'passed',
@@ -99,7 +105,8 @@ def main():
                     'install_artifact_sha256': digest(producer / 'navigation-install.tar.gz'),
                     'source_archive': f'{attempt}/producer/interfaces-source.zip',
                     'source_archive_sha256': digest(producer / 'interfaces-source.zip'),
-                    'generated_messages_verified': 11, 'consumer_build_and_run': 'passed',
+                    'generated_messages_verified': 12 if manifest['contract_version'] == 2 else 11,
+                    'consumer_build_and_run': 'passed',
                     'absent_install_negative_control': 'passed',
                     'producer_source_available_to_consumer': False,
                 })

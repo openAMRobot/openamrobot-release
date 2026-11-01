@@ -28,10 +28,14 @@ jobs:
         run: python3 -m unittest discover -s tests -v
       - name: Verify pinned install and consumers
         run: python3 scripts/validate_navigation_install.py --evidence evidence/navigation-install
+      - name: Verify unmerged contract 2 test fixture (not release selection)
+        run: python3 scripts/validate_navigation_install.py --manifest tests/navigation-contract2-fixture.json --evidence evidence/navigation-contract2
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:
           name: navigation-pinned-install-evidence
-          path: evidence/navigation-install/
+          path: |
+            evidence/navigation-install/
+            evidence/navigation-contract2/
           include-hidden-files: true
           if-no-files-found: error

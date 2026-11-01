@@ -9,6 +9,8 @@ NAMES = ('ActiveConstraint', 'DockingStatus', 'LocalizationStatus',
          'MotionSourceCoverage', 'NavigationStatus', 'NavStackStatus',
          'NavTaskStatus', 'ParkingStatus', 'ProtectionStatus', 'RecoveryStatus',
          'SensorStatus')
+if int(os.environ['EXPECTED_CONTRACT']) == 2:
+    NAMES += ('SiteConfigStatus',)
 assert NavigationStatus.CONTRACT_VERSION == int(os.environ['EXPECTED_CONTRACT'])
 with open('/evidence/interfaces.txt', 'w') as output:
     for name in NAMES:

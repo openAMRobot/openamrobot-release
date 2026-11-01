@@ -3,6 +3,7 @@ set -eo pipefail
 exec > >(tee /evidence/steps.log) 2>&1
 trap 'code=$?; echo "FAIL: consumer line $LINENO (exit $code)"; exit "$code"' ERR
 export EXPECTED_CONTRACT=$1
+expected_package_version=$2
 source /opt/ros/jazzy/setup.bash
 apt-get update
 apt-get install -y --no-install-recommends build-essential python3-colcon-common-extensions ros-jazzy-rclcpp ros-jazzy-rclpy ros-jazzy-std-msgs ros-jazzy-rosidl-default-runtime
@@ -13,7 +14,7 @@ mkdir -p /consumer/src
 cp -a /checks/nav_consumer /consumer/src/nav_consumer
 cd /consumer
 # Negative control: ROS alone cannot configure this consumer.
-if colcon build --event-handlers console_direct+ > /evidence/absent-install.log 2>&1; then
+if colcon build --event-handlers console_direct+ --cmake-args "-DEXPECTED_PACKAGE_VERSION=$expected_package_version" "-DEXPECTED_CONTRACT=$EXPECTED_CONTRACT" > /evidence/absent-install.log 2>&1; then
   echo 'FAIL: consumer unexpectedly built without the installed package'
   exit 1
 fi
@@ -41,7 +42,7 @@ find include share/openamr_nav_msgs/msg -type f \( -name '*.h' -o -name '*.hpp' 
 test -s /evidence/generated.sha256
 dpkg-query -W -f='${Package}=${Version}\n' | sort > /evidence/dependencies.txt
 cd /consumer
-colcon build --event-handlers console_direct+
+colcon build --event-handlers console_direct+ --cmake-args "-DEXPECTED_PACKAGE_VERSION=$expected_package_version" "-DEXPECTED_CONTRACT=$EXPECTED_CONTRACT"
 cp -a log /evidence/consumer-log
 source install/local_setup.bash
 ros2 run nav_install_consumer smoke
