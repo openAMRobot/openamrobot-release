@@ -22,7 +22,7 @@ Development continues on `main` in every component repository. `main` is never a
 
 | Version | Date | Content |
 |---|---|---|
-| v0.0.1 | 11 July 2026 | First public platform release: the existing robot (Raspberry Pi 5, Teensy 4.0 with the linorobot2 overlay, RPLIDAR A1). |
+| v0.0.1 | 11 July 2026 | First public platform release: the existing robot (legacy compute: Raspberry Pi 5, Teensy 4.0 with the linorobot2 overlay, RPLIDAR A1). |
 | v2.0.0-rc.1 | 20 November 2026 (planned) | OpenAMRobot 2.0 pre-release: full readiness, frozen platform baseline. Published as a GitHub pre-release. |
 | v2.0.0 | 18 December 2026 (planned) | OpenAMRobot 2.0 final release, after physical integration, testing and acceptance. |
 
