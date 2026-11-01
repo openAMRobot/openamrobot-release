@@ -10,9 +10,10 @@ repository-code: "https://github.com/openAMRobot/openamrobot-release"
 url: "https://docs.openamrobot.ai"
 abstract: >-
   OpenAMRobot is a general-purpose open-source mobile manipulation
-  platform for embodied AI: a differential-drive mobile base, a lift
-  and two arms, ROS 2 software, firmware, CAD and documentation.
-  Domain experts teach it tasks by demonstration.
+  platform for embodied AI: a differential-drive mobile base with ROS 2
+  software, firmware, CAD and documentation; OpenAMRobot 2.0 adds a lift
+  (approved in principle) and two arms. Domain experts teach it tasks by
+  demonstration.
 keywords:
   - robotics
   - ros2
