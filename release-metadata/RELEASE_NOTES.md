@@ -8,7 +8,7 @@ This release provides one frozen package containing the distributed OpenAMRobot 
 
 - Differential-drive mobile platform
 - Laser-cut and bent sheet-metal chassis
-- Raspberry Pi 5 and Teensy 4.0 architecture
+- Legacy v0.0.1 architecture: Raspberry Pi 5 and Teensy 4.0
 - LiDAR, IMU, and wheel encoders
 - CAD, drawings, manufacturing files, BOM, wiring, datasheets, and safety documentation
 
@@ -32,6 +32,10 @@ This release provides one frozen package containing the distributed OpenAMRobot 
 - Voice and large-language-model command workflow
 
 ## Planned next development cycle
+
+The 2.0 reference compute is NVIDIA Jetson Orin NX 16 GB on a reComputer
+Robotics J401 carrier with NVMe. The legacy v0.0.1 hardware described above
+is historical and does not define the supported 2.0 compute configuration.
 
 During the next two months, the project plans to:
 
