@@ -16,12 +16,21 @@ template<class Message> void round_trip(const Message & input) {
 
 int main() {
   using openamr_nav_msgs::msg::NavigationStatus;
-  static_assert(NavigationStatus::CONTRACT_VERSION == 1, "Contract changed");
+  static_assert(NavigationStatus::CONTRACT_VERSION == EXPECTED_CONTRACT, "Contract changed");
   NavigationStatus status;
   status.contract_version = NavigationStatus::CONTRACT_VERSION;
   status.profile_id = "clean-install-consumer";
   status.sensors.emplace_back();
   status.constraints.emplace_back();
+#if EXPECTED_CONTRACT == 2
+  status.site_config.state = status.site_config.STATE_MATCHED;
+  status.site_config.floor_coverage = status.site_config.COVERAGE_FULL;
+  status.site_config.reason = NavigationStatus::NONE;
+  status.site_config.map_id = "install-test-map";
+  status.site_config.map_version = "test-map-content-hash";
+  status.site_config.config_id = "install-test-config";
+  status.site_config.config_version = "test-config-content-hash";
+#endif
   round_trip(status);
   round_trip(openamr_nav_msgs::msg::DockingStatus{});
   round_trip(openamr_nav_msgs::msg::ParkingStatus{});

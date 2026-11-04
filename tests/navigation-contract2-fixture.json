@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "component": "interfaces",
+  "source_repository": "https://github.com/skunal3318/openamrobot-interfaces.git",
+  "source_commit": "119434654f910ba9932f4f6663423952aee5f821",
+  "packages": {
+    "openamr_nav_msgs": "0.0.0"
+  },
+  "contract_version": 2,
+  "status": "unmerged-contract2-test-fixture",
+  "validation_image": "ros:jazzy-ros-base@sha256:066420e07f60aa18262f2479981def87ebcfcec42eefb0c0c57c4a46098348ca",
+  "platform": "linux/amd64",
+  "ros_distribution": "jazzy",
+  "evidence_path": "evidence/navigation-contract2/result.json",
+  "workflow_run_url": null,
+  "published_release_url": null
+}
