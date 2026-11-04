@@ -43,9 +43,15 @@ source checksums and builder code unchanged; hosted results remain pending.
 
 Separate interfaces-repin preparation (2026-11-01): the source-free navigation
 consumer now takes an explicit package version and contract from its manifest.
-A test-only fixture checks interfaces PR #28 head 7bfd42e with contract 2 and
+A test-only fixture checks interfaces PR #28 head 1194346 with contract 2 and
 its existing 0.0.0 package version; it is not an approved release selection.
 Contract-1 regression validation remains active. Release pins/checksums stay
 unchanged. Repinning waits for author DCO correction, approved package versions,
 consumer acceptance and an accepted source commit. Platform-sw #73 still has
 requested changes. Local Docker is unavailable; hosted checks supply builds.
+
+2026-11-04: refresh only the unmerged test fixture to interfaces #28 head
+119434654f910ba9932f4f6663423952aee5f821. Its package versions remain
+0.0.0; DCO still needs author action and no release-version approval is
+recorded. Upperbody #14 merged at 41ff4ea; full Gate A acceptance remains
+required before the separate four-component pin refresh.
