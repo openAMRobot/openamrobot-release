@@ -1,3 +1,5 @@
+> For the SHA-pinned **v2.0.0-rc.1 candidate builder**, see [RC1_RELEASE.md](RC1_RELEASE.md).
+
 # OpenAMRobot v0.0.1
 
 For the pending navigation release-install gate, see

@@ -1,3 +1,5 @@
+> For the SHA-pinned rc.1 candidate build procedure, see [RC1_RELEASE.md](RC1_RELEASE.md).
+
 # OpenAMRobot Release Process
 
 For navigation package pinning, clean install evidence, and candidate manifest

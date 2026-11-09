@@ -34,9 +34,14 @@ def main() -> int:
     p.add_argument('--output-dir', required=True, type=Path)
     p.add_argument('--metadata-dir', type=Path, default=Path('release-metadata'))
     p.add_argument('--keep-staging', action='store_true')
+    p.add_argument('--fetch', action='store_true', help='Fetch pinned rc.1 sources by SHA before building')
     args = p.parse_args()
 
     cfg = json.loads(args.config.read_text())
+    if 'manifest' in cfg:
+        from build_pinned_release import build
+        build(args.config, args.output_dir, args.input_dir, args.fetch)
+        return 0
     product = cfg['product']
     version = product['version']
     package_name = f"{product['name']}-v{version}"
