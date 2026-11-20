@@ -1,6 +1,6 @@
 # OpenAMRobot v2.0.0-rc.1 release notes (DRAFT)
 
-Status: draft for owner review, prepared 2026-11-20, refreshed 2026-11-20 13:30 UTC.
+Status: draft for owner review, prepared 2026-11-20, refreshed 2026-11-20 19:30 UTC.
 Not published, not tagged. Trial builds only (local, see "Source pins and lock");
 the published archive is built by CI after the merges in RUNBOOK.md. The release model is unchanged: this repository holds the release
 archive and is the ground truth; version tags in component repositories are
@@ -46,7 +46,7 @@ Only these labels are used.
 | main a3a93c6: combined robot description, MoveIt 2, OpenArm software in the loop on virtual CAN (#67), joint dynamics (#66), actuator ledger (#65) | merged and CI green | a6 (static+mock), sil (vcan, real driver), repository-quality pass; a7 (simulation) skipped, not run |
 | Combined model platform pin | not verified | main pins platform-sw 8e7a454, three commits behind the rc.1 platform pin 69847ab; in a workspace imported from the rc.1 manifest C02 fails on that difference. Repin 8e7a454 -> 69847ab proposed in #74 (c0c405c): the expanded model keeps every link, joint, inertial and mesh, only six Gazebo friction blocks change (#135); on c0c405c a6 927 executed / 0 failed with C02 PASS (run 44739809301) and a7 297 executed / 0 failed (run 44739808961); draft, not merged |
 | Lift permit wait (#94), lift emulator pin (#95), palm standoff (#98), scn03 targets (#99) | proposed (draft PR) | code-owner reviews 20 Nov: #95 and #99 adopt, approval on a green head; #94 adapt (same wait in more places); #98 conditions on the contact gate; none approved |
-| Integration branch integration/baseline1 c0af973 (#77, never merged) | not verified | head commits since 323a2ce are [skip ci] (strict gates, cancellation check and retreat options, all Proposed); last CI on 323a2ce: scene tests, emulator tests and arm diagnostics fail, Baseline 1 acceptance cancelled |
+| Integration branch integration/baseline1 196dd3f (#77, never merged) | not verified | head commits since 323a2ce are [skip ci] (strict gates, cancellation check, retreat options and the reverse-speed measure, all Proposed); no strict acceptance run on these commits; last CI on 323a2ce: scene tests, emulator tests and arm diagnostics fail, Baseline 1 acceptance cancelled |
 
 ### Baseline 1 whole-robot mission (simulation)
 
@@ -174,9 +174,10 @@ Trial builds, 20 Nov 2026, local, two independent `--fetch` builds from the lock
 | src/micro_ros_agent | micro-ROS/micro-ROS-Agent | 7c932329ad5591ef23942ef1962534258c16b000 | unchanged upstream pin |
 | governance/.github | openAMRobot/.github | 87c848617bd9a2135a5c75e1aaa54be8f8955556 | main |
 
-Integration snapshot (not release content): platform-sw integration/baseline1
-fb25be1b56652316f47b7505cef021576822c558 (#161); upperbody-sw integration/baseline1
-c0af97391fd90c955053ac4d063d4f3bb3d8bae8 (#77).
+Integration snapshot (not release content), heads read 2026-11-20 19:00 UTC:
+platform-sw integration/baseline1 fb25be1b56652316f47b7505cef021576822c558 (#161);
+upperbody-sw integration/baseline1 196dd3fe64900ba4a12124c9ee20e0cfaafa1651 (#77).
+The runs above name the older commits they ran on.
 
 Simulation evidence pre-releases referenced (upperbody-sw, all pre-releases,
 simulation only): sim-baseline1-2026-11-18 (5df600b), sim-grocery-demo-2026-11-18
