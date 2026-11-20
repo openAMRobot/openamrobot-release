@@ -1,0 +1,175 @@
+From 3a508903d47128954d054bf1a322530c871972c6 Mon Sep 17 00:00:00 2001
+From: Alex Reznichenko <info@botshare.ai>
+Date: Fri, 20 Nov 2026 13:02:39 +0000
+Subject: [PATCH] releases: v2.0.0-rc.1 pins to the reviewed main of each
+ repository (2026-11-20)
+
+Moves releases/v2.0.0-rc.1.repos from the 2026-10-19 candidate to the
+SHAs of openamrobot-release manifests/v2.0.0-rc.1.repos, whose parity
+check compares the two. Adds openamrobot-embodied-ai to the development
+and rc.1 manifests (14 entries); the two counting tests follow.
+Source pins only, not release acceptance.
+
+Signed-off-by: Alex Reznichenko <info@botshare.ai>
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01DZnPEMPDB6f8AohTTfGWkF
+---
+ README.md                    |  2 +-
+ STATE.md                     |  8 ++++++++
+ openamrobot.repos            |  1 +
+ releases/v2.0.0-rc.1.repos   | 27 ++++++++++++++++-----------
+ tests/test_check_manifest.py |  4 ++--
+ tests/test_driver_sources.py |  2 +-
+ 6 files changed, 29 insertions(+), 15 deletions(-)
+
+diff --git a/README.md b/README.md
+index 0d88848..cff6fb7 100644
+--- a/README.md
++++ b/README.md
+@@ -16,7 +16,7 @@ ROS 2 packages land in `src/`; additional UI ROS packages are discovered under `
+ 
+ `openamrobot.repos` remains the development manifest and may track branches.
+ [`releases/v2.0.0-rc.1.repos`](releases/v2.0.0-rc.1.repos) is a separate candidate
+-snapshot dated 2026-10-19. All 13 entries use full 40-character commit SHAs and
++snapshot of the reviewed main of each repository, read 2026-11-20 (v2.0.0-rc.1). All 14 entries use full 40-character commit SHAs and
+ retain the development manifest's repository URLs and checkout paths.
+ 
+ From this repository, validate the snapshot:
+diff --git a/STATE.md b/STATE.md
+index 384961d..f2917e7 100644
+--- a/STATE.md
++++ b/STATE.md
+@@ -1,5 +1,13 @@
+ # Manifest state
+ 
++## v2.0.0-rc.1 pins (2026-11-20)
++
++`releases/v2.0.0-rc.1.repos` moves from the 2026-10-19 candidate to the reviewed
++main of each repository read on 2026-11-20, the same SHAs as
++openamrobot-release `manifests/v2.0.0-rc.1.repos` (its parity check requires
++it). openamrobot-embodied-ai joins both manifests, so they hold 14 entries; the
++two counting tests follow. Source pins only, not release acceptance.
++
+ ## OA-06 source drivers
+ 
+ The development and rc.1 manifests now contain 13 entries, adding pinned
+diff --git a/openamrobot.repos b/openamrobot.repos
+index a008733..98cef1d 100644
+--- a/openamrobot.repos
++++ b/openamrobot.repos
+@@ -8,6 +8,7 @@ repositories:
+   src/openamrobot-manipulation: { type: git, url: https://github.com/openAMRobot/openamrobot-manipulation.git, version: main }
+   src/openamr-platform-sw:      { type: git, url: https://github.com/openAMRobot/openamr-platform-sw.git, version: main }
+   src/openamr-upperbody-sw:     { type: git, url: https://github.com/openAMRobot/openamr-upperbody-sw.git, version: main }
++  src/openamrobot-embodied-ai:  { type: git, url: https://github.com/openAMRobot/openamrobot-embodied-ai.git, version: main }
+   firmware/openamr-platform-fw: { type: git, url: https://github.com/openAMRobot/openamr-platform-fw.git, version: main }
+   firmware/openamr-upperbody-fw: { type: git, url: https://github.com/openAMRobot/openamr-upperbody-fw.git, version: main }
+   hardware/openamr-platform-hw: { type: git, url: https://github.com/openAMRobot/openamr-platform-hw.git, version: main }
+diff --git a/releases/v2.0.0-rc.1.repos b/releases/v2.0.0-rc.1.repos
+index 20f0891..e94bb73 100644
+--- a/releases/v2.0.0-rc.1.repos
++++ b/releases/v2.0.0-rc.1.repos
+@@ -1,29 +1,34 @@
+-# Candidate snapshot: 2026-10-19. Not release acceptance.
++# OpenAMRobot v2.0.0-rc.1 source pins: reviewed main of each repository, read 2026-11-20.
++# Replaces the 2026-10-19 candidate snapshot. Source packaging lock, not release acceptance.
+ repositories:
+   src/openamrobot-interfaces:
+     type: git
+     url: https://github.com/openAMRobot/openamrobot-interfaces.git
+-    version: 87ab8a936c97ab55ee74b8988ca3d7659160ea6a
++    version: 50ed777be7990edbd3465f33fd97a158e7e3b88b
+   src/openamrobot-comm:
+     type: git
+     url: https://github.com/openAMRobot/openamrobot-comm.git
+-    version: 1c552921cf05001ee8f43e899aa2f92882766f07
++    version: 73fa694aa60594f1f99e813741d8f744ee302f8a
+   src/openamrobot-manipulation:
+     type: git
+     url: https://github.com/openAMRobot/openamrobot-manipulation.git
+-    version: 095e6c7bbd270db6d21de9664a654bb37919a2eb
++    version: be76d30632f01aab2badddf4e33de829c113b1b7
+   src/openamr-platform-sw:
+     type: git
+     url: https://github.com/openAMRobot/openamr-platform-sw.git
+-    version: 8a7a5b136bfb3f144b57991455b378f6b3f4113c
++    version: 69847ab7c9c6cd49b3022dc1a62f86c044ba10ff
+   src/openamr-upperbody-sw:
+     type: git
+     url: https://github.com/openAMRobot/openamr-upperbody-sw.git
+-    version: f57e54cfc9e7f9536e94c52749502cc983fb908e
++    version: a3a93c60b0de2865c6ce09499cfad566d7072659
++  src/openamrobot-embodied-ai:
++    type: git
++    url: https://github.com/openAMRobot/openamrobot-embodied-ai.git
++    version: 56bbd36ea313f3765df51524df07ccc6b2623f47
+   firmware/openamr-platform-fw:
+     type: git
+     url: https://github.com/openAMRobot/openamr-platform-fw.git
+-    version: f96014daae614da4e1bf0c00376f1d9e5d41ae02
++    version: bad0567a58b1b5bb7b1df69b1b8b9950e600f504
+   firmware/openamr-upperbody-fw:
+     type: git
+     url: https://github.com/openAMRobot/openamr-upperbody-fw.git
+@@ -31,19 +36,19 @@ repositories:
+   hardware/openamr-platform-hw:
+     type: git
+     url: https://github.com/openAMRobot/openamr-platform-hw.git
+-    version: 6c32fbabfd08491e74a9a2f601f1e14d07d44938
++    version: 8ed2b06a46115abe2dffadbf0d902ae731d278d1
+   hardware/openamr-upperbody-hw:
+     type: git
+     url: https://github.com/openAMRobot/openamr-upperbody-hw.git
+-    version: 6349ff2672c9e812655d3ae1d04c67130fb3cac7
++    version: e760126b2b79611e0a915ab2bc11e15afb22cd8b
+   ui/openamrobot-ui:
+     type: git
+     url: https://github.com/openAMRobot/openamrobot-ui.git
+-    version: c5558ad5babdab30702c307a08fc94a6408c798c
++    version: 51b4af38d6b7eeb260610e8ab2ebde0a340beea9
+   docs/openamrobot-docs:
+     type: git
+     url: https://github.com/openAMRobot/openamrobot-docs.git
+-    version: 95c6140e16866964a7d6fddd37e06cd382b7afae
++    version: 852c32c2b77fadbd119b1cc8c8fa5f629df5fbd2
+   src/sllidar_ros2:
+     type: git
+     url: https://github.com/Slamtec/sllidar_ros2.git
+diff --git a/tests/test_check_manifest.py b/tests/test_check_manifest.py
+index c7cb491..82d3c06 100644
+--- a/tests/test_check_manifest.py
++++ b/tests/test_check_manifest.py
+@@ -64,7 +64,7 @@ class ManifestCheckTest(unittest.TestCase):
+         self.assertEqual(code, 0, out)
+         self.assertIn('[PASS] yamllint', out)
+         self.assertIn('[PASS] strict', out)
+-        self.assertIn('13 repositories', out)
++        self.assertIn('14 repositories', out)
+         self.assertIn('[SKIPPED] remote', out)
+ 
+     # Original defects (D-03 H1)
+@@ -88,7 +88,7 @@ class ManifestCheckTest(unittest.TestCase):
+         # silently replaces the first entry.
+         text = manifest_text() + DUPLICATE_LINE
+         data = yaml.safe_load(text)
+-        self.assertEqual(len(data['repositories']), 13)
++        self.assertEqual(len(data['repositories']), 14)
+         self.assertIn('comm-fork', data['repositories']['src/openamrobot-comm']['url'])
+ 
+     def test_rejects_duplicate_repository_key(self):
+diff --git a/tests/test_driver_sources.py b/tests/test_driver_sources.py
+index abbf6f1..30ad4e3 100644
+--- a/tests/test_driver_sources.py
++++ b/tests/test_driver_sources.py
+@@ -34,7 +34,7 @@ class DriverSourceTests(unittest.TestCase):
+         sent = yaml.safe_load(run.call_args.kwargs['input'])['repositories']
+         self.assertNotIn('src/sllidar_ros2', sent)
+         self.assertNotIn('src/micro_ros_agent', sent)
+-        self.assertEqual(len(sent), 11)
++        self.assertEqual(len(sent), 12)
+ 
+     def test_failed_pin_fails_remote_stage(self):
+         with patch.object(check_manifest, 'verify_pinned_commit', return_value=(False, 'fetch failed')):
+-- 
+2.43.0
+

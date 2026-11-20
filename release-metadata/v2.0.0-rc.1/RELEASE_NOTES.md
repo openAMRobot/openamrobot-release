@@ -1,7 +1,8 @@
 # OpenAMRobot v2.0.0-rc.1 release notes (DRAFT)
 
-Status: draft for owner review, prepared 2026-11-20. Not published, not tagged,
-not built. The release model is unchanged: this repository holds the release
+Status: draft for owner review, prepared 2026-11-20, refreshed 2026-11-20 13:30 UTC.
+Not published, not tagged. Trial builds only (local, see "Source pins and lock");
+the published archive is built by CI after the merges in RUNBOOK.md. The release model is unchanged: this repository holds the release
 archive and is the ground truth; version tags in component repositories are
 navigation aids only.
 
@@ -33,7 +34,7 @@ Only these labels are used.
 | main 69847ab: description, Nav2 config, base and lift software-in-the-loop on virtual CAN (#139) | merged and CI green | sil-tests and repository-quality pass on 69847ab; description and simulation workflows did not run on this commit (path filters) |
 | Stop gate and command arbitration (#90) | proposed (draft PR) | open, changes requested on GitHub; not in main, not in the deployed robot build |
 | Recovery trees without reversing (#91, #92), station approach (#164), station alignment (#167) | proposed (draft PR) | open; one tree owner and merge order pending |
-| SDO reply matching in the drive host client (#169) | proposed (draft PR) | CI green on its head; awaiting code-owner review |
+| SDO reply matching in the drive host client (#169) | proposed (draft PR) | approved by the code owner at 5c8515f (20 Nov); still draft, not merged |
 | Teleop topic (cmd_vel_teleop vs cmd_vel_joy) | blocked | contract change request #170 (Proposed) |
 | Docking with the stop lock (#117, #124) | blocked | docking stays off in rc.1 |
 | Integration branch integration/baseline1 fb25be1 (#161, never merged) | not verified | integration snapshot only; run 44464850846: simulation (rtf02) fails, other jobs pass |
@@ -43,9 +44,9 @@ Only these labels are used.
 | Item | Status | Evidence |
 |---|---|---|
 | main a3a93c6: combined robot description, MoveIt 2, OpenArm software in the loop on virtual CAN (#67), joint dynamics (#66), actuator ledger (#65) | merged and CI green | a6 (static+mock), sil (vcan, real driver), repository-quality pass; a7 (simulation) skipped, not run |
-| Combined model platform pin | not verified | upstream_pins.yaml on main pins platform-sw 8e7a454, three commits behind the platform-sw pin (adds sensor_profiles.yaml and openamrobot_sil); not reconciled |
-| Lift permit wait (#94), lift emulator pin (#95), palm standoff (#98), scn03 targets (#99) | proposed (draft PR) | awaiting code-owner review |
-| Integration branch integration/baseline1 e90a47c (#77, never merged) | not verified | head commits are [skip ci]; last CI on 323a2ce: scene tests, emulator tests and arm diagnostics fail, Baseline 1 acceptance cancelled |
+| Combined model platform pin | not verified | main pins platform-sw 8e7a454, three commits behind the rc.1 platform pin 69847ab; in a workspace imported from the rc.1 manifest C02 fails on that difference. Repin 8e7a454 -> 69847ab proposed in #74 (c0c405c): the expanded model keeps every link, joint, inertial and mesh, only six Gazebo friction blocks change (#135); A6/A7 on c0c405c: see #74 |
+| Lift permit wait (#94), lift emulator pin (#95), palm standoff (#98), scn03 targets (#99) | proposed (draft PR) | code-owner reviews 20 Nov: #95 and #99 adopt, approval on a green head; #94 adapt (same wait in more places); #98 conditions on the contact gate; none approved |
+| Integration branch integration/baseline1 c0af973 (#77, never merged) | not verified | head commits since 323a2ce are [skip ci] (strict gates, cancellation check and retreat options, all Proposed); last CI on 323a2ce: scene tests, emulator tests and arm diagnostics fail, Baseline 1 acceptance cancelled |
 
 ### Baseline 1 whole-robot mission (simulation)
 
@@ -58,9 +59,9 @@ Only these labels are used.
 
 Why the strict reviewed acceptance has not been run:
 
-1. No code-owner approval exists on the current heads of the fixes the run depends on (platform-sw #169 and #167; upperbody-sw #94, #95, #98).
+1. Approvals are incomplete. platform-sw #169 is approved (5c8515f) and its integration candidate #175 (9af88e7, #169 on fb25be1) is approved but not applied to integration/baseline1; #167 has no approval; upperbody-sw #94, #95, #98 and #99 are reviewed but not approved (approval on green heads after #95).
 2. Those fixes are not merged into the integration branches, so the branches do not yet carry the code that the diagnostic runs used.
-3. The integration heads have no CI on their current commits (upperbody-sw e90a47c and 3b66063 are [skip ci]); platform-sw fb25be1 has the rtf02 simulation job failing.
+3. The integration heads have no CI on their current commits (upperbody-sw c0af973 and the commits since 323a2ce are [skip ci]); platform-sw fb25be1 has the rtf02 simulation job failing.
 4. The strict gates added on 20 Nov (liveness, mission pass, Stop checks, contact allow-list, evidence completeness) have never run; the cancellation gate fails by design until the mission has a cancel step.
 5. Owner decisions still open: the Baseline 1 retreat (one straight backup of up to 0.30 m) as a declared simulation-only exception to D-19 (no reverse), and the 90 degree in-place turn limit near the station. The integration branch still allows reverse in ordinary navigation (min_vel_x -0.05, backup plugins).
 6. All runs use the sim-oracle profile (planning scene and object poses from Gazebo ground truth), so perception is not exercised.
@@ -79,7 +80,7 @@ Intended sequence once approvals exist: merge the fixes into the integration bra
 | Read-only control room (#84) | proposed (draft PR) | 44593505369 |
 | Grocery dark store demonstrator (#86) | proposed (draft PR) | run 44299879412: 10 of 12 phase checks; station offset 0.0497 m vs 0.04 m and odometry guard 0.907 m vs 0.56 m fail |
 | SIL fidelity record (#168) | proposed (draft PR) | wheel contact, track, drive dynamics, camera poses, battery are placeholders |
-| Public model bundle (#74) and tag model-2.0.0-rc.1 | blocked | tag does not exist; #74 is a draft and its workflow listens for model-v* tags, which does not match the decided name model-2.0.0-rc.1 |
+| Public model bundle (#74) and tag model-2.0.0-rc.1 | proposed (draft PR) | #74 now triggers on model-2.0.0-rc.1 and model-2.0.0 (0364b2c, with tests) and carries the platform repin; model-owner additions open; tag does not exist |
 
 ### Firmware
 
@@ -124,8 +125,8 @@ Intended sequence once approvals exist: merge the fixes into the integration bra
 - Fast DDS loses camera and pose samples under the Baseline 1 load; acceptance is planned on CycloneDDS, which the robot runs.
 - Odometry drifts in turns in simulation because of wheel slip; odometry numbers are not a reference yet.
 - Docking is off. Reversing is not allowed in ordinary navigation by decision D-19; the integration branch does not yet enforce it.
-- The combined upper-body model on main is generated against an older platform-sw commit (8e7a454).
-- The rc.1 builder (PR #12) is not merged and its lock still carries the 2026-10-19 snapshot; these notes propose new pins but do not lock them.
+- The combined upper-body model on main is generated against an older platform-sw commit (8e7a454) unless #74 merges before the build (RUNBOOK.md, step 2).
+- The rc.1 builder (PR #12) is not merged. This pull request stacks on it and replaces its 2026-10-19 manifest and lock with the pins below; the parity check stays red until openamrobot-manifest carries the same pins (RUNBOOK.md, step 3).
 - No firmware image has been flashed on 2.0 hardware. The STM32 project is not on main.
 
 ## Safety statement
@@ -140,11 +141,20 @@ hardwired stop chain tested on its own record. This is a research-grade
 pre-release, not certified for industrial, medical, safety-critical or
 unsupervised use.
 
-## Manifest of proposed pins
+## Source pins and lock
 
 Rule: the reviewed default branch of each repository. Integration branches appear
 only in the separate integration snapshot. Machine-readable files:
-`pins.proposed.repos` and `integration-snapshot.repos` in this directory.
+`manifests/v2.0.0-rc.1.repos` (the pins, at the repository root), the lock
+`release-config.rc1.json` (SHA-256 of the manifest and of every source archive)
+and `integration-snapshot.repos` in this directory.
+
+Trial builds, 20 Nov 2026, local, two independent `--fetch` builds from the lock
+(not the published artifact): 15 sources, 3061 files verified, `cmp` identical.
+
+```
+657ed9b3aa59d9c669af53bcf1ff2612d1b068c969af3cd966b9d76ae1f6530c  OpenAMRobot-v2.0.0-rc.1-source.zip  (400568111 bytes)
+```
 
 | Path | Repository | Commit | Basis |
 |---|---|---|---|
@@ -166,7 +176,7 @@ only in the separate integration snapshot. Machine-readable files:
 
 Integration snapshot (not release content): platform-sw integration/baseline1
 fb25be1b56652316f47b7505cef021576822c558 (#161); upperbody-sw integration/baseline1
-e90a47cb4e226c4cb8dee7755f5f80a03a23c2e1 (#77).
+c0af97391fd90c955053ac4d063d4f3bb3d8bae8 (#77).
 
 Simulation evidence pre-releases referenced (upperbody-sw, all pre-releases,
 simulation only): sim-baseline1-2026-11-18 (5df600b), sim-grocery-demo-2026-11-18
@@ -174,7 +184,5 @@ simulation only): sim-baseline1-2026-11-18 (5df600b), sim-grocery-demo-2026-11-1
 
 ## Next steps before publication
 
-1. Owner review of the pins above; adopt, adapt or reject in the pull request thread.
-2. Merge the rc.1 builder (PR #12), then one PR that replaces its 2026-10-19 manifest with these pins, regenerates the source lock and updates the workspace manifest so the parity check passes.
-3. Build the bundle twice from the lock, compare, and attach the outputs to a draft pre-release v2.0.0-rc.1.
-4. Publish the pre-release and add component navigation tags (owner action).
+Follow `RUNBOOK.md` in this directory: merge order, build, checksum check,
+draft release, the Baseline 1 decision and the switch to pre-release.

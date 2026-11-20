@@ -3,7 +3,7 @@
 # merged (platform-sw PR #161, upperbody-sw PR #77, both "do not merge").
 # Recorded so the simulation evidence in RELEASE_NOTES.md can be traced to the
 # commits it ran on. A snapshot is development evidence, not a reviewed pin.
-# Every other repository: use pins.proposed.repos.
+# Every other repository: use manifests/v2.0.0-rc.1.repos at the repository root.
 repositories:
   src/openamr-platform-sw:
     type: git
@@ -13,8 +13,8 @@ repositories:
   src/openamr-upperbody-sw:
     type: git
     url: https://github.com/openAMRobot/openamr-upperbody-sw.git
-    # integration/baseline1, PR #77 (draft, do not merge); head commits are [skip ci]
-    version: e90a47cb4e226c4cb8dee7755f5f80a03a23c2e1
+    # integration/baseline1, PR #77 (draft, do not merge); head commits since 323a2ce are [skip ci]
+    version: c0af97391fd90c955053ac4d063d4f3bb3d8bae8
   src/openamrobot-interfaces:
     type: git
     url: https://github.com/openAMRobot/openamrobot-interfaces.git
