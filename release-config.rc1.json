@@ -5,21 +5,22 @@
     "status": "candidate snapshot; not release acceptance"
   },
   "manifest": "manifests/v2.0.0-rc.1.repos",
-  "manifest_sha256": "fa3bfb59dcede1db2d275945916a57dd52d3ff496f2db344376b7e291edc3658",
+  "manifest_sha256": "40122143c7a8a2daf2a67c3c1a034765f4ba58dc06ed0aad798d460455ed26e7",
   "sources": {
-    "src/openamrobot-interfaces": "44791ae3f40a73ce14310a16bd2cb65b6686b72e291754bb8797acb784a65c9e",
-    "src/openamrobot-comm": "ba5bb57f0975d56e1d36d37a9ed9cb390f52c6f3fcf038e22a005fae5fd0359e",
-    "src/openamrobot-manipulation": "aaf5fb531566756c881110d8f5c7e04c07b958e5a3ca01eeaaa359594335a5f5",
-    "src/openamr-platform-sw": "165e3a179c6450af5b7c9b5efe1dc492ee78322da4ee0e6d822a1bdd6a520a85",
-    "src/openamr-upperbody-sw": "0089765ce8427c3285c585a151acb53f56bed295a1bc49d150f71a6369e84f16",
-    "firmware/openamr-platform-fw": "c8c891b9265663b993f385b6350a523d217c0cb2fb24e5dd82ae6b656796ae1b",
+    "src/openamrobot-interfaces": "2774943993a39181bf4d721001f08d345e3984bc865b1ae76650b32bb07d7725",
+    "src/openamrobot-comm": "63f880a6f3d80980e9cb896867d29ec36d0238f1630bcf7136e4ff8797df0434",
+    "src/openamrobot-manipulation": "8d4e3c9ab01ec285d722d39c04dea749d61f7705a4f30c118bf424d39e1bf748",
+    "src/openamr-platform-sw": "0528dea90740ea71d6ddb334d4d2fc038115e638d6cf68eae7a1c5210755640c",
+    "src/openamr-upperbody-sw": "ec56f428f4af314f3d7f79b28e2732f7b0b4b65719f91231f3fb82b95c15292f",
+    "src/openamrobot-embodied-ai": "b24b6bb8c3c989fc22316a5392f20d0d629e8340ee997033430ff4b9360407e3",
+    "firmware/openamr-platform-fw": "e863f663a30835d52b8a4a07b945307ee2221cd3bf53fee98d25c641bc612f4a",
     "firmware/openamr-upperbody-fw": "1bdac6a86e857281fbb9f9f02f29c7109086f5f9a8820306432e0a79df73bd49",
-    "hardware/openamr-platform-hw": "9da8c7476f0d9d97a97ccc2b790478d8e007176aba36b03036736dca3d08a5d5",
-    "hardware/openamr-upperbody-hw": "6d25f2befd773cbe3f3eba38089657fd800b9021c6c50713d3bde74c70bcd25a",
-    "ui/openamrobot-ui": "b308ca0b2362380058b65d06fb76daa98a3d1eff4d4d2d4c61f0e75a18bdc791",
-    "docs/openamrobot-docs": "0e5e954788ff25ce8790dd85fe7f422eeb9926890615c67aa6486acc875d7c05",
+    "hardware/openamr-platform-hw": "0e35c644f90d008d4083941ef721ca6792971ae347579bfa1769b12764c2b495",
+    "hardware/openamr-upperbody-hw": "972d1b1490d454281073202fd17ed4fd806613e545bcbc3781aac4d081b1c77b",
+    "ui/openamrobot-ui": "2b9a8dc30ebc0362d779169c60076906b074552ad312035fd6a885ce19476296",
+    "docs/openamrobot-docs": "533e6d63d90d4f7ada3c3b36f269d70779a1c7c1e1330d22977ee6c1a0263a1f",
     "src/sllidar_ros2": "970b3978319bd95318d1d074de931d75283b36e96982d5c07cd59f43ac934bb7",
     "src/micro_ros_agent": "81c1ff84991841682efd4beab8fe826b9164a3527c24a10d257d2e6fce18bc55",
-    "governance/.github": "a9f0ff5c5f03bfcc079e7518e1d650a1cb3f464fedbc2a5ab1ffcb9bfdba2698"
+    "governance/.github": "458b0c97192a0fa28e0500a3652b6fac602f78209e2abb36259d9ba7b19ad46e"
   }
 }

@@ -2,10 +2,11 @@
 
 `release-config.rc1.json` locks a release-local snapshot in
 `manifests/v2.0.0-rc.1.repos`. Every repository uses a full commit SHA.
-The snapshot includes the 13 workspace repositories and a separately pinned
+The snapshot includes the 14 workspace repositories and a separately pinned
 `governance/.github` export, preserving the legacy release's governance input.
 The configuration locks both the manifest bytes and each source archive with
-SHA-256. The candidate is dated 2026-10-19; final component acceptance is pending.
+SHA-256. The pins are the reviewed main of each repository read on 2026-11-20
+(the 2026-10-19 candidate is superseded); component acceptance is pending.
 
 ## Build and verify
 

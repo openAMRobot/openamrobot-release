@@ -40,3 +40,11 @@ The historical #17-only snapshot correctly failed for both missing drivers.
 On 2026-10-30 the old workflow rerun required unavailable repository admin
 rights. This state update triggers fresh PR checks with the source pins,
 source checksums and builder code unchanged; hosted results remain pending.
+
+2026-11-20: the manifest moves to the reviewed main of each repository read on
+2026-11-20 (release-metadata/v2.0.0-rc.1/RELEASE_NOTES.md lists them) and adds
+openamrobot-embodied-ai. The lock is regenerated with lock_release_sources.py
+from those SHAs; unchanged entries (upperbody-fw, sllidar_ros2,
+micro_ros_agent) keep their previous source hashes. Two local fetch builds gave
+identical bundles. The parity check passes only after openamrobot-manifest main
+carries the same SHAs (patch in release-metadata/v2.0.0-rc.1/).
