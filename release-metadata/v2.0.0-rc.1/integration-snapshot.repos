@@ -1,0 +1,26 @@
+# OpenAMRobot v2.0.0-rc.1: Baseline 1 INTEGRATION SNAPSHOT, heads read 2026-11-20 19:00 UTC.
+# NOT release content. These are integration branches that are never merged
+# (platform-sw PR #161, upperbody-sw PR #77, both "do not merge"). The release
+# pins are manifests/v2.0.0-rc.1.repos at the repository root.
+# A snapshot is development evidence, not a reviewed pin. Each simulation run in
+# RELEASE_NOTES.md names the commits it ran on; those are older than these heads,
+# and no run has executed on these heads yet. Refreshed on publication day
+# (RUNBOOK.md, step 8); with a qualifying strict run it records that run's pins.
+repositories:
+  src/openamr-platform-sw:
+    type: git
+    url: https://github.com/openAMRobot/openamr-platform-sw.git
+    # integration/baseline1, PR #161 (draft, do not merge); unchanged since 19 Nov.
+    # Candidates not on this branch yet: integration/candidate-169 9af88e78bbcd845b1cb6d53d322c08f9dea9dc98
+    # (PR #175, fb25be1 plus #169) and nav/baseline1-no-reverse-on-175 960e2e5764529c5657d13645f5920ecffe504bbe (no PR).
+    version: fb25be1b56652316f47b7505cef021576822c558
+  src/openamr-upperbody-sw:
+    type: git
+    url: https://github.com/openAMRobot/openamr-upperbody-sw.git
+    # integration/baseline1, PR #77 (draft, do not merge); head commits since 323a2ce are [skip ci]
+    version: 196dd3fe64900ba4a12124c9ee20e0cfaafa1651
+  src/openamrobot-interfaces:
+    type: git
+    url: https://github.com/openAMRobot/openamrobot-interfaces.git
+    # main, the interfaces commit every Baseline 1 run uses (also the rc.1 pin)
+    version: 50ed777be7990edbd3465f33fd97a158e7e3b88b

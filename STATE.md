@@ -40,3 +40,26 @@ The historical #17-only snapshot correctly failed for both missing drivers.
 On 2026-10-30 the old workflow rerun required unavailable repository admin
 rights. This state update triggers fresh PR checks with the source pins,
 source checksums and builder code unchanged; hosted results remain pending.
+
+2026-11-20: the manifest moves to the reviewed main of each repository read on
+2026-11-20 (release-metadata/v2.0.0-rc.1/RELEASE_NOTES.md lists them) and adds
+openamrobot-embodied-ai. The lock is regenerated with lock_release_sources.py
+from those SHAs; unchanged entries (upperbody-fw, sllidar_ros2,
+micro_ros_agent) keep their previous source hashes. Two local fetch builds gave
+identical bundles. The parity check passes only after openamrobot-manifest main
+carries the same SHAs (patch in release-metadata/v2.0.0-rc.1/).
+
+2026-11-20 evening: pins unchanged (every pinned main and the micro-ROS-Agent
+jazzy branch read at 18:55 UTC equal the manifest), lock unchanged; one local
+fetch build again gave sha256 657ed9b3...6530c, 400568111 bytes. The manifest
+patch still applies to openamrobot-manifest main 5b782ac and its 42 tests pass.
+RUNBOOK.md was dry-run and corrected: merge commits are disabled in this
+repository (step 1a), #12 and #18 each need a code-owner approval other than
+their author's, the patch is fetched at a fixed commit, the manifest PR body is
+prepared (openamrobot-manifest-pr-body.md), the checksum and pin checks are
+single commands for PowerShell and bash, and step 8 is the publication-day
+status refresh. The integration snapshot records the current heads (upperbody-sw
+196dd3f), still not release content. README labels the v0.0.1 Raspberry Pi as
+legacy (COMPUTE). release-metadata/RELEASE_NOTES.md (v0.0.1 notes, unchanged)
+still names the Raspberry Pi 5 without a legacy label; it is historical metadata
+of the v0.0.1 builder and is left for the owner.
