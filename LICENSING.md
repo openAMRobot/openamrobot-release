@@ -1,6 +1,6 @@
 # OpenAMRobot licensing standard
 
-OpenAMRobot uses asset-appropriate permissive licences for original material owned by or validly assigned to **OpenAMRobot (Botshare LTD)**.
+OpenAMRobot uses asset-appropriate permissive licences for original material that **Botshare LTD** owns, that was assigned to it, or that contributors license to it under the [contributor agreements](https://github.com/openAMRobot/.github/blob/main/CLA.md) with the right to sublicense.
 
 | Material | Licence |
 |---|---|
@@ -8,7 +8,7 @@ OpenAMRobot uses asset-appropriate permissive licences for original material own
 | Documentation, diagrams, tutorials, original images, and other authored content | [Creative Commons Attribution 4.0 International](https://spdx.org/licenses/CC-BY-4.0.html) |
 | CAD, PCB and schematic source, mechanical/electrical design files, manufacturing source, and CAD-derived robot geometry | [CERN Open Hardware Licence Version 2 — Permissive](https://spdx.org/licenses/CERN-OHL-P-2.0.html) |
 
-Copyright (c) 2021–2026 OpenAMRobot (Botshare LTD).
+Copyright (c) 2021–2026 OpenAMRobot (Botshare LTD) and OpenAMRobot contributors.
 
 The root `LICENSE` identifies the predominant licence for this repository. Where a repository contains several asset types, the table above and any more specific file, directory, SPDX, package, or notice declaration determine the applicable licence.
 
