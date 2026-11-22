@@ -8,9 +8,13 @@ navigation aids only.
 
 | Version | Date | Meaning |
 |---|---|---|
-| v2.0.0-rc.1 | planned 2026-11-20 (missed); proposed 2026-11-23, conditional on owner authorization and the release-date decision (RUNBOOK option A or B) | Pre-release: reviewed source state and simulation evidence |
+| v2.0.0-rc.1 | 2026-11-23 (planned 2026-11-20, missed; publication only on owner authorization) <!-- decision-allow: RELEASE-MILESTONES register keeps 20 Nov; owner chose RUNBOOK option B on 22 Nov 2026 --> | Pre-release: reviewed source state and simulation evidence, reduced scope (see Scope) |
 | (bench window) | 2026-11-23 to 2026-12-18 | Physical integration, testing and acceptance |
 | v2.0.0 | 2026-12-18 | Final release, only after the bench gates below are recorded |
+
+## Scope (owner decision, 22 Nov 2026)
+
+rc.1 is built from the reviewed main branch of each repository (manifest openamrobot-manifest #23). Not included and not claimed: strict Baseline 1 acceptance, Isaac Sim GPU evidence, the integration branches (upperbody-sw #77, platform-sw #161), the command gate (platform-sw #90) with the UI command path (ui #50), and manual driving from the UI. If the code owners approve the Baseline 1 fixes and two consecutive strict legs pass on identical pins before publication, these notes are updated with that evidence; otherwise those items stay as listed below.
 
 **rc.1 is a software and simulation candidate. No 2.0 hardware has been powered.
 Nothing in this release is physical, electrical or safety acceptance.**
