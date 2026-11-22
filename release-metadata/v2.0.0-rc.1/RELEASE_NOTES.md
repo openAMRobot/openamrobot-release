@@ -67,7 +67,13 @@ Why the strict reviewed acceptance has not been run:
 1. Approvals are incomplete. upperbody-sw #94, #95, #98, #99 and #108 have no adopt from the code owner; platform-sw #178 (no-reverse configuration) has review comments, no approval; #167 has no current-head approval; #175 is approved but not applied to integration/baseline1.
 2. Those fixes are not in the integration branches, so the branches do not carry the code the earlier diagnostic runs used.
 3. The single validation leg on 18454ab (row above) fails three checks; the causes are under investigation and no threshold is changed.
-4. Owner decisions taken 21 Nov: the retreat is turn-and-forward (no backup), the reverse-speed limit stays 0.010 m/s, strict acceptance needs two consecutive legs from one dispatch on identical full SHAs. The platform no-reverse configuration (#178) is approved in principle and still needs engineering approval.
+4. Owner decisions taken 21 Nov: the retreat is turn-and-forward (no backup), the reverse-speed limit stays 0.010 m/s, strict acceptance needs two consecutive legs from one dispatch on identical full SHAs.
+   Owner decisions taken 22 Nov (upperbody-sw issue #117, PRs #118, #123, #124; platform-sw #178, #182):
+   - upperbody-sw #94, #95, #98, #99 adopted and approved by the code owner; not yet merged into the integration branch.
+   - Reverse speed (C7): the gate judges the forward drive at 0.010 m/s (unchanged); the in-place turn is reported and guarded by the 0.05 m turn-drift check. Every report shows the gate value, the turn value and the earlier single-series value side by side, so the change cannot be read as a relaxed limit.
+   - Cancellation hold: judged by message publication time; the report states the time basis, and any fallback to delivery time.
+   - No-reverse platform configuration (#178) and the StationRetreat controller for the forward retreat (#182, consumer upperbody-sw #122) adopted by the navigation owner; the gate owner requires at least 5 retreat legs, all succeeded, and the clearance measured at the retreat end before relying on it. Without that evidence, rc.1 states that strict acceptance is not met because of the forward-retreat stall.
+   - Two-leg preview with all of these on an evidence branch (run 44983640874): both legs 8 of 8 on identical pins; the strict verdict failed on one palm-to-item contact in grasp (0.349 N, leg 1). Not acceptance.
 5. All runs use the sim-oracle profile (planning scene and object poses from Gazebo ground truth), so perception is not exercised.
 
 Intended sequence once approvals exist: merge the fixes into the integration branches, move the pins, then one dispatch of baseline1-acceptance.yml (strict sequence, CycloneDDS) on upperbody-sw integration/baseline1.
@@ -125,13 +131,15 @@ Intended sequence once approvals exist: merge the fixes into the integration bra
 
 ## Known limitations
 
+- Shelf approach (StationApproach controller, simulation): the controller can declare the goal reached a few centimetres short and then stall; seen once (run 44974892529), passed on retry. Root cause in upperbody-sw issue #117.
+
 - Simulation runs use the sim-oracle profile; perception, real sensor noise and real contact are not exercised.
 - Simulation fidelity placeholders: wheel contact shape and friction, track width 0.400 m, drive dynamics and speed limits (Gazebo 1.0 m/s vs the 0.5 m/s ceiling), camera poses and fields of view, battery constants; no power or brake model.
 - Fast DDS loses camera and pose samples under the Baseline 1 load; acceptance is planned on CycloneDDS, which the robot runs.
 - Odometry drifts in turns in simulation because of wheel slip; odometry numbers are not a reference yet.
 - Docking is off. Reversing is not allowed in ordinary navigation by decision D-19; the integration branch does not yet enforce it.
 - The combined upper-body model on main is generated against an older platform-sw commit (8e7a454) unless #74 merges before the build (RUNBOOK.md, step 2).
-- The rc.1 builder (PR #12) is not merged. This pull request stacks on it and replaces its 2026-10-19 manifest and lock with the pins below; the parity check stays red until openamrobot-manifest carries the same pins (RUNBOOK.md, step 3).
+- The rc.1 builder (PR #12) is merged (a8f60f6). The parity check stays red until openamrobot-manifest #23 carries the same pins (RUNBOOK.md, step 3).
 - No firmware image has been flashed on 2.0 hardware. The STM32 project is not on main.
 
 ## Safety statement
@@ -192,3 +200,9 @@ simulation only): sim-baseline1-2026-11-18 (5df600b), sim-grocery-demo-2026-11-1
 
 Follow `RUNBOOK.md` in this directory: merge order, build, checksum check,
 draft release, the Baseline 1 decision and the switch to pre-release.
+
+Open before publication (source compliance audit of the pinned archive, comment on this pull request, 22 Nov 2026):
+- Prices and payment links in three public READMEs; removal proposed for the owner's decision (platform-sw #181, platform-hw #44, ui #65).
+- Apache-2.0 derived files without NOTICE entries and package.xml licence tags missing a second licence; fixes in review (platform-sw #180, upperbody-sw #121).
+- 25 vendor datasheets in platform-hw without a documented redistribution right; owner and legal decision (remove, exclude from the archive, or obtain the right).
+Each merged fix moves an rc.1 pin: manifest #23 and this pull request are then re-pinned and the archive rebuilt and re-checked.
