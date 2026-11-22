@@ -1,6 +1,6 @@
 # OpenAMRobot v2.0.0-rc.1 release notes (DRAFT)
 
-Status: draft for owner review, prepared 2026-11-20, refreshed 2026-11-20 19:30 UTC.
+Status: draft for owner review, prepared 2026-11-20, refreshed 2026-11-22 01:30 UTC.
 Not published, not tagged. Trial builds only (local, see "Source pins and lock");
 the published archive is built by CI after the merges in RUNBOOK.md. The release model is unchanged: this repository holds the release
 archive and is the ground truth; version tags in component repositories are
@@ -8,7 +8,7 @@ navigation aids only.
 
 | Version | Date | Meaning |
 |---|---|---|
-| v2.0.0-rc.1 | 2026-11-20 | Pre-release: reviewed source state and simulation evidence |
+| v2.0.0-rc.1 | planned 2026-11-20 (missed); proposed 2026-11-23, conditional on owner authorization and the release-date decision (RUNBOOK option A or B) | Pre-release: reviewed source state and simulation evidence |
 | (bench window) | 2026-11-23 to 2026-12-18 | Physical integration, testing and acceptance |
 | v2.0.0 | 2026-12-18 | Final release, only after the bench gates below are recorded |
 
@@ -45,8 +45,8 @@ Only these labels are used.
 |---|---|---|
 | main a3a93c6: combined robot description, MoveIt 2, OpenArm software in the loop on virtual CAN (#67), joint dynamics (#66), actuator ledger (#65) | merged and CI green | a6 (static+mock), sil (vcan, real driver), repository-quality pass; a7 (simulation) skipped, not run |
 | Combined model platform pin | not verified | main pins platform-sw 8e7a454, three commits behind the rc.1 platform pin 69847ab; in a workspace imported from the rc.1 manifest C02 fails on that difference. Repin 8e7a454 -> 69847ab proposed in #74 (c0c405c): the expanded model keeps every link, joint, inertial and mesh, only six Gazebo friction blocks change (#135); on c0c405c a6 927 executed / 0 failed with C02 PASS (run 44739809301) and a7 297 executed / 0 failed (run 44739808961); draft, not merged |
-| Lift permit wait (#94), lift emulator pin (#95), palm standoff (#98), scn03 targets (#99) | proposed (draft PR) | code-owner reviews 20 Nov: #95 and #99 adopt, approval on a green head; #94 adapt (same wait in more places); #98 conditions on the contact gate; none approved |
-| Integration branch integration/baseline1 196dd3f (#77, never merged) | not verified | head commits since 323a2ce are [skip ci] (strict gates, cancellation check, retreat options and the reverse-speed measure, all Proposed); no strict acceptance run on these commits; last CI on 323a2ce: scene tests, emulator tests and arm diagnostics fail, Baseline 1 acceptance cancelled |
+| Lift permit wait (#94), lift emulator pin (#95), palm standoff (#98), scn03 targets (#99), measured arm park (#108) | proposed (draft PR) | code-owner reviews 20 Nov: #95 and #99 adopt, approval on a green head; #94 adapt; #98 conditions on the contact gate; none approved as of 22 Nov 01:30 UTC; not in integration/baseline1 |
+| Integration branch integration/baseline1 18454ab (#77, never merged) | not verified | single validation leg with the strict gates, run 44848867373: 7 of 8 phases, no unaccounted contact, cancellation at the end 12 of 13 checks; fails on reverse speed 0.01306 m/s (limit 0.010), cancel-hold /cmd_vel peak 0.0755 (limit 0.001) and the end-of-run drive liveness check; scene tests, emulator tests and arm diagnostics fail on this head |
 
 ### Baseline 1 whole-robot mission (simulation)
 
@@ -55,16 +55,16 @@ Only these labels are used.
 | Single-leg mission, 8/8 checks, three runs, integration d63e9ed with platform 931e631 | demonstrated in simulation (44309791416, 44309804809, 44309817813) | sim-oracle profile; recordings in upperbody-sw pre-release sim-baseline1-2026-11-18 |
 | Two-leg strict sequence, 8/8 per leg, scratch branch eb920f0 with unreviewed fixes | demonstrated in simulation (44470870769) | diagnostic only: scratch branch, fixes not reviewed or merged |
 | Mission with the read-only control room, demo/control-room 825ebfa | demonstrated in simulation (44593505369) | diagnostic only: draft PR #84 |
+| Single validation leg with the strict gates, integration 18454ab | demonstrated in simulation, 7 of 8 (44848867373) | not acceptance: one leg, unreviewed integration head, three failed checks (row above) |
 | Strict reviewed acceptance run on reviewed integration heads | not verified | not run; reasons below |
 
 Why the strict reviewed acceptance has not been run:
 
-1. Approvals are incomplete. platform-sw #169 is approved (5c8515f) and its integration candidate #175 (9af88e7, #169 on fb25be1) is approved but not applied to integration/baseline1; #167 has no approval; upperbody-sw #94, #95, #98 and #99 are reviewed but not approved (approval on green heads after #95).
-2. Those fixes are not merged into the integration branches, so the branches do not yet carry the code that the diagnostic runs used.
-3. The integration heads have no CI on their current commits (upperbody-sw c0af973 and the commits since 323a2ce are [skip ci]); platform-sw fb25be1 has the rtf02 simulation job failing.
-4. The strict gates added on 20 Nov (liveness, mission pass, Stop checks, contact allow-list, evidence completeness) have never run; the cancellation gate fails by design until the mission has a cancel step.
-5. Owner decisions still open: the Baseline 1 retreat (one straight backup of up to 0.30 m) as a declared simulation-only exception to D-19 (no reverse), and the 90 degree in-place turn limit near the station. The integration branch still allows reverse in ordinary navigation (min_vel_x -0.05, backup plugins).
-6. All runs use the sim-oracle profile (planning scene and object poses from Gazebo ground truth), so perception is not exercised.
+1. Approvals are incomplete. upperbody-sw #94, #95, #98, #99 and #108 have no adopt from the code owner; platform-sw #178 (no-reverse configuration) has review comments, no approval; #167 has no current-head approval; #175 is approved but not applied to integration/baseline1.
+2. Those fixes are not in the integration branches, so the branches do not carry the code the earlier diagnostic runs used.
+3. The single validation leg on 18454ab (row above) fails three checks; the causes are under investigation and no threshold is changed.
+4. Owner decisions taken 21 Nov: the retreat is turn-and-forward (no backup), the reverse-speed limit stays 0.010 m/s, strict acceptance needs two consecutive legs from one dispatch on identical full SHAs. The platform no-reverse configuration (#178) is approved in principle and still needs engineering approval.
+5. All runs use the sim-oracle profile (planning scene and object poses from Gazebo ground truth), so perception is not exercised.
 
 Intended sequence once approvals exist: merge the fixes into the integration branches, move the pins, then one dispatch of baseline1-acceptance.yml (strict sequence, CycloneDDS) on upperbody-sw integration/baseline1.
 
@@ -112,6 +112,7 @@ Intended sequence once approvals exist: merge the fixes into the integration bra
 | interfaces main 50ed777 (includes StopState.msg, #35) | merged and CI green | quality/build, repository-quality pass |
 | interfaces C9 components and radians (#39, #42) | proposed (draft PR) | Proposed contracts |
 | ui main 51b4af3 | merged and CI green | ROS build and tests, web build and tests, Playwright route smoke test pass |
+| Manual driving from the operator UI | not supported in rc.1 | ui main 51b4af3 publishes /cmd_vel directly and its legacy navigation launch remaps controller_server to /cmd_vel; the command gate (platform-sw #90) and the UI command path on /ui/cmd_vel (ui #50) are not merged; do not drive a robot from the UI with rc.1 |
 | ui rc.1 issues #31, #32, #33 | proposed (draft PR) | fixes in drafts #40 to #55, combined in integration candidate #56 |
 | embodied-ai main 56bbd36 | merged and CI green | quality/python, quality/ros2 pass; the bag to LeRobot converter is in draft #8 |
 | AI dataset: upperbody-sw pre-release dev-evidence-baseline1-c9-2026-11-19 | not verified | development evidence, not validated: 1 episode, 543 frames, simulation; Proposed conversion rules; C10 result NOT_VERIFIED |
