@@ -1,6 +1,7 @@
 # OpenAMRobot v2.0.0-rc.1 release notes (DRAFT)
 
 Status: draft for owner review, prepared 2026-11-20, refreshed 2026-11-22 01:30 UTC.
+Update 2026-11-24 (platform-sw #164 merged; Track A limitations added). The pins table below is not repinned yet: the platform pin changes to c42a972 and the upperbody pin waits on #130.
 Not published, not tagged. Trial builds only (local, see "Source pins and lock");
 the published archive is built by CI after the merges in RUNBOOK.md. The release model is unchanged: this repository holds the release
 archive and is the ground truth; version tags in component repositories are
@@ -37,7 +38,8 @@ Only these labels are used.
 |---|---|---|
 | main 69847ab: description, Nav2 config, base and lift software-in-the-loop on virtual CAN (#139) | merged and CI green | sil-tests and repository-quality pass on 69847ab; description and simulation workflows did not run on this commit (path filters) |
 | Stop gate and command arbitration (#90) | proposed (draft PR) | open, changes requested on GitHub; not in main, not in the deployed robot build |
-| Recovery trees without reversing (#91, #92), station approach (#164), station alignment (#167) | proposed (draft PR) | open; one tree owner and merge order pending |
+| Station approach for manipulation goals (#164) | merged (23 Nov 2026 23:24 UTC, merge commit c42a9724b33b6cd115543dbb51974c80e4fabffd) | not in the pins table yet (repin pending). On the merge commit: repository-quality, description-tests, description-gazebo-tests and producer-tests pass; **sil-tests failed** (fixed SDO upload floor on a slow runner, issue #198; passed on the previous head). Simulation job results on the merge commit not read here |
+| Recovery trees without reversing (#91, #92), station alignment (#167) | proposed (draft PR) | open; one tree owner and merge order pending |
 | SDO reply matching in the drive host client (#169) | proposed (draft PR) | approved by the code owner at 5c8515f (20 Nov); still draft, not merged |
 | Teleop topic (cmd_vel_teleop vs cmd_vel_joy) | blocked | contract change request #170 (Proposed) |
 | Docking with the stop lock (#117, #124) | blocked | docking stays off in rc.1 |
@@ -130,6 +132,24 @@ Intended sequence once approvals exist: merge the fixes into the integration bra
 | openamrobot-comm, openamrobot-manipulation, openamr-upperbody-hw, governance | not verified | main HEAD read with git; CI not read for this draft |
 
 ## Known limitations
+
+Added 24 Nov 2026 (Track A, simulation only, from platform-sw #164 and the firmware/SIL readiness statement of 23 Nov):
+
+- Station approach aborts about 1 time in 12 to 15; the mission fails closed and never reports a false success (platform-sw #192). The navigation owner decided on 23 Nov that it is a known limitation for rc.1 and the fix is a follow-up. Issue #192 was closed when #164 merged; the tracking issue for the follow-up is TBD.
+- `scn07_cancel_resume` failed 5 times in 24 runs. Traced to the same stall as #192 (the base stops about 4 cm short, linear command 0.0, angular alternating, retries start from the same pose); nonblocking on the same basis.
+- `simulation (rtf02)` (real-time factor 0.2) is red on Fast DDS (platform-sw #197, nonblocking). CycloneDDS is the supported middleware for rc.1.
+- `sil-tests` can fail on a slow runner because of a fixed SDO upload count (platform-sw #198).
+- Upperbody scene tests: no `/clock` at start-up (#135), a lift-permit gap (#132), one odometry outlier (#136), rare palm contact in grasp (#134; contact cap stays 1.0 N), and one retreat that ended 3 mm short of its window in 12 legs (issue to be opened).
+- A cancelled goal reports ABORTED, not CANCELED (#189); motion stops correctly, only the reported code is wrong.
+- The 2 s clean-boot Resume bound (D-13) is not evidenced on hardware; multi-step missions and Stop mid-mission are unverified.
+- Firmware: STM32H723 board support (platform-fw #22) is an initialization baseline, not operational firmware. Read-only telemetry (#51, draft) has L3 evidence on Renode's H743 model only. Not implemented in STM32H723 code: safety state machine, drive enable and commands, lift-permit producer, CAN3 reader, micro-ROS link; the simulated mission uses host and emulator stand-ins. Watchdog values (ZLAC 250 ms, drive heartbeat 100 ms, base consumer 300 ms) await bench capture. The ArmStatus/STOWED contract is undefined.
+- Gazebo is the release twin for rc.1. MuJoCo and Isaac Sim are experimental and outside the critical path.
+- Baseline 1 results in this release are simulation evidence only. They are not real-robot, hardware, electrical or safety acceptance.
+- C7 measurement change: the reverse-speed gate judges the forward drive at 0.010 m/s (limit unchanged); the in-place turn is reported separately and guarded by the 0.05 m turn-drift check. Each report shows the gate value, the turn value and the earlier single-series value side by side, so the change cannot be read as a relaxed limit (owner decision, 22 Nov; upperbody-sw #117, #118, #123, #124).
+- Forward retreat: the retreat is turn-and-forward (no backup). The StationRetreat controller (platform-sw #182) was adopted; the gate owner requires at least 5 retreat legs, all succeeded, with the clearance measured at the retreat end. One retreat ended 3 mm short of its window in 12 legs. Without that evidence, strict acceptance is not met because of the forward-retreat stall.
+- Arm park-return flake: named as a known gap by the upperbody code owner on 22 Nov. Issue number and rate TBD; not verified here.
+
+Earlier entries, still valid:
 
 - Shelf approach (StationApproach controller, simulation): the controller can declare the goal reached a few centimetres short and then stall; seen once (run 44974892529), passed on retry. Root cause in upperbody-sw issue #117.
 
