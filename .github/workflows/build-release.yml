@@ -6,11 +6,12 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Explicit bash enables -eo pipefail so tee cannot hide a failing command.
     defaults:
       run:
         shell: bash
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
       - name: Build
         run: |
           mkdir -p diagnostics
@@ -19,13 +20,13 @@ jobs:
         run: |
           mkdir -p diagnostics
           python3 scripts/validate_release.py dist/OpenAMRobot-v0.0.1-source.zip 2>&1 | tee diagnostics/step-18.log
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: OpenAMRobot-v0.0.1
           path: dist/
       - name: Retain diagnostic evidence
         if: always()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: legacy-build-diagnostics
           path: |

@@ -46,3 +46,8 @@ the candidate and legacy build workflows are replaced by verified commit
 SHAs. Build/test command output is retained by an always-run diagnostics
 upload. Bash pipefail preserves command failures through tee. Successful
 candidate artifacts remain success-only. No source pins or checksums change.
+
+2026-11-25: CI hardening rebased onto main 438acdf after builder #12 merged.
+Checkout pins are consistent at v4.4.0; action comments record exact versions.
+Explicit Bash/pipefail rationale documented; always-run diagnostics and
+success-only candidate uploads retained. Source pins and lock unchanged.
