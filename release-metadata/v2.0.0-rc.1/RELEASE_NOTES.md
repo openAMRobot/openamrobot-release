@@ -15,7 +15,7 @@ navigation aids only.
 
 ## Scope (owner decision, 22 Nov 2026)
 
-rc.1 is built from the reviewed main branch of each repository (manifest openamrobot-manifest #23). Not included and not claimed: strict Baseline 1 acceptance, Isaac Sim GPU evidence, the integration branches (upperbody-sw #77, platform-sw #161), the command gate (platform-sw #90) with the UI command path (ui #50), and manual driving from the UI. If the code owners approve the Baseline 1 fixes and two consecutive strict legs pass on identical pins before publication, these notes are updated with that evidence; otherwise those items stay as listed below.
+rc.1 is built from the reviewed main branch of each repository (manifest openamrobot-manifest #23). Not included and not claimed: strict Baseline 1 acceptance, Isaac Sim GPU evidence, the integration branches (upperbody-sw #77, platform-sw #161), and manual driving from the UI (the command gate platform-sw #90 and the UI command path ui #50 were merged on 22 Nov; the operator path is verified in simulation only, see the row "Manual driving from the operator UI"). If the code owners approve the Baseline 1 fixes and two consecutive strict legs pass on identical pins before publication, these notes are updated with that evidence; otherwise those items stay as listed below.
 
 **rc.1 is a software and simulation candidate. No 2.0 hardware has been powered.
 Nothing in this release is physical, electrical or safety acceptance.**
@@ -124,7 +124,7 @@ Intended sequence once approvals exist: merge the fixes into the integration bra
 | interfaces main 50ed777 (includes StopState.msg, #35) | merged and CI green | quality/build, repository-quality pass |
 | interfaces C9 components and radians (#39, #42) | proposed (draft PR) | Proposed contracts |
 | ui main 51b4af3 | merged and CI green | ROS build and tests, web build and tests, Playwright route smoke test pass |
-| Manual driving from the operator UI | not supported in rc.1 | ui main 51b4af3 publishes /cmd_vel directly and its legacy navigation launch remaps controller_server to /cmd_vel; the command gate (platform-sw #90) and the UI command path on /ui/cmd_vel (ui #50) are not merged; do not drive a robot from the UI with rc.1 |
+| Manual driving from the operator UI | not supported in rc.1 | not exercised on hardware. The code is merged: platform-sw #90 (9865468) and ui #50 (8df8415), both 22 Nov 2026; ui main 713345ac publishes TwistStamped on /ui/cmd_vel and binds /safety/stop_lock. The operator path is verified in simulation only (command path end to end, Stop during motion, Resume, readiness, fault handling; Nikolai Goloborodko, measured on platform 3aa17d2 / ui 21e95b9). The hardware gates (stop gate deployed, LiDAR publishing, teleop contract) are open, so it must not be treated as a supported capability. **The pins table below still names ui 51b4af3, which predates #50; the rc.1 repin must move ui to a commit that includes it, or this row must say the pinned UI still publishes /cmd_vel directly.** |
 | ui rc.1 issues #31, #32, #33 | proposed (draft PR) | fixes in drafts #40 to #55, combined in integration candidate #56 |
 | embodied-ai main 56bbd36 | merged and CI green | quality/python, quality/ros2 pass; the bag to LeRobot converter is in draft #8 |
 | AI dataset: upperbody-sw pre-release dev-evidence-baseline1-c9-2026-11-19 | not verified | development evidence, not validated: 1 episode, 543 frames, simulation; Proposed conversion rules; C10 result NOT_VERIFIED |
