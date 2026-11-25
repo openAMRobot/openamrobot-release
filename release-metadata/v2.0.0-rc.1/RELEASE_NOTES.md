@@ -38,7 +38,7 @@ Only these labels are used.
 |---|---|---|
 | main 69847ab: description, Nav2 config, base and lift software-in-the-loop on virtual CAN (#139) | merged and CI green | sil-tests and repository-quality pass on 69847ab; description and simulation workflows did not run on this commit (path filters) |
 | Stop gate and command arbitration (#90) | proposed (draft PR) | open, changes requested on GitHub; not in main, not in the deployed robot build |
-| Station approach for manipulation goals (#164) | merged (23 Nov 2026 23:24 UTC, merge commit c42a9724b33b6cd115543dbb51974c80e4fabffd) | not in the pins table yet (repin pending). On the merge commit: repository-quality, description-tests, description-gazebo-tests and producer-tests pass; **sil-tests failed** (fixed SDO upload floor on a slow runner, issue #198; passed on the previous head). Simulation job results on the merge commit not read here |
+| Station approach for manipulation goals (#164) | merged (23 Nov 2026 23:24 UTC, merge commit c42a9724b33b6cd115543dbb51974c80e4fabffd) | not in the pins table yet (repin pending). On the merge commit: repository-quality, description-tests, description-gazebo-tests and producer-tests pass; **sil-tests failed** (Renode boot banner not seen within the fixed wait; runner-speed sensitivity tracked in #198; passed on the previous head). Simulation job results on the merge commit not read here |
 | Recovery trees without reversing (#91, #92), station alignment (#167) | proposed (draft PR) | open; one tree owner and merge order pending |
 | SDO reply matching in the drive host client (#169) | proposed (draft PR) | approved by the code owner at 5c8515f (20 Nov); still draft, not merged |
 | Teleop topic (cmd_vel_teleop vs cmd_vel_joy) | blocked | contract change request #170 (Proposed) |
@@ -135,10 +135,10 @@ Intended sequence once approvals exist: merge the fixes into the integration bra
 
 Added 24 Nov 2026 (Track A, simulation only, from platform-sw #164 and the firmware/SIL readiness statement of 23 Nov):
 
-- Station approach aborts about 1 time in 12 to 15; the mission fails closed and never reports a false success (platform-sw #192). The navigation owner decided on 23 Nov that it is a known limitation for rc.1 and the fix is a follow-up. Issue #192 was closed when #164 merged; the tracking issue for the follow-up is TBD.
+- Station approach aborts about 1 time in 12 to 15; the mission fails closed and never reports a false success (platform-sw #192). The navigation owner decided on 23 Nov that it is a known limitation for rc.1 and the fix is a follow-up. Issue #192 was closed automatically when #164 merged, without a fix; the rc.2 fix is tracked in platform-sw #201.
 - `scn07_cancel_resume` failed 5 times in 24 runs. Traced to the same stall as #192 (the base stops about 4 cm short, linear command 0.0, angular alternating, retries start from the same pose); nonblocking on the same basis.
 - `simulation (rtf02)` (real-time factor 0.2) is red on Fast DDS (platform-sw #197, nonblocking). CycloneDDS is the supported middleware for rc.1.
-- `sil-tests` can fail on a slow runner because of a fixed SDO upload count (platform-sw #198).
+- `sil-tests` is sensitive to runner speed (tracked in platform-sw #198); it is not a defect in the robot software. It failed on the #164 merge commit because Renode did not print its boot banner within the fixed wait. Earlier it failed on a different check, a low SDO upload count. These are two different timing/count checks, not one failure repeating.
 - Upperbody scene tests: no `/clock` at start-up (#135), a lift-permit gap (#132), one odometry outlier (#136), rare palm contact in grasp (#134; contact cap stays 1.0 N), and one retreat that ended 3 mm short of its window in 12 legs (issue to be opened).
 - A cancelled goal reports ABORTED, not CANCELED (#189); motion stops correctly, only the reported code is wrong.
 - The 2 s clean-boot Resume bound (D-13) is not evidenced on hardware; multi-step missions and Stop mid-mission are unverified.
