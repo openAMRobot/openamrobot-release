@@ -1,7 +1,7 @@
 # OpenAMRobot v2.0.0-rc.1 release notes (DRAFT)
 
 Status: draft for owner review, prepared 2026-11-20, refreshed 2026-11-22 01:30 UTC.
-Update 2026-11-24 (platform-sw #164 merged; Track A limitations added). The pins table below is not repinned yet: the platform pin changes to c42a972 and the upperbody pin waits on #130.
+Update 2026-11-25 (platform-sw #164 and the licence PR #180 merged; Track A limitations added). The pins table below is not repinned yet: the platform pin for rc.1 is 334e0ad7898e294fa817ed12c61c6534abdf2ab6 (platform-sw #180, merged 25 Nov 13:46 UTC, head of main) and the upperbody pin waits on the chain (#141, #140, #138, #130). Vendor material: owner decision option B (25 Nov) excludes the 32 manufacturer files under hardware/openamr-platform-hw/datasheets/ from the source archive (builder change in draft release #20); this is a packaging decision only and does not resolve files already hosted in the public repository.
 Not published, not tagged. Trial builds only (local, see "Source pins and lock");
 the published archive is built by CI after the merges in RUNBOOK.md. The release model is unchanged: this repository holds the release
 archive and is the ground truth; version tags in component repositories are
