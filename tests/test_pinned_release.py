@@ -199,6 +199,58 @@ class PinnedReleaseTests(unittest.TestCase):
         subprocess.run([sys.executable, str(ROOT / 'scripts/validate_release.py'),
                         str(output / 'OpenAMRobot-v0.0.1-source.zip')], check=True)
 
+    def two_file_source(self):
+        data = io.BytesIO()
+        with zipfile.ZipFile(data, 'w') as archive:
+            archive.comment = self.sha.encode()
+            archive.writestr('README.md', b'source content\n')
+            archive.writestr('datasheets/Vendor/part manual.pdf', b'vendor bytes')
+        self.source = data.getvalue()
+        self.checksum = builder.digest(self.source)
+        (self.cache / (self.checksum + '.zip')).write_bytes(self.source)
+        self.config['sources'] = {'src/example': self.checksum}
+
+    def test_excluded_file_is_absent_and_recorded(self):
+        self.two_file_source()
+        self.save_config()
+        with zipfile.ZipFile(self.build('all')) as archive:
+            self.assertIn('src/example/datasheets/Vendor/part manual.pdf', archive.namelist())
+            self.assertNotIn('excluded', json.loads(archive.read('MANIFEST.json'))['components'][0])
+        self.config['exclude'] = {'src/example': ['datasheets/Vendor/part manual.pdf']}
+        self.save_config()
+        first = self.build('first')
+        self.assertEqual(first.read_bytes(), self.build('second').read_bytes())
+        builder.validate(first)
+        with zipfile.ZipFile(first) as archive:
+            names = archive.namelist()
+            self.assertNotIn('src/example/datasheets/Vendor/part manual.pdf', names)
+            self.assertIn('src/example/README.md', names)
+            self.assertNotIn('part manual.pdf', archive.read('checksums.sha256').decode())
+            component = json.loads(archive.read('MANIFEST.json'))['components'][0]
+            self.assertEqual(component['excluded'], ['datasheets/Vendor/part manual.pdf'])
+            # The source lock still covers the whole pinned commit.
+            self.assertEqual(component['archive_sha256'], self.checksum)
+
+    def test_exclusion_that_matches_nothing_is_rejected(self):
+        self.two_file_source()
+        self.config['exclude'] = {'src/example': ['datasheets/Vendor/renamed.pdf']}
+        self.save_config()
+        with self.assertRaisesRegex(ValueError, 'excluded path not in source'):
+            self.build()
+
+    def test_invalid_exclusions_rejected(self):
+        self.two_file_source()
+        for exclude, message in (({'src/other': ['README.md']}, 'unknown component'),
+                                 ({'src/example': []}, 'non-empty list'),
+                                 ({'src/example': ['README.md', 'README.md']}, 'non-empty list'),
+                                 ({'src/example': ['../README.md']}, 'unsafe path'),
+                                 (['README.md'], 'expected mapping')):
+            with self.subTest(exclude=exclude):
+                self.config['exclude'] = exclude
+                self.save_config()
+                with self.assertRaisesRegex(ValueError, message):
+                    self.build()
+
 
 if __name__ == '__main__':
     unittest.main()

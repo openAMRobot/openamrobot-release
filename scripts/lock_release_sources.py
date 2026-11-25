@@ -2,7 +2,7 @@
 import argparse
 import json
 from pathlib import Path
-from build_pinned_release import digest, load_manifest, source_archive
+from build_pinned_release import digest, load_excludes, load_manifest, source_archive
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
@@ -10,6 +10,8 @@ if __name__ == '__main__':
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--cache-dir', type=Path, required=True)
     parser.add_argument('--version', required=True)
+    parser.add_argument('--exclude-file', type=Path,
+                        help='JSON mapping of component to file paths left out of the bundle')
     args = parser.parse_args()
     # Keep review of a new lock explicit: never replace an existing lock file.
     if args.output.exists():
@@ -26,4 +28,7 @@ if __name__ == '__main__':
         (args.cache_dir / (checksum + '.zip')).write_bytes(data)
         config['sources'][name] = checksum
         print(f'{name}: {entry["version"]} {checksum}', flush=True)
+    if args.exclude_file:
+        config['exclude'] = json.loads(args.exclude_file.read_text(encoding='utf-8'))
+        load_excludes(config, repos)
     args.output.write_text(json.dumps(config, indent=2) + '\n', encoding='utf-8', newline='\n')
