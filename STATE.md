@@ -63,3 +63,8 @@ status refresh. The integration snapshot records the current heads (upperbody-sw
 legacy (COMPUTE). release-metadata/RELEASE_NOTES.md (v0.0.1 notes, unchanged)
 still names the Raspberry Pi 5 without a legacy label; it is historical metadata
 of the v0.0.1 builder and is left for the owner.
+
+2026-11-25: documentation-only preparation supersedes the stale Monday runbook.
+Builder #12 is merged; final platform/upperbody main pins, publication audit
+closure and fresh hosted evidence remain pending. No pins or lock changed.
+No tag or release, including draft publication, without Alex authorization.
