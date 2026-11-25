@@ -135,7 +135,7 @@ Intended sequence once approvals exist: merge the fixes into the integration bra
 
 Added 24 Nov 2026 (Track A, simulation only, from platform-sw #164 and the firmware/SIL readiness statement of 23 Nov):
 
-- Station approach aborts about 1 time in 12 to 15; the mission fails closed and never reports a false success (platform-sw #192). The navigation owner decided on 23 Nov that it is a known limitation for rc.1 and the fix is a follow-up. Issue #192 was closed automatically when #164 merged, without a fix; the rc.2 fix is tracked in platform-sw #201.
+- Station approach aborts about 1 time in 12 to 15; the mission fails closed and never reports a false success (platform-sw #192). The navigation owner decided on 23 Nov that it is a known limitation for rc.1 and the fix is a follow-up. Issue #192 was closed automatically when #164 merged, without a fix. The follow-up is tracked in platform-sw #207 (rc.2 fix: #201).
 - `scn07_cancel_resume` failed 5 times in 24 runs. Traced to the same stall as #192 (the base stops about 4 cm short, linear command 0.0, angular alternating, retries start from the same pose); nonblocking on the same basis.
 - `simulation (rtf02)` (real-time factor 0.2) is red on Fast DDS (platform-sw #197, nonblocking). CycloneDDS is the supported middleware for rc.1.
 - `sil-tests` is sensitive to runner speed (tracked in platform-sw #198); it is not a defect in the robot software. It failed on the #164 merge commit because Renode did not print its boot banner within the fixed wait. Earlier it failed on a different check, a low SDO upload count. These are two different timing/count checks, not one failure repeating.
@@ -144,6 +144,12 @@ Added 24 Nov 2026 (Track A, simulation only, from platform-sw #164 and the firmw
 - The 2 s clean-boot Resume bound (D-13) is not evidenced on hardware; multi-step missions and Stop mid-mission are unverified.
 - Firmware: STM32H723 board support (platform-fw #22) is an initialization baseline, not operational firmware. Read-only telemetry (#51, draft) has L3 evidence on Renode's H743 model only. Not implemented in STM32H723 code: safety state machine, drive enable and commands, lift-permit producer, CAN3 reader, micro-ROS link; the simulated mission uses host and emulator stand-ins. Watchdog values (ZLAC 250 ms, drive heartbeat 100 ms, base consumer 300 ms) await bench capture. The ArmStatus/STOWED contract is undefined.
 - Gazebo is the release twin for rc.1. MuJoCo and Isaac Sim are experimental and outside the critical path.
+- Cancel and resume is not supported: the resumed drive aborts in 3 of 12 launches (platform-sw #207).
+- Strict mission (platform d4efb5c with the upperbody chain head, measured 24 Nov): 10 of 10 legs complete, 4 of 5 strict verdicts pass. A leg retried after a "no /clock" start can lose its contact evidence (upperbody-sw #135). The contact evidence requirement stays.
+- SIL: start-up standstill in 2 of 65 launches, and link-loss events from mixed clocks (upperbody-sw #137). These are simulation artefacts, not hardware evidence.
+- RViz: `build1.rviz` needs Nav2 and MoveIt both on; the ground truth display stays empty; RViz crashes at shutdown.
+- Object poses come from simulator ground truth, not from a camera.
+- Full workspace install: the full workspace does not build while both copies of `openamr_ui_msgs` are present (interfaces and UI). Until the UI copy is removed, install the selected interfaces pin only.
 - Baseline 1 results in this release are simulation evidence only. They are not real-robot, hardware, electrical or safety acceptance.
 - C7 measurement change: the reverse-speed gate judges the forward drive at 0.010 m/s (limit unchanged); the in-place turn is reported separately and guarded by the 0.05 m turn-drift check. Each report shows the gate value, the turn value and the earlier single-series value side by side, so the change cannot be read as a relaxed limit (owner decision, 22 Nov; upperbody-sw #117, #118, #123, #124).
 - Forward retreat: the retreat is turn-and-forward (no backup). The StationRetreat controller (platform-sw #182) was adopted; the gate owner requires at least 5 retreat legs, all succeeded, with the clearance measured at the retreat end. One retreat ended 3 mm short of its window in 12 legs. Without that evidence, strict acceptance is not met because of the forward-retreat stall.
