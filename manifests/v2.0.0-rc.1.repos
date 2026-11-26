@@ -16,11 +16,11 @@ repositories:
   src/openamr-platform-sw:
     type: git
     url: https://github.com/openAMRobot/openamr-platform-sw.git
-    version: 69847ab7c9c6cd49b3022dc1a62f86c044ba10ff
+    version: ddd20ab3a85d98bb78c4c5f014952c4a0717ef92
   src/openamr-upperbody-sw:
     type: git
     url: https://github.com/openAMRobot/openamr-upperbody-sw.git
-    version: a3a93c60b0de2865c6ce09499cfad566d7072659
+    version: 1ab45a62957d238fc293eee08a8fd9158acebb01
   src/openamrobot-embodied-ai:
     type: git
     url: https://github.com/openAMRobot/openamrobot-embodied-ai.git
@@ -36,7 +36,7 @@ repositories:
   hardware/openamr-platform-hw:
     type: git
     url: https://github.com/openAMRobot/openamr-platform-hw.git
-    version: 8ed2b06a46115abe2dffadbf0d902ae731d278d1
+    version: 33941236db5fc2e651bf44dce97203f750a8f15e
   hardware/openamr-upperbody-hw:
     type: git
     url: https://github.com/openAMRobot/openamr-upperbody-hw.git
@@ -44,7 +44,7 @@ repositories:
   ui/openamrobot-ui:
     type: git
     url: https://github.com/openAMRobot/openamrobot-ui.git
-    version: 51b4af38d6b7eeb260610e8ab2ebde0a340beea9
+    version: 2cf917950adef411bbdc54381865ea137c7b2e26
   docs/openamrobot-docs:
     type: git
     url: https://github.com/openAMRobot/openamrobot-docs.git
@@ -57,7 +57,3 @@ repositories:
     type: git
     url: https://github.com/micro-ROS/micro-ROS-Agent.git
     version: 7c932329ad5591ef23942ef1962534258c16b000
-  governance/.github:
-    type: git
-    url: https://github.com/openAMRobot/.github.git
-    version: 87c848617bd9a2135a5c75e1aaa54be8f8955556
