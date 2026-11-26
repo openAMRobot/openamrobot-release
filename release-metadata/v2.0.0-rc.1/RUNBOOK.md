@@ -116,14 +116,17 @@ commit. Never move/overwrite a published tag or replace an asset to hide a failu
 
 ## 7. State on 26 November 2026 and the publication commands
 
-Sections 1 to 4 are done: platform `ddd20ab3a85d98bb78c4c5f014952c4a0717ef92`
-and upperbody `1ab45a62957d238fc293eee08a8fd9158acebb01` are frozen on their
-`release/2.0.0-rc.1` branches; the publication cleanups (platform-sw #210,
+Sections 1 to 4 are done: platform `2ac40702deaf3533f9612a1e05d1ea9bb41b996c`
+and upperbody `6687f65b8bd03f83ef6c38a7ddaf47eb3bfd18ac` are the qualified pair (candidate 2). They are
+pull request heads (platform-sw #211, upperbody-sw #146) and are not yet on their
+`release/2.0.0-rc.1` branches: they move there by fast-forward after the SIL owner's
+confirmation and the code owner's review, never by squash, because a squash would
+replace the tested commits. Until then everything in this section is provisional; the publication cleanups (platform-sw #210,
 platform-hw #44, UI #65) and the licence corrections (platform-sw #180,
 upperbody-sw #144) are merged and pinned; the 32-path exclusion is in the lock.
-Local rehearsal on this head: two fresh fetch builds, byte identical, 3,038 files
-verified, 311,720,694 bytes, SHA-256
-`38faaaec8474364cf58f92e014fe623d0cbc34c4a43495012d20155fa888a9c2`,
+Provisional local result on this head (pins not yet adopted): two fresh fetch builds, byte identical, 3,038 files
+verified, 311,726,315 bytes, SHA-256
+`b13a77f1522e4e58ae9adadcc3338ddae840058b768eb3e88d862804f590aa77`,
 0 of 32 excluded files present. The hosted artifact is the one to publish, not
 the local one.
 

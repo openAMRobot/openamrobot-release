@@ -81,10 +81,10 @@ archive. No pin, lock or release config is changed by this entry.
 
 ## v2.0.0-rc.1 candidate, 26 Nov 2026
 
-`manifests/v2.0.0-rc.1.repos` equals openamrobot-manifest #23: platform software `ddd20ab` and upper body software
-`1ab45a6` on their `release/2.0.0-rc.1` branches, platform hardware `3394123`, UI `2cf9179`. The lock
+`manifests/v2.0.0-rc.1.repos` equals openamrobot-manifest #23: platform software `2ac4070` and upper body software
+`6687f65` (candidate 2; provisional until both are on their release branches) on their `release/2.0.0-rc.1` branches, platform hardware `3394123`, UI `2cf9179`. The lock
 `release-config.rc1.json` was regenerated with the 32-path exclusion (`release-metadata/v2.0.0-rc.1/exclude.json`).
-Local rehearsal: two fetch builds byte identical, SHA-256 `38faaaec…a9c2`, 3,038 files verified, 0 of 32 excluded
+Local rehearsal: two fetch builds byte identical, SHA-256 `b13a77f1…aa77` (provisional, 26 Nov, candidate 2 pins), 3,038 files verified, 0 of 32 excluded
 files present. The hosted `Pinned rc.1 release` check stays red on manifest parity until #23 is on manifest `main`.
 Release notes rewritten for the Digital Twin scope with every attempt listed; the strict mission target (3 of 3
 verdicts on the candidate) was not met: 2 of 3, one leg failed the odometry check by 0.16 mm. Not published, not

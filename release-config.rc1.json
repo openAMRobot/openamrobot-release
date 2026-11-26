@@ -5,13 +5,13 @@
     "status": "candidate snapshot; not release acceptance"
   },
   "manifest": "manifests/v2.0.0-rc.1.repos",
-  "manifest_sha256": "76bfa67a1d056f7c2028a68a718b67e98f8ce2ef6df2311648469de9c0462e67",
+  "manifest_sha256": "cea55f8c8a8413bdcac6bbeb921d9949ea1c266f0bff6cb34de3500b4656f99b",
   "sources": {
     "src/openamrobot-interfaces": "2774943993a39181bf4d721001f08d345e3984bc865b1ae76650b32bb07d7725",
     "src/openamrobot-comm": "63f880a6f3d80980e9cb896867d29ec36d0238f1630bcf7136e4ff8797df0434",
     "src/openamrobot-manipulation": "8d4e3c9ab01ec285d722d39c04dea749d61f7705a4f30c118bf424d39e1bf748",
-    "src/openamr-platform-sw": "c0a15aa263d72a8a1654087c06057b0fe309a5972593286754e63a480e1550f3",
-    "src/openamr-upperbody-sw": "4f204e9b6897f8f23c7eb15c5fb2b4ea97c800bd34608f48ea80140d7ebdf58a",
+    "src/openamr-platform-sw": "6fbabc78b8ec3e91547f49557bd14f2edb2f9dbf5fee3dc8e452b48e67419812",
+    "src/openamr-upperbody-sw": "9fb0e9079d6aa36672305690d3be2fb0b71ce96aa877cb31016a1d979a13bfa2",
     "src/openamrobot-embodied-ai": "b24b6bb8c3c989fc22316a5392f20d0d629e8340ee997033430ff4b9360407e3",
     "firmware/openamr-platform-fw": "e863f663a30835d52b8a4a07b945307ee2221cd3bf53fee98d25c641bc612f4a",
     "firmware/openamr-upperbody-fw": "1bdac6a86e857281fbb9f9f02f29c7109086f5f9a8820306432e0a79df73bd49",
