@@ -36,6 +36,7 @@ Install the supported profile from `openamrobot-manifest`: `releases/v2.0.0-rc.1
    source /opt/ros/jazzy/setup.bash
    source "$HOME/oamr_dt_ws/install/setup.bash"
    export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+   export CYCLONEDDS_URI='<CycloneDDS><Domain Id="any"><Discovery><MaxAutoParticipantIndex>120</MaxAutoParticipantIndex></Discovery></Domain></CycloneDDS>'
    ros2 launch openamrobot_build1_scene build1.launch.py profile:=fast rviz:=true
    ```
 
@@ -54,8 +55,8 @@ The full workspace manifest `manifests/v2.0.0-rc.1.repos` does not build as one 
 
 | Component | Commit | Note |
 |---|---|---|
-| openamr-platform-sw | 2ac40702deaf3533f9612a1e05d1ea9bb41b996c | branch `release/2.0.0-rc.1`: `334e0ad` plus a documentation-only publication cleanup. The `main` branch is not the candidate |
-| openamr-upperbody-sw | 6687f65b8bd03f83ef6c38a7ddaf47eb3bfd18ac | branch `release/2.0.0-rc.1` |
+| openamr-platform-sw | 2ac40702deaf3533f9612a1e05d1ea9bb41b996c | branch `release/2.0.0-rc.1`: `334e0ad`, a publication cleanup of documents (`ddd20ab`), and the SIL effective-track calibration with its regression tests (platform-sw #211: `sil.yaml`, `test_sil_config.py`). The `main` branch is not the candidate |
+| openamr-upperbody-sw | 6687f65b8bd03f83ef6c38a7ddaf47eb3bfd18ac | head of upperbody-sw #146; on branch `release/2.0.0-rc.1` after the code-owner review and fast-forward |
 | openamrobot-interfaces | 50ed777be7990edbd3465f33fd97a158e7e3b88b | |
 | openarm_description (upstream) | 14ff67b638ff1c738a1b9a6be8aaa5ce5ed2c831 | Apache-2.0 |
 | openarm_ros2 (upstream) | 4e837e1d0dae692ff67b560b69d8d281d7a8d4ed | Apache-2.0 |
@@ -107,7 +108,7 @@ Cancel stops the base under control (0.12 s and 0.012 m in the traced run, goal 
 9. **Middleware.** CycloneDDS only. Fast DDS loses samples under the mission load and one platform simulation job is red on it (platform-sw #197).
 10. **Fidelity placeholders.** Wheel contact and friction, track width 0.400 m, drive dynamics and speed limits, camera poses and fields of view, battery constants; no power or brake model.
 11. **Gate definitions are proposed values.** Known weaknesses for rc.2: the end-of-run liveness check passes when it is absent, the cancellation gate needs only one check, finger-to-item contact has no force cap, and the Stop check measures a base already at rest. The reverse-speed gate judges the forward drive at 0.010 m/s and reports the in-place turn separately (guarded by the 0.05 m turn-drift check).
-12. **Clean install coverage.** The clean install check runs the `fast` profile headless: drive, lift, shutdown, relaunch and a left-arm grasp with the Bullet Featherstone engine. It does not cover RViz on a screen or the `firmware_sil` profile; those are covered by the gates on CI workspaces and by the open human screen check.
+12. **Clean install coverage.** The clean install check runs the `fast` profile headless: drive, lift, shutdown, relaunch and a left-arm grasp with the Bullet Featherstone engine. It does not cover RViz on a screen or the `firmware_sil` profile. The `firmware_sil` profile is exercised by the mission and scene gates on CI workspaces, without a screen. RViz and Gazebo on a real screen are not established for this pair: one contributor ran the previous candidate on a desktop, and the screen check of this pair by a person has not been done.
 13. **Firmware.** No firmware image has been flashed on 2.0 hardware. The simulated mission uses host and emulator stand-ins; the safety state machine, drive enable, lift-permit producer and micro-ROS link are not implemented in the STM32H723 code.
 14. **Timing-sensitive platform test.** `sil-tests` in platform-sw can fail on a slow runner (platform-sw #198).
 
