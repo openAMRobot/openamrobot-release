@@ -27,7 +27,19 @@ Install the supported profile from `openamrobot-manifest`: `releases/v2.0.0-rc.1
 ## Get started
 
 1. Read the documentation section "OpenAMRobot 2.0 rc.1 Digital Twin" on https://docs.openamrobot.ai/ (system requirements, installation, quick start, RViz guide, demonstrations, troubleshooting). The section is in review in `openamrobot-docs` at the time of writing.
-2. On Ubuntu 24.04 (x86_64): clone `openamrobot-manifest`, run `bash tools/bootstrap_digital_twin.sh ~/oamr_dt_ws`, then start the twin with `ros2 launch openamrobot_build1_scene build1.launch.py profile:=fast rviz:=true`.
+2. For a **pre-publication Candidate 2 verification installation** (not the final released installation), use the pinned verification checkout below. It must be checked out **before** running bootstrap:
+
+   ```bash
+   git clone https://github.com/openAMRobot/openamrobot-manifest.git
+   git -C openamrobot-manifest checkout 9383aa5f59d2697ec71faea88f718002a47936c8
+   bash openamrobot-manifest/tools/bootstrap_digital_twin.sh "$HOME/oamr_dt_ws"
+   source /opt/ros/jazzy/setup.bash
+   source "$HOME/oamr_dt_ws/install/setup.bash"
+   export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+   ros2 launch openamrobot_build1_scene build1.launch.py profile:=fast rviz:=true
+   ```
+
+   This checkout comes from verification-only manifest PR #25. The clean install on it passed in 2 of 2 environments ([run 45855870217](https://github.com/openAMRobot/openamrobot-manifest/actions/runs/45855870217)); final adoption on manifest PR #23 is pending. Replace this preview instruction with the immutable published manifest revision before the release is tagged.
 3. In a second terminal run the first demonstration: `ros2 run openamrobot_build1_scene run_scenario.py scn01_drive`.
 
 No physical hardware is needed. No GPU was used in the automated tests (headless software rendering); requirements for a desktop session have not been measured.
@@ -65,7 +77,7 @@ Release pair: upper body `6687f65b8bd03f83ef6c38a7ddaf47eb3bfd18ac` with platfor
 | Platform SIL protocol tests | 209 passed, 3 expected failures (platform-sw #159) | [45826145729](https://github.com/openAMRobot/openamr-platform-sw/actions/runs/45826145729) |
 | Platform description, navigation status, drivers bring-up | passed | [45826150907](https://github.com/openAMRobot/openamr-platform-sw/actions/runs/45826150907), [45826156811](https://github.com/openAMRobot/openamr-platform-sw/actions/runs/45826156811), [45826162821](https://github.com/openAMRobot/openamr-platform-sw/actions/runs/45826162821) |
 | Platform station alignment | required jobs passed; the Fast DDS job failed (limitation 9) | [45826167431](https://github.com/openAMRobot/openamr-platform-sw/actions/runs/45826167431) |
-| Clean install on the release pins, 2 fresh environments | pending: runs when the manifest carries these pins | |
+| Clean install on the release pins, 2 fresh environments | 2 of 2: bootstrap twice, 17 packages built, clock, robot description, TF, `scn01_drive` PASS, `scn16_lift_stops` PASS, one interrupt, relaunch, `scn04_grasp` PASS. Provisional: on the verification manifest commit `9383aa5` | [45855870217](https://github.com/openAMRobot/openamrobot-manifest/actions/runs/45855870217) |
 
 What the mission evidence is and is not: the mission runs in the declared simulation-oracle setting. The pose used for planning and the pose of the item come from simulator ground truth. A pass shows the sequence, the control paths and odometry agreement. It is not a localization or perception result.
 
@@ -80,7 +92,7 @@ Human checks: one contributor ran the previous candidate on a real screen under 
 
 ## Not supported: cancel and resume
 
-Cancel stops the base under control (0.12 s and 0.012 m in the traced run, goal status CANCELED). The resumed goal can end ABORTED when the progress checker fires near the station (platform-sw #207, root cause #201). The scenario `scn07_cancel_resume` stays in the test matrix and its actual result is reported: on the candidate it passed in one run and failed in another. A pass does not make it supported. An older report that the cancelled goal itself returns ABORTED (platform-sw #189) is still open; it did not occur in the runs listed here.
+Cancel stops the base under control (0.12 s and 0.012 m in the traced run, goal status CANCELED). The resumed goal can end ABORTED when the progress checker fires near the station (platform-sw #207, root cause #201). The overall `scn07_cancel_resume` scenario **FAILED in both exact-head Candidate 2 scene runs** ([45826335970](https://github.com/openAMRobot/openamr-upperbody-sw/actions/runs/45826335970) and [45826367333](https://github.com/openAMRobot/openamr-upperbody-sw/actions/runs/45826367333)); successful cancellation of one goal is not successful cancel/resume. Cancel/resume remains unsupported in rc.1. An older report that the cancelled goal itself returns ABORTED (platform-sw #189) is still open; it did not occur in the runs listed here.
 
 ## Known limitations of supported behaviour
 
