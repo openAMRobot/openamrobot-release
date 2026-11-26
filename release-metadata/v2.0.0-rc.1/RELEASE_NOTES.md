@@ -31,7 +31,7 @@ Install the supported profile from `openamrobot-manifest`: `releases/v2.0.0-rc.1
 
    ```bash
    git clone https://github.com/openAMRobot/openamrobot-manifest.git
-   git -C openamrobot-manifest checkout 9383aa5f59d2697ec71faea88f718002a47936c8
+   git -C openamrobot-manifest checkout 442241a2428247c5927a944f451355bb7373b4a0
    bash openamrobot-manifest/tools/bootstrap_digital_twin.sh "$HOME/oamr_dt_ws"
    source /opt/ros/jazzy/setup.bash
    source "$HOME/oamr_dt_ws/install/setup.bash"
@@ -39,7 +39,7 @@ Install the supported profile from `openamrobot-manifest`: `releases/v2.0.0-rc.1
    ros2 launch openamrobot_build1_scene build1.launch.py profile:=fast rviz:=true
    ```
 
-   This checkout comes from verification-only manifest PR #25. The clean install on it passed in 2 of 2 environments ([run 45855870217](https://github.com/openAMRobot/openamrobot-manifest/actions/runs/45855870217)); final adoption on manifest PR #23 is pending. Replace this preview instruction with the immutable published manifest revision before the release is tagged.
+   This checkout is the head of manifest PR #23. The clean install on it passed in 2 of 2 environments ([run 45871626093](https://github.com/openAMRobot/openamrobot-manifest/actions/runs/45871626093)); the merge of that pull request is pending. Replace this preview instruction with the immutable published manifest revision before the release is tagged.
 3. In a second terminal run the first demonstration: `ros2 run openamrobot_build1_scene run_scenario.py scn01_drive`.
 
 No physical hardware is needed. No GPU was used in the automated tests (headless software rendering); requirements for a desktop session have not been measured.
@@ -77,7 +77,7 @@ Release pair: upper body `6687f65b8bd03f83ef6c38a7ddaf47eb3bfd18ac` with platfor
 | Platform SIL protocol tests | 209 passed, 3 expected failures (platform-sw #159) | [45826145729](https://github.com/openAMRobot/openamr-platform-sw/actions/runs/45826145729) |
 | Platform description, navigation status, drivers bring-up | passed | [45826150907](https://github.com/openAMRobot/openamr-platform-sw/actions/runs/45826150907), [45826156811](https://github.com/openAMRobot/openamr-platform-sw/actions/runs/45826156811), [45826162821](https://github.com/openAMRobot/openamr-platform-sw/actions/runs/45826162821) |
 | Platform station alignment | required jobs passed; the Fast DDS job failed (limitation 9) | [45826167431](https://github.com/openAMRobot/openamr-platform-sw/actions/runs/45826167431) |
-| Clean install on the release pins, 2 fresh environments | 2 of 2: bootstrap twice, 17 packages built, clock, robot description, TF, `scn01_drive` PASS, `scn16_lift_stops` PASS, one interrupt, relaunch, `scn04_grasp` PASS. Provisional: on the verification manifest commit `9383aa5` | [45855870217](https://github.com/openAMRobot/openamrobot-manifest/actions/runs/45855870217) |
+| Clean install on the release pins, 2 fresh environments | 2 of 2: bootstrap twice, 17 packages built, clock, robot description, TF, `scn01_drive` PASS, `scn16_lift_stops` PASS, one interrupt, relaunch, `scn04_grasp` PASS. On the head of manifest PR #23, `442241a`; before that on a commit with identical content (45855870217) | [45871626093](https://github.com/openAMRobot/openamrobot-manifest/actions/runs/45871626093) |
 
 What the mission evidence is and is not: the mission runs in the declared simulation-oracle setting. The pose used for planning and the pose of the item come from simulator ground truth. A pass shows the sequence, the control paths and odometry agreement. It is not a localization or perception result.
 
