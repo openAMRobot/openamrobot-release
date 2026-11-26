@@ -68,3 +68,13 @@ of the v0.0.1 builder and is left for the owner.
 Builder #12 is merged; final platform/upperbody main pins, publication audit
 closure and fresh hosted evidence remain pending. No pins or lock changed.
 No tag or release, including draft publication, without Alex authorization.
+
+Prepared 2026-11-25 (Proposed, draft): the pinned builder accepts an optional
+`exclude` mapping in the release config (component to exact file paths). The
+listed files are left out of the bundle and named under `excluded` in
+MANIFEST.json; the source checksum still covers the whole pinned commit. A
+listed path that is not in the source fails the build. Without the key the
+bundle is unchanged. `lock_release_sources.py --exclude-file` copies the
+mapping into a new lock. Reason: owner decision of 25 Nov on #18 to leave the
+manufacturer files under openamr-platform-hw `datasheets/` out of the rc.1
+archive. No pin, lock or release config is changed by this entry.
