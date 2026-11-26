@@ -113,3 +113,47 @@ model tag, draft GitHub Release or publication. Once authorized, the owner recor
 release date/target SHA, attaches the exact reviewed CI artifact without rebuilding,
 verifies downloaded asset checksums, and confirms the tag resolves to the approved
 commit. Never move/overwrite a published tag or replace an asset to hide a failure.
+
+## 7. State on 26 November 2026 and the publication commands
+
+Sections 1 to 4 are done: platform `ddd20ab3a85d98bb78c4c5f014952c4a0717ef92`
+and upperbody `1ab45a62957d238fc293eee08a8fd9158acebb01` are frozen on their
+`release/2.0.0-rc.1` branches; the publication cleanups (platform-sw #210,
+platform-hw #44, UI #65) and the licence corrections (platform-sw #180,
+upperbody-sw #144) are merged and pinned; the 32-path exclusion is in the lock.
+Local rehearsal on this head: two fresh fetch builds, byte identical, 3,038 files
+verified, 311,720,694 bytes, SHA-256
+`38faaaec8474364cf58f92e014fe623d0cbc34c4a43495012d20155fa888a9c2`,
+0 of 32 excluded files present. The hosted artifact is the one to publish, not
+the local one.
+
+Remaining order, each step a human decision:
+
+1. The manifest maintainer reviews and merges openamrobot-manifest #23.
+2. Rerun `Pinned rc.1 release` on the head of #18 (parity then reads manifest
+   main). Download the artifact `OpenAMRobot-v2.0.0-rc.1-candidate` and confirm
+   its SHA-256 sidecar.
+3. The release owner reviews and merges #18.
+4. The owner gives the release decision.
+
+Only after step 4, from a clean checkout of this repository at the merge commit
+of #18, with the artifact of step 2 in `./candidate/` (no rebuild):
+
+```sh
+(cd candidate && sha256sum -c OpenAMRobot-v2.0.0-rc.1-source.zip.sha256)
+gh release create v2.0.0-rc.1 --repo openAMRobot/openamrobot-release \
+  --target <merge commit of #18> --prerelease --draft \
+  --title "OpenAMRobot 2.0 rc.1: Digital Twin" \
+  --notes-file release-metadata/v2.0.0-rc.1/RELEASE_NOTES.md \
+  candidate/OpenAMRobot-v2.0.0-rc.1-source.zip \
+  candidate/OpenAMRobot-v2.0.0-rc.1-source.zip.sha256 \
+  manifests/v2.0.0-rc.1.repos release-config.rc1.json
+```
+
+Check the draft, download the assets again and verify the checksum, then
+`gh release edit v2.0.0-rc.1 --repo openAMRobot/openamrobot-release --draft=false`.
+Component tags `v2.0.0-rc.1` are navigation aids and go on exactly the commits
+in `MANIFEST.json`, platform-sw and upperbody-sw first. The supported install
+profile `v2.0.0-rc.1-digital-twin.repos` is published from the manifest
+repository at the tag `v2.0.0-rc.1` there. No workflow in this repository creates
+a tag or a release; every workflow has `contents: read`.
