@@ -26,7 +26,7 @@ Four repositories get the tag `v2.0.0-rc.1`. They are the ones a user or auditor
 | openAMRobot/openamr-platform-sw | `v2.0.0-rc.1` | `2ac40702deaf3533f9612a1e05d1ea9bb41b996c` | qualified source |
 | openAMRobot/openamr-upperbody-sw | `v2.0.0-rc.1` | `6687f65b8bd03f83ef6c38a7ddaf47eb3bfd18ac` | qualified source |
 
-Not tagged: the ten other repositories of the source inventory (interfaces, hardware, firmware, UI, embodied AI, comm, manipulation, docs, and the two third-party repositories). Their exact commits are in `MANIFEST.json` inside the archive and in `manifests/v2.0.0-rc.1.repos`. A tag there would suggest that their function is part of the supported Digital Twin, which it is not. The documentation is versioned by its path (`.../digital-twin/rc1/`).
+Not tagged: the twelve other repositories of the source inventory (interfaces, hardware, firmware, UI, embodied AI, comm, manipulation, docs, and the two third-party repositories). Their exact commits are in `MANIFEST.json` inside the archive and in `manifests/v2.0.0-rc.1.repos`. A tag there would suggest that their function is part of the supported Digital Twin, which it is not. The documentation is versioned by its path (`.../digital-twin/rc1/`).
 
 ## Sequence after GO
 
