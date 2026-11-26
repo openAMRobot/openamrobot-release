@@ -1,7 +1,7 @@
 # OpenAMRobot v2.0.0-rc.1 release notes (DRAFT)
 
 Status: draft for owner review, prepared 2026-11-20, refreshed 2026-11-22 01:30 UTC.
-Update 2026-11-25 (platform-sw #164 and the licence PR #180 merged; Track A limitations added). The pins table below is not repinned yet: the platform pin for rc.1 is 334e0ad7898e294fa817ed12c61c6534abdf2ab6 (platform-sw #180, merged 25 Nov 13:46 UTC, head of main) and the upperbody pin waits on the chain (#141, #140, #138, #130). Vendor material: owner decision option B (25 Nov) excludes the 32 manufacturer files under hardware/openamr-platform-hw/datasheets/ from the source archive (builder change in draft release #20); this is a packaging decision only and does not resolve files already hosted in the public repository.
+Update 2026-11-26 (rc.1 release freeze). Candidate, frozen: platform-sw branch release/2.0.0-rc.1 at ddd20ab3a85d98bb78c4c5f014952c4a0717ef92 (334e0ad7898e294fa817ed12c61c6534abdf2ab6 from #180 plus the documentation-only publication cleanup, platform-sw #210). Platform main (42915a1, includes #204) is not the candidate. Upperbody: #141 is merged on main as a772ef1; the final candidate is upperbody-sw #144 (head 729be2a, licence corrections, pin to the platform commit above), gates running. The pins table below is not repinned yet (repin of manifest #23 and this release pending). Vendor material: owner decision option B (25 Nov) excludes the 32 manufacturer files under hardware/openamr-platform-hw/datasheets/ from the source archive (builder change in draft release #20); this is a packaging decision only and does not resolve files already hosted in the public repository.
 Not published, not tagged. Trial builds only (local, see "Source pins and lock");
 the published archive is built by CI after the merges in RUNBOOK.md. The release model is unchanged: this repository holds the release
 archive and is the ground truth; version tags in component repositories are
@@ -133,6 +133,12 @@ Intended sequence once approvals exist: merge the fixes into the integration bra
 
 ## Known limitations
 
+### Not supported in rc.1
+
+- Cancel and resume. The resumed drive aborts in 3 of 12 launches (platform-sw #207). A cancel stops the base under control (0.12 s and 0.012 m in the traced run); the resumed goal reaches the pose and then the progress checker aborts it. The rest of the mission path is not affected. It is not part of the supported scope and is reported separately.
+
+### Known limitations of supported behaviour
+
 Added 24 Nov 2026 (Track A, simulation only, from platform-sw #164 and the firmware/SIL readiness statement of 23 Nov):
 
 - Station approach aborts about 1 time in 12 to 15; the mission fails closed and never reports a false success (platform-sw #192). The navigation owner decided on 23 Nov that it is a known limitation for rc.1 and the fix is a follow-up. Issue #192 was closed automatically when #164 merged, without a fix. The follow-up is tracked in platform-sw #207 (rc.2 fix: #201).
@@ -144,10 +150,9 @@ Added 24 Nov 2026 (Track A, simulation only, from platform-sw #164 and the firmw
 - The 2 s clean-boot Resume bound (D-13) is not evidenced on hardware; multi-step missions and Stop mid-mission are unverified.
 - Firmware: STM32H723 board support (platform-fw #22) is an initialization baseline, not operational firmware. Read-only telemetry (#51, draft) has L3 evidence on Renode's H743 model only. Not implemented in STM32H723 code: safety state machine, drive enable and commands, lift-permit producer, CAN3 reader, micro-ROS link; the simulated mission uses host and emulator stand-ins. Watchdog values (ZLAC 250 ms, drive heartbeat 100 ms, base consumer 300 ms) await bench capture. The ArmStatus/STOWED contract is undefined.
 - Gazebo is the release twin for rc.1. MuJoCo and Isaac Sim are experimental and outside the critical path.
-- Cancel and resume is not supported: the resumed drive aborts in 3 of 12 launches (platform-sw #207).
-- Strict mission (platform d4efb5c with the upperbody chain head, measured 24 Nov): 10 of 10 legs complete, 4 of 5 strict verdicts pass. A leg retried after a "no /clock" start can lose its contact evidence (upperbody-sw #135). The contact evidence requirement stays.
-- SIL: start-up standstill in 2 of 65 launches, and link-loss events from mixed clocks (upperbody-sw #137). These are simulation artefacts, not hardware evidence.
-- RViz: `build1.rviz` needs Nav2 and MoveIt both on; the ground truth display stays empty; RViz crashes at shutdown.
+- Strict mission (platform d4efb5c with the upperbody chain head, measured 25 Nov): 10 of 10 legs complete, 4 of 5 strict verdicts pass. A leg retried after a "no /clock" start can lose its contact evidence (upperbody-sw #135). The contact evidence requirement stays.
+- SIL: start-up standstill in 2 of 65 launches (upperbody-sw #142), and link-loss events from mixed clocks (upperbody-sw #137). These are simulation artefacts, not hardware evidence.
+- RViz: `rviz:=true` works with the full profile (Nav2 and MoveIt on). The ground truth display is not shown. rviz2 can report a crash when the launch is closed (upperbody-sw #143).
 - Object poses come from simulator ground truth, not from a camera.
 - Full workspace install: the full workspace does not build while both copies of `openamr_ui_msgs` are present (interfaces and UI). Until the UI copy is removed, install the selected interfaces pin only.
 - Baseline 1 results in this release are simulation evidence only. They are not real-robot, hardware, electrical or safety acceptance.
