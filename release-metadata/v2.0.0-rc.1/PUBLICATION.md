@@ -9,7 +9,7 @@ Prepared 26 November 2026. Nothing in this file has been executed. No tag and no
 | 1 | openamr-platform-sw `release/2.0.0-rc.1` is at `2ac40702deaf3533f9612a1e05d1ea9bb41b996c` | done |
 | 2 | openamr-upperbody-sw `release/2.0.0-rc.1` is at `6687f65b8bd03f83ef6c38a7ddaf47eb3bfd18ac` | done, 27 Nov 13:27 UTC (code-owner approval, fast-forward) |
 | 3 | Contributor agreement of upperbody-sw #141 is signed | open: status pending for the account that has not signed |
-| 4 | openamrobot-manifest main pins candidate 2 with hardware `bf9fefa` | #23 merged as `68ccce3` (earlier hardware pin); open: #26 (head `d36d0f41226e999d5dcf266b0a777fbc8f9ca776`) needs its clean install, a code-owner approval and the merge |
+| 4 | openamrobot-manifest main pins candidate 2 with hardware `bf9fefa` | done: #23 merged as `68ccce3`, then #26 merged as `24e903d` (hardware `bf9fefa`) |
 | 5 | `Pinned rc.1 release` on the head of openamrobot-release #18 is green and its artifact has SHA-256 `e1b6226c29ecddcf3ecc89833cd8f2fa2ad2fd1708e29c1ac5e24e98a13d85c6` | open: needs condition 4 |
 | 6 | openamrobot-release #18 is approved and merged | open: needs condition 5 |
 | 7 | openamrobot-docs #102 is approved by the documentation owner | open: verdict so far "adapt", five points applied |
@@ -39,7 +39,7 @@ Not tagged: the twelve other repositories of the source inventory (interfaces, h
    git -C openamr-upperbody-sw push origin v2.0.0-rc.1
    ```
 3. Tag the manifest at the merge commit of #23 the same way.
-4. Documentation: one commit on openamrobot-docs #102 replaces the pre-publication line `git -C openamrobot-manifest checkout d36d0f4...` by `git -C openamrobot-manifest checkout v2.0.0-rc.1` in `installation.md` and `quick-start.md`, removes the pre-publication notes, and the same in the install preview of `RELEASE_NOTES.md` here. Strict build, then the documentation owner merges #102; the site deploys from `main`.
+4. Documentation: one commit on openamrobot-docs #102 replaces the pre-publication line `git -C openamrobot-manifest checkout 24e903d...` by `git -C openamrobot-manifest checkout v2.0.0-rc.1` in `installation.md` and `quick-start.md`, removes the pre-publication notes, and the same in the install preview of `RELEASE_NOTES.md` here. Strict build, then the documentation owner merges #102; the site deploys from `main`.
 5. Create the release as a draft, with the hosted artifact (command in RUNBOOK.md section 7; it attaches the archive, its checksum file, the manifest and the lock). The tag `v2.0.0-rc.1` of this repository is created by that command on the merge commit of #18.
 6. Check the draft: download both files from the draft, verify the checksum again, open the notes.
 7. Publish: `gh release edit v2.0.0-rc.1 --repo openAMRobot/openamrobot-release --draft=false`. It stays marked as a pre-release.
