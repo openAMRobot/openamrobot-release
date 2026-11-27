@@ -56,7 +56,7 @@ The full workspace manifest `manifests/v2.0.0-rc.1.repos` does not build as one 
 | Component | Commit | Note |
 |---|---|---|
 | openamr-platform-sw | 2ac40702deaf3533f9612a1e05d1ea9bb41b996c | branch `release/2.0.0-rc.1`: `334e0ad`, a publication cleanup of documents (`ddd20ab`), and the SIL effective-track calibration with its regression tests (platform-sw #211: `sil.yaml`, `test_sil_config.py`). The `main` branch is not the candidate |
-| openamr-upperbody-sw | 6687f65b8bd03f83ef6c38a7ddaf47eb3bfd18ac | head of upperbody-sw #146; on branch `release/2.0.0-rc.1` after the code-owner review and fast-forward |
+| openamr-upperbody-sw | 6687f65b8bd03f83ef6c38a7ddaf47eb3bfd18ac | branch `release/2.0.0-rc.1` since 27 Nov (upperbody-sw #146: code-owner approval, fast-forward) |
 | openamrobot-interfaces | 50ed777be7990edbd3465f33fd97a158e7e3b88b | |
 | openarm_description (upstream) | 14ff67b638ff1c738a1b9a6be8aaa5ce5ed2c831 | Apache-2.0 |
 | openarm_ros2 (upstream) | 4e837e1d0dae692ff67b560b69d8d281d7a8d4ed | Apache-2.0 |

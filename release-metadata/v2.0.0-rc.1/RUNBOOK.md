@@ -119,10 +119,9 @@ commit. Never move/overwrite a published tag or replace an asset to hide a failu
 Sections 1 to 4 are done: platform `2ac40702deaf3533f9612a1e05d1ea9bb41b996c`
 and upperbody `6687f65b8bd03f83ef6c38a7ddaf47eb3bfd18ac` are the qualified pair (candidate 2). Platform `2ac4070` is on
 `release/2.0.0-rc.1` since 26 November (platform-sw #211: approved by the navigation
-owner, confirmed by the SIL owner, fast-forward). Upperbody `6687f65` is still the
-head of upperbody-sw #146 and moves to its `release/2.0.0-rc.1` by fast-forward after
-the code owner's review, never by squash, because a squash would replace the tested
-commit. Until then everything in this section is provisional; the publication cleanups (platform-sw #210,
+owner, confirmed by the SIL owner, fast-forward). Upperbody `6687f65` is on
+its `release/2.0.0-rc.1` since 27 November (upperbody-sw #146: code-owner approval,
+fast-forward, no squash). Until then everything in this section is provisional; the publication cleanups (platform-sw #210,
 platform-hw #44, UI #65) and the licence corrections (platform-sw #180,
 upperbody-sw #144) are merged and pinned; the 32-path exclusion is in the lock.
 Provisional local result on this head (pins not yet adopted): two fresh fetch builds, byte identical, 3,038 files

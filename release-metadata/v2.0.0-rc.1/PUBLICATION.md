@@ -7,7 +7,7 @@ Prepared 26 November 2026. Nothing in this file has been executed. No tag and no
 | # | Condition | State on 26 Nov, 21:50 CET |
 |---|---|---|
 | 1 | openamr-platform-sw `release/2.0.0-rc.1` is at `2ac40702deaf3533f9612a1e05d1ea9bb41b996c` | done |
-| 2 | openamr-upperbody-sw `release/2.0.0-rc.1` is at `6687f65b8bd03f83ef6c38a7ddaf47eb3bfd18ac` | open: code-owner review of upperbody-sw #146, then fast-forward |
+| 2 | openamr-upperbody-sw `release/2.0.0-rc.1` is at `6687f65b8bd03f83ef6c38a7ddaf47eb3bfd18ac` | done, 27 Nov 13:27 UTC (code-owner approval, fast-forward) |
 | 3 | Contributor agreement of upperbody-sw #141 is signed | open: status pending for the account that has not signed |
 | 4 | openamrobot-manifest #23 is merged at the candidate 2 pins (head `442241a2428247c5927a944f451355bb7373b4a0`, approved by the manifest maintainer, clean install 2 of 2) | open: second maintainer review, then merge after condition 2 |
 | 5 | `Pinned rc.1 release` on the head of openamrobot-release #18 is green and its artifact has SHA-256 `b13a77f1522e4e58ae9adadcc3338ddae840058b768eb3e88d862804f590aa77` | open: needs condition 4 |
