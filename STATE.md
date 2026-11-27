@@ -84,8 +84,11 @@ archive. No pin, lock or release config is changed by this entry.
 `manifests/v2.0.0-rc.1.repos` equals openamrobot-manifest #23: platform software `2ac4070` and upper body software
 `6687f65` (candidate 2; provisional until both are on their release branches) on their `release/2.0.0-rc.1` branches, platform hardware `3394123`, UI `2cf9179`. The lock
 `release-config.rc1.json` was regenerated with the 32-path exclusion (`release-metadata/v2.0.0-rc.1/exclude.json`).
-Local rehearsal: two fetch builds byte identical, SHA-256 `b13a77f1…aa77` (provisional, 26 Nov, candidate 2 pins), 3,038 files verified, 0 of 32 excluded
+Local rehearsal: two fetch builds byte identical, SHA-256 `e1b6226c…85c6` (27 Nov, candidate 2 pins with hardware `bf9fefa`), 3,042 files verified, 0 of 32 excluded
 files present. The hosted `Pinned rc.1 release` check stays red on manifest parity until #23 is on manifest `main`.
 Release notes rewritten for the Digital Twin scope with every attempt listed; the strict mission target (3 of 3
 verdicts on the candidate) was not met: 2 of 3, one leg failed the odometry check by 0.16 mm. Not published, not
 tagged. Publication commands are in `release-metadata/v2.0.0-rc.1/RUNBOOK.md`, section 7.
+
+Hardware pin, 27 Nov 2026: `manifests/v2.0.0-rc.1.repos` pins openamr-platform-hw `bf9fefa0250e4e59d4de4e634461d30689944357` (squash merge of openamr-platform-hw#49: public extracts of BOM Issue 7.15 and B-02 rev18.11). The regenerated lock differs from the previous one only in `manifest_sha256` and the hardware source hash; 32 exclusions kept. Two fetch builds from empty directories are byte identical: SHA-256 `e1b6226c29ecddcf3ecc89833cd8f2fa2ad2fd1708e29c1ac5e24e98a13d85c6`, 312,147,032 bytes, 3,042 files verified; the three snapshot files are in the archive and contain no personal names. The earlier `b13a77f1…` describes the archive without the hardware extracts and is no longer an acceptance value. The hosted build is still to run.
+

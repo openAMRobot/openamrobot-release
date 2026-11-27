@@ -36,7 +36,7 @@ repositories:
   hardware/openamr-platform-hw:
     type: git
     url: https://github.com/openAMRobot/openamr-platform-hw.git
-    version: 33941236db5fc2e651bf44dce97203f750a8f15e
+    version: bf9fefa0250e4e59d4de4e634461d30689944357
   hardware/openamr-upperbody-hw:
     type: git
     url: https://github.com/openAMRobot/openamr-upperbody-hw.git

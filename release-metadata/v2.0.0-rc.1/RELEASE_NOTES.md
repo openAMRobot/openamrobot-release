@@ -31,7 +31,7 @@ Install the supported profile from `openamrobot-manifest`: `releases/v2.0.0-rc.1
 
    ```bash
    git clone https://github.com/openAMRobot/openamrobot-manifest.git
-   git -C openamrobot-manifest checkout 442241a2428247c5927a944f451355bb7373b4a0
+   git -C openamrobot-manifest checkout c567f178a56c9e7c739617e2350e17ba125a5283
    bash openamrobot-manifest/tools/bootstrap_digital_twin.sh "$HOME/oamr_dt_ws"
    source /opt/ros/jazzy/setup.bash
    source "$HOME/oamr_dt_ws/install/setup.bash"
@@ -40,7 +40,7 @@ Install the supported profile from `openamrobot-manifest`: `releases/v2.0.0-rc.1
    ros2 launch openamrobot_build1_scene build1.launch.py profile:=fast rviz:=true
    ```
 
-   This checkout is the head of manifest PR #23. The clean install on it passed in 2 of 2 environments ([run 45871626093](https://github.com/openAMRobot/openamrobot-manifest/actions/runs/45871626093)); the merge of that pull request is pending. Replace this preview instruction with the immutable published manifest revision before the release is tagged.
+   This checkout is the head of manifest PR #23. The clean install passed in 2 of 2 environments on its previous head with the same supported profile ([run 45871626093](https://github.com/openAMRobot/openamrobot-manifest/actions/runs/45871626093)) and is repeated on this head; the merge of that pull request is pending. Replace this preview instruction with the immutable published manifest revision before the release is tagged.
 3. In a second terminal run the first demonstration: `ros2 run openamrobot_build1_scene run_scenario.py scn01_drive`.
 
 No physical hardware is needed. No GPU was used in the automated tests (headless software rendering); requirements for a desktop session have not been measured.
@@ -78,7 +78,7 @@ Release pair: upper body `6687f65b8bd03f83ef6c38a7ddaf47eb3bfd18ac` with platfor
 | Platform SIL protocol tests | 209 passed, 3 expected failures (platform-sw #159) | [45826145729](https://github.com/openAMRobot/openamr-platform-sw/actions/runs/45826145729) |
 | Platform description, navigation status, drivers bring-up | passed | [45826150907](https://github.com/openAMRobot/openamr-platform-sw/actions/runs/45826150907), [45826156811](https://github.com/openAMRobot/openamr-platform-sw/actions/runs/45826156811), [45826162821](https://github.com/openAMRobot/openamr-platform-sw/actions/runs/45826162821) |
 | Platform station alignment | required jobs passed; the Fast DDS job failed (limitation 9) | [45826167431](https://github.com/openAMRobot/openamr-platform-sw/actions/runs/45826167431) |
-| Clean install on the release pins, 2 fresh environments | 2 of 2: bootstrap twice, 17 packages built, clock, robot description, TF, `scn01_drive` PASS, `scn16_lift_stops` PASS, one interrupt, relaunch, `scn04_grasp` PASS. On the head of manifest PR #23, `442241a`; before that on a commit with identical content (45855870217) | [45871626093](https://github.com/openAMRobot/openamrobot-manifest/actions/runs/45871626093) |
+| Clean install on the release pins, 2 fresh environments | 2 of 2: bootstrap twice, 17 packages built, clock, robot description, TF, `scn01_drive` PASS, `scn16_lift_stops` PASS, one interrupt, relaunch, `scn04_grasp` PASS. On the head of manifest PR #23, `442241a`; before that on a commit with identical content (45855870217) | [45871626093](https://github.com/openAMRobot/openamrobot-manifest/actions/runs/45871626093) The hardware pin added afterwards is outside the supported profile; the clean install is repeated on the manifest head `c567f17` |
 
 What the mission evidence is and is not: the mission runs in the declared simulation-oracle setting. The pose used for planning and the pose of the item come from simulator ground truth. A pass shows the sequence, the control paths and odometry agreement. It is not a localization or perception result.
 
@@ -123,7 +123,7 @@ Machine-readable files: `manifests/v2.0.0-rc.1.repos` (all pins) and the lock `r
 Two independent fetch builds from the lock are byte identical:
 
 ```
-b13a77f1522e4e58ae9adadcc3338ddae840058b768eb3e88d862804f590aa77  OpenAMRobot-v2.0.0-rc.1-source.zip  (311726315 bytes, 3038 files verified)
+e1b6226c29ecddcf3ecc89833cd8f2fa2ad2fd1708e29c1ac5e24e98a13d85c6  OpenAMRobot-v2.0.0-rc.1-source.zip  (312147032 bytes, 3042 files verified)
 ```
 
 This is a provisional local result for the release pair, made before the pins were adopted. The published asset is the artifact of the hosted `Pinned rc.1 release` workflow, which must show the same procedure passing; its checksum is the one that counts. Only the source archive is reproducible; no compiled binaries are claimed. Inside the archive: `MANIFEST.json` (repositories, commits, source hashes, excluded files), `release.repos` and `checksums.sha256` covering every other file.
@@ -142,7 +142,7 @@ Left out of the archive: 32 manufacturer files (25 datasheets and 7 other vendor
 | src/openamrobot-embodied-ai | openAMRobot/openamrobot-embodied-ai | 56bbd36ea313f3765df51524df07ccc6b2623f47 |
 | firmware/openamr-platform-fw | openAMRobot/openamr-platform-fw | bad0567a58b1b5bb7b1df69b1b8b9950e600f504 |
 | firmware/openamr-upperbody-fw | openAMRobot/openamr-upperbody-fw | ba1a53f2a031cdbfbe4fa0f5f4d32ed7cdf4dbbb |
-| hardware/openamr-platform-hw | openAMRobot/openamr-platform-hw | 33941236db5fc2e651bf44dce97203f750a8f15e |
+| hardware/openamr-platform-hw | openAMRobot/openamr-platform-hw | bf9fefa0250e4e59d4de4e634461d30689944357 |
 | hardware/openamr-upperbody-hw | openAMRobot/openamr-upperbody-hw | e760126b2b79611e0a915ab2bc11e15afb22cd8b |
 | ui/openamrobot-ui | openAMRobot/openamrobot-ui | 2cf917950adef411bbdc54381865ea137c7b2e26 |
 | docs/openamrobot-docs | openAMRobot/openamrobot-docs | 852c32c2b77fadbd119b1cc8c8fa5f629df5fbd2 |

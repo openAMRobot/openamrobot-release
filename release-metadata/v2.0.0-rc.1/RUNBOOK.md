@@ -121,12 +121,12 @@ and upperbody `6687f65b8bd03f83ef6c38a7ddaf47eb3bfd18ac` are the qualified pair 
 `release/2.0.0-rc.1` since 26 November (platform-sw #211: approved by the navigation
 owner, confirmed by the SIL owner, fast-forward). Upperbody `6687f65` is on
 its `release/2.0.0-rc.1` since 27 November (upperbody-sw #146: code-owner approval,
-fast-forward, no squash). Until then everything in this section is provisional; the publication cleanups (platform-sw #210,
+fast-forward, no squash). Hardware `bf9fefa` (platform-hw #49) is pinned since 27 November. The publication cleanups (platform-sw #210,
 platform-hw #44, UI #65) and the licence corrections (platform-sw #180,
 upperbody-sw #144) are merged and pinned; the 32-path exclusion is in the lock.
-Provisional local result on this head (pins not yet adopted): two fresh fetch builds, byte identical, 3,038 files
-verified, 311,726,315 bytes, SHA-256
-`b13a77f1522e4e58ae9adadcc3338ddae840058b768eb3e88d862804f590aa77`,
+Local result on this head with the adopted pins: two fresh fetch builds, byte identical, 3,042 files
+verified, 312,147,032 bytes, SHA-256
+`e1b6226c29ecddcf3ecc89833cd8f2fa2ad2fd1708e29c1ac5e24e98a13d85c6`,
 0 of 32 excluded files present. The hosted artifact is the one to publish, not
 the local one.
 
