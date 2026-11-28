@@ -22,7 +22,7 @@ Four repositories get the tag `v2.0.0-rc.1`. They are the ones a user or auditor
 | Repository | Tag | Target commit | Why |
 |---|---|---|---|
 | openAMRobot/openamrobot-release | `v2.0.0-rc.1` | merge commit of #18 | carries the GitHub release, the archive and the checksum |
-| openAMRobot/openamrobot-manifest | `v2.0.0-rc.1` | merge commit of #23 | installation entry point: users check out this tag and run the bootstrap script |
+| openAMRobot/openamrobot-manifest | `v2.0.0-rc.1` | `24e903d951ea404d3fd8d7ce04353673382de2e4` (merge of #26) | installation entry point: users check out this tag and run the bootstrap script |
 | openAMRobot/openamr-platform-sw | `v2.0.0-rc.1` | `2ac40702deaf3533f9612a1e05d1ea9bb41b996c` | qualified source |
 | openAMRobot/openamr-upperbody-sw | `v2.0.0-rc.1` | `6687f65b8bd03f83ef6c38a7ddaf47eb3bfd18ac` | qualified source |
 
@@ -38,7 +38,7 @@ Not tagged: the twelve other repositories of the source inventory (interfaces, h
    git -C openamr-upperbody-sw tag -a v2.0.0-rc.1 6687f65b8bd03f83ef6c38a7ddaf47eb3bfd18ac -m "OpenAMRobot 2.0 rc.1 Digital Twin"
    git -C openamr-upperbody-sw push origin v2.0.0-rc.1
    ```
-3. Tag the manifest at the merge commit of #23 the same way.
+3. Tag the manifest the same way, at `24e903d951ea404d3fd8d7ce04353673382de2e4` (merge of #26, hardware `bf9fefa`). Not the merge of #23 (`68ccce3`), which pins the earlier hardware.
 4. Documentation: one commit on openamrobot-docs #102 replaces the pre-publication line `git -C openamrobot-manifest checkout 24e903d...` by `git -C openamrobot-manifest checkout v2.0.0-rc.1` in `installation.md` and `quick-start.md`, removes the pre-publication notes, and the same in the install preview of `RELEASE_NOTES.md` here. Strict build, then the documentation owner merges #102; the site deploys from `main`.
 5. Create the release as a draft, with the hosted artifact (command in RUNBOOK.md section 7; it attaches the archive, its checksum file, the manifest and the lock). The tag `v2.0.0-rc.1` of this repository is created by that command on the merge commit of #18.
 6. Check the draft: download both files from the draft, verify the checksum again, open the notes.
