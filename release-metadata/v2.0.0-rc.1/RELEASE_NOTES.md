@@ -49,6 +49,8 @@ No physical hardware is needed. No GPU was used in the automated tests (headless
 
 Operator UI and manual driving from the UI; camera-driven manipulation (object poses come from simulator ground truth); cancel and resume of a navigation goal (see below); docking; Isaac Sim and MuJoCo; LeRobot and other AI pipelines; Jetson deployment; firmware on 2.0 hardware; any physical commissioning. These repositories are in the archive as source snapshots at reviewed commits, without a support claim.
 
+If the operator UI is started, rc.1 exposes rosbridge on port 9090 without a topic allowlist (ui#64 is not part of this candidate); a client on that port can publish `/cmd_vel` directly and bypass the command gate. Run the UI only on a trusted network and not while the base is powered for motion.
+
 The full workspace manifest `manifests/v2.0.0-rc.1.repos` does not build as one workspace: the interfaces and the UI repository both provide the package `openamr_ui_msgs`. Use the supported profile.
 
 ## Candidate commits
