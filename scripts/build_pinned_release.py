@@ -60,6 +60,21 @@ def load_manifest(path):
     return repos
 
 
+def load_excludes(config, repos):
+    """Exact file paths left out of the bundle, per component (owner decision)."""
+    raw = config.get('exclude', {})
+    if not isinstance(raw, dict):
+        raise ValueError('exclude: expected mapping of component to file paths')
+    result = {}
+    for name, paths in raw.items():
+        if name not in repos:
+            raise ValueError(f'exclude: unknown component: {name}')
+        if not isinstance(paths, list) or not paths or len(paths) != len(set(paths)):
+            raise ValueError(f'exclude: {name}: expected a non-empty list of unique file paths')
+        result[name] = frozenset(safe_path(path) for path in paths)
+    return result
+
+
 def source_archive(entry):
     # Export directly from a verified tree, with conversion settings pinned below.
     # Archive bytes are generated from a verified Git commit, never main.zip.
@@ -146,6 +161,7 @@ def build(config_path, output, cache, fetch=False):
     repos = load_manifest(manifest_path)
     if set(config['sources']) != set(repos):
         raise ValueError('source checksum coverage mismatch')
+    excludes = load_excludes(config, repos)
     files = {'release.repos': (manifest_bytes, 0o100644)}
     components = []
     cache.mkdir(parents=True, exist_ok=True)
@@ -162,6 +178,8 @@ def build(config_path, output, cache, fetch=False):
         data = cached.read_bytes()
         if digest(data) != expected:
             raise ValueError(f'{name}: source checksum mismatch')
+        excluded = excludes.get(name, frozenset())
+        found = set()
         with zipfile.ZipFile(io.BytesIO(data)) as archive:
             if archive.comment.decode('ascii') != entry['version']:
                 raise ValueError(f'{name}: archive commit mismatch')
@@ -169,6 +187,9 @@ def build(config_path, output, cache, fetch=False):
                 if item.is_dir():
                     continue
                 rel = safe_path(item.filename)
+                if rel in excluded:
+                    found.add(rel)
+                    continue
                 mode = (item.external_attr >> 16) & 0o170777
                 if mode & 0o170000 == 0o120000:
                     # Preserve link bytes and mode without following the target.
@@ -176,7 +197,14 @@ def build(config_path, output, cache, fetch=False):
                 else:
                     mode = 0o100755 if mode & 0o111 else 0o100644
                 files[name + '/' + rel] = (archive.read(item), mode)
-        components.append(dict(path=name, **entry, archive_sha256=expected))
+        if found != excluded:
+            raise ValueError(f'{name}: excluded path not in source: {sorted(excluded - found)[0]}')
+        component = dict(path=name, **entry, archive_sha256=expected)
+        if excluded:
+            # The source checksum still covers the whole pinned commit; the
+            # bundle states exactly which of its files were left out.
+            component['excluded'] = sorted(excluded)
+        components.append(component)
     metadata = {'product': config['product'], 'manifest_sha256': digest(manifest_bytes), 'components': components}
     files['MANIFEST.json'] = ((json.dumps(metadata, indent=2, sort_keys=True) + '\n').encode(), 0o100644)
     checksums = ''.join(f'{digest(data)}  {name}\n' for name, (data, _) in sorted(files.items()))

@@ -24,8 +24,8 @@ Development continues on `main` in every component repository. `main` is never a
 
 | Version | Date | Content |
 |---|---|---|
-| v0.0.1 | 11 July 2026 | First public platform release: the existing robot (Raspberry Pi 5, Teensy 4.0 with the linorobot2 overlay, RPLIDAR A1). |
-| v2.0.0-rc.1 | 20 November 2026 (planned) | OpenAMRobot 2.0 pre-release: full readiness, frozen platform baseline. Published as a GitHub pre-release. |
+| v0.0.1 | 11 July 2026 | First public platform release: the existing robot (legacy: Raspberry Pi 5, Teensy 4.0 with the linorobot2 overlay, RPLIDAR A1). |
+| v2.0.0-rc.1 | 26 November 2026 (candidate; planned 20 November, missed; not published until the owner's release decision) <!-- decision-allow: RELEASE-MILESTONES register keeps 20 Nov; owner chose RUNBOOK option B on 22 Nov 2026 --> | OpenAMRobot 2.0 Digital Twin release candidate: simulation only, one supported profile. Published as a GitHub pre-release. |
 | v2.0.0 | 18 December 2026 (planned) | OpenAMRobot 2.0 final release, after physical integration, testing and acceptance. |
 
 Note on v0.0.1 component tags: the `v0.0.1` tags in the component repositories were added on 6 October 2026, after the release. Each points to the commit recorded in the v0.0.1 `MANIFEST.json`, and the tagged content was verified byte-identical to the archive. In `openamr-platform-fw` the released commit is `2be927c`; its firmware is an overlay on `linorobot2_hardware` (branch `jazzy`, base `aaf9d59`, confirmation tracked in [openamr-platform-fw #13](https://github.com/openAMRobot/openamr-platform-fw/issues/13)).

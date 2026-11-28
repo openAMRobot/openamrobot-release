@@ -2,10 +2,19 @@
 
 `release-config.rc1.json` locks a release-local snapshot in
 `manifests/v2.0.0-rc.1.repos`. Every repository uses a full commit SHA.
-The snapshot includes the 13 workspace repositories and a separately pinned
-`governance/.github` export, preserving the legacy release's governance input.
-The configuration locks both the manifest bytes and each source archive with
-SHA-256. The candidate is dated 2026-10-19; final component acceptance is pending.
+The snapshot has 14 repositories. The configuration locks the manifest bytes
+and each source archive with SHA-256, and carries an `exclude` list of 32
+manufacturer files under `hardware/openamr-platform-hw` that are left out of
+the archive and named under `excluded` in `MANIFEST.json`.
+
+The pins are the frozen rc.1 candidate of 26 November 2026: platform software
+and upper body software on their `release/2.0.0-rc.1` branches, the other
+repositories at reviewed commits. Only the Digital Twin profile is supported
+and tested (see `release-metadata/v2.0.0-rc.1/RELEASE_NOTES.md`); the archive
+is a source snapshot of all repositories. To install and run the Digital Twin,
+use the supported profile in `openamrobot-manifest`
+(`releases/v2.0.0-rc.1-digital-twin.repos`), not this archive: the full
+snapshot does not build as one workspace.
 
 ## Build and verify
 

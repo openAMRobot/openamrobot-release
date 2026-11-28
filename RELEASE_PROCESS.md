@@ -113,3 +113,21 @@ Tag each component repository with the same version on the commit recorded in `M
 ## Important
 
 The `input/` and `dist/` directories are intentionally excluded from Git. Component archives are temporary build inputs, while generated packages belong in GitHub Release assets.
+
+## Leaving files out of a pinned bundle
+
+A release config may carry an `exclude` mapping from a component path to a list
+of exact file paths inside that component:
+
+```json
+"exclude": {
+  "hardware/openamr-platform-hw": ["datasheets/Vendor/part-manual.pdf"]
+}
+```
+
+The source checksum is still computed over the whole pinned commit, so the lock
+does not change. The builder leaves the listed files out of the bundle and
+records them under `excluded` for that component in `MANIFEST.json`. A listed
+path that does not exist in the source stops the build. An exclusion needs a
+recorded owner decision; it does not change what the source repository itself
+publishes.
